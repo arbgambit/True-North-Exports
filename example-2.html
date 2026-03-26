@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True North Exports — Example 2: Current Logo Card Designs</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@300;400;500&family=Archivo+Black&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B3A5C;
+  --navy-deep: #0F2440;
+  --navy-light: #2A5580;
+  --red: #C41E2A;
+  --red-light: #E8323E;
+  --cream: #F5F0E8;
+  --cream-dark: #E8E0D0;
+  --gold: #C4A265;
+  --charcoal: #1A1A1F;
+  --slate: #2A2A32;
+  --slate-light: #3A3A44;
+  --white: #FFFFFF;
+  --text-muted: #8A8A96;
+  --card-w: 380px;
+  --card-h: 218px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--charcoal);
+  color: var(--cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 3px; }
+
+/* ============ BACK LINK ============ */
+.back-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.1em;
+  transition: color 0.3s;
+}
+.back-link:hover { color: var(--cream); }
+.back-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(196,30,42,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 1px solid var(--slate-light);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  animation: fadeDown 0.8s ease-out;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  animation: fadeUp 0.8s ease-out 0.2s both;
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 520px;
+  line-height: 1.6;
+  animation: fadeUp 0.8s ease-out 0.35s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ SECTIONS ============ */
+section {
+  padding: 4rem 2rem 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--red);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: .75rem;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 4rem;
+  font-size: 0.9rem;
+}
+
+/* ============ CARD GRID ============ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6rem;
+}
+
+.card-concept {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.card-concept:nth-child(even) { direction: rtl; }
+.card-concept:nth-child(even) > * { direction: ltr; }
+
+.card-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+.card-info .card-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--red);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.card-info p {
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.card-tags span {
+  padding: 4px 12px;
+  border: 1px solid var(--slate-light);
+  border-radius: 100px;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.card-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+.card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: -10px;
+}
+
+/* ============ BUSINESS CARD BASE ============ */
+.bcard {
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  flex-shrink: 0;
+}
+.bcard:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+
+/* ============ CURRENT LOGO (SVG recreation) ============ */
+/* The original logo: compass rose + maple leaf + globe + motion lines */
+
+/* ============ DESIGN 1 — CLEAN HORIZONTAL ============ */
+.c1-front {
+  background: var(--navy-deep);
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  gap: 20px;
+  position: relative;
+}
+.c1-front::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--red), var(--red-light));
+}
+.c1-front .logo-mark { flex-shrink: 0; }
+.c1-front .text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.c1-front .text-block .name {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--white);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.c1-front .text-block .exports-text {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--red-light);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.c1-front .text-block .tagline {
+  font-size: 7.5px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.c1-back {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  position: relative;
+}
+.c1-back .accent-bar {
+  width: 4px;
+  background: linear-gradient(to bottom, var(--navy-deep), var(--red));
+}
+.c1-back .content {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.c1-back .top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.c1-back .person-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy-deep);
+}
+.c1-back .person-title {
+  font-size: 8.5px;
+  color: var(--red);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 1px;
+}
+.c1-back .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.c1-back .c-item {
+  font-size: 8.5px;
+  color: var(--navy);
+}
+.c1-back .c-item .c-label {
+  font-size: 6.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 500;
+  margin-bottom: 1px;
+  display: block;
+}
+
+/* ============ DESIGN 2 — CENTERED CLASSIC ============ */
+.c2-front {
+  background: linear-gradient(145deg, #0D1F35 0%, var(--navy-deep) 50%, #0A1928 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  text-align: center;
+  position: relative;
+}
+.c2-front::before, .c2-front::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+}
+.c2-front::before { top: 18px; }
+.c2-front::after { bottom: 18px; }
+
+.c2-front .c2-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+.c2-front .c2-sub {
+  font-size: 8px;
+  letter-spacing: 0.5em;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.c2-back {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 28px;
+  text-align: center;
+  position: relative;
+}
+.c2-back .c2b-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy-deep);
+  letter-spacing: 0.08em;
+  margin-bottom: 3px;
+}
+.c2-back .c2b-title {
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.c2-back .c2b-divider {
+  width: 28px;
+  height: 1.5px;
+  background: var(--navy);
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+.c2-back .c2b-items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.c2-back .c2b-item {
+  font-size: 9px;
+  color: var(--navy);
+}
+
+/* ============ DESIGN 3 — SPLIT DIAGONAL ============ */
+.c3-front {
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.c3-front .diag-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  background: var(--navy-deep);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
+}
+.c3-front .right-text {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+}
+.c3-front .right-text .rt-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.15;
+}
+.c3-front .right-text .rt-sub {
+  font-size: 8px;
+  color: var(--red);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+.c3-front .right-text .rt-tag {
+  font-size: 7px;
+  color: #999;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.c3-back {
+  background: var(--navy-deep);
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.c3-back .diag-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: var(--red);
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+  opacity: 0.12;
+}
+.c3-back .c3b-content {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.c3-back .c3b-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--white);
+}
+.c3-back .c3b-title {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--red-light);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.c3-back .c3b-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.c3-back .c3b-item {
+  font-size: 9px;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.c3-back .c3b-dot {
+  width: 3px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ============ DESIGN 4 — DARK TEXTURED ============ */
+.c4-front {
+  background: #0A0A0E;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.c4-front .texture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.c4-front .c4-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 0.15em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-top: 10px;
+  position: relative;
+  z-index: 1;
+}
+.c4-front .c4-exports {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.5em;
+  color: var(--red);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+.c4-front .c4-line {
+  width: 40px;
+  height: 2px;
+  background: var(--red);
+  margin-top: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.c4-back {
+  background: #0A0A0E;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+}
+.c4-back .texture {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+.c4-back .red-edge {
+  width: 100%;
+  height: 2px;
+  background: var(--red);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.c4-back .c4b-wrap {
+  padding: 26px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.c4-back .c4b-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.c4-back .c4b-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: var(--white);
+  letter-spacing: 0.08em;
+}
+.c4-back .c4b-title {
+  font-size: 7.5px;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+.c4-back .c4b-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.c4-back .c4b-item {
+  font-size: 8px;
+  color: rgba(255,255,255,0.5);
+}
+.c4-back .c4b-item .c4b-val {
+  color: rgba(255,255,255,0.8);
+  display: block;
+  margin-top: 1px;
+}
+
+/* ============ DESIGN 5 — WHITE LUXE ============ */
+.c5-front {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px 36px;
+  position: relative;
+}
+.c5-front .c5-top-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--red);
+}
+.c5-front .c5-bot-line {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--navy-deep);
+}
+.c5-front .c5-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.c5-front .c5-text .c5t-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  line-height: 1.1;
+}
+.c5-front .c5-text .c5t-sub {
+  font-size: 9px;
+  letter-spacing: 0.3em;
+  color: var(--red);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-top: 2px;
+}
+.c5-front .c5-person {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #E8E0D0;
+}
+.c5-front .c5-person .c5p-name {
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--navy-deep);
+  letter-spacing: 0.05em;
+}
+.c5-front .c5-person .c5p-title {
+  font-size: 8px;
+  color: #999;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+.c5-back {
+  background: var(--white);
+  padding: 26px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.c5-back .c5-top-line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--red);
+}
+.c5-back .c5-bot-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: var(--navy-deep);
+}
+.c5-back .c5b-items {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px 14px;
+  align-items: center;
+}
+.c5-back .c5b-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--navy-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.c5-back .c5b-icon svg { width: 13px; height: 13px; fill: var(--white); }
+.c5-back .c5b-text {
+  font-size: 9.5px;
+  color: var(--navy);
+}
+.c5-back .c5b-text .c5b-label {
+  font-size: 6.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #aaa;
+  display: block;
+  margin-bottom: 1px;
+}
+.c5-back .watermark-logo {
+  position: absolute;
+  right: -15px;
+  bottom: -15px;
+  opacity: 0.035;
+}
+
+/* ============ DIVIDER ============ */
+.section-divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.section-divider hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--slate-light), transparent);
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--slate);
+  margin-top: 2rem;
+}
+.footer p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+.footer a {
+  color: var(--red);
+  text-decoration: none;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .card-concept {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .card-concept:nth-child(even) { direction: ltr; }
+  :root {
+    --card-w: min(380px, 90vw);
+    --card-h: min(218px, 52vw);
+  }
+  .c1-front { padding: 0 20px; gap: 14px; }
+  .c5-front { padding: 20px 24px; }
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-link">
+  <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+  Back
+</a>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-badge">Example 02 — Current Logo</div>
+  <h1>Business Cards with <span>Existing Brand</span></h1>
+  <p class="hero-sub">Five new card layouts using the current True North Exports logo. Same identity, elevated presentation — ready for print.</p>
+</header>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ CARDS ============ -->
+<section>
+  <div class="section-label">Current Logo — New Layouts</div>
+  <h2 class="section-title">Five Card Designs</h2>
+  <p class="section-desc">Each design uses the existing compass-and-maple-leaf logo but presents it in a fresh layout tailored for a wholesale paint supplier.</p>
+
+  <div class="cards-grid">
+
+    <!-- ======= CARD 1: CLEAN HORIZONTAL ======= -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Design 01</div>
+        <h3>Clean Horizontal</h3>
+        <p>Logo and company name sit side-by-side in a balanced horizontal lockup. A gradient red accent bar along the bottom adds a subtle premium touch. The back uses a structured two-column layout with a thin navy-to-red gradient bar on the left edge.</p>
+        <div class="card-tags">
+          <span>Professional</span>
+          <span>Balanced</span>
+          <span>Print-Ready</span>
+        </div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard c1-front">
+          <div class="logo-mark">
+            <svg width="60" height="60" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
+              <!-- Globe arcs -->
+              <ellipse cx="50" cy="50" rx="14" ry="35" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.2"/>
+              <line x1="14" y1="50" x2="86" y2="50" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <!-- Motion lines -->
+              <line x1="6" y1="36" x2="20" y2="36" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+              <line x1="2" y1="44" x2="18" y2="44" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.28"/>
+              <line x1="4" y1="52" x2="16" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.18"/>
+              <!-- Compass points -->
+              <polygon points="50,12 46,44 50,39 54,44" fill="white" opacity="0.9"/>
+              <polygon points="50,88 46,56 50,61 54,56" fill="white" opacity="0.35"/>
+              <polygon points="12,50 44,46 39,50 44,54" fill="white" opacity="0.35"/>
+              <polygon points="88,50 56,46 61,50 56,54" fill="white" opacity="0.35"/>
+              <!-- Maple leaf -->
+              <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
+            </svg>
+          </div>
+          <div class="text-block">
+            <div class="name">True North</div>
+            <div class="exports-text">Exports</div>
+            <div class="tagline">Wholesale Paint Supplier &bull; Canada</div>
+          </div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard c1-back">
+          <div class="accent-bar"></div>
+          <div class="content">
+            <div class="top-row">
+              <div>
+                <div class="person-name">Julio Ventura</div>
+                <div class="person-title">Wholesale Paint Supply</div>
+              </div>
+              <svg width="30" height="30" viewBox="0 0 100 100" opacity="0.12">
+                <circle cx="50" cy="50" r="36" fill="none" stroke="#1B3A5C" stroke-width="3"/>
+                <polygon points="50,12 46,44 50,39 54,44" fill="#1B3A5C"/>
+                <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
+              </svg>
+            </div>
+            <div class="contact-grid">
+              <div class="c-item"><span class="c-label">Phone</span>+1 (905) 650-6822</div>
+              <div class="c-item"><span class="c-label">Email</span>info@truenorthexportsca.com</div>
+              <div class="c-item"><span class="c-label">Web</span>truenorthexportsca.com</div>
+              <div class="c-item"><span class="c-label">Location</span>Ontario, Canada</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= CARD 2: CENTERED CLASSIC ======= -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Design 02</div>
+        <h3>Centered Classic</h3>
+        <p>Timeless center-axis composition on a rich dark navy gradient. Thin decorative rules at top and bottom frame the logo. The cream back keeps contact info centered and elegant — works perfectly for formal B2B meetings and trade shows.</p>
+        <div class="card-tags">
+          <span>Timeless</span>
+          <span>Formal</span>
+          <span>Trade Show</span>
+        </div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard c2-front">
+          <svg width="56" height="56" viewBox="0 0 100 100" style="position:relative;z-index:1;">
+            <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
+            <ellipse cx="50" cy="50" rx="14" ry="35" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <line x1="6" y1="36" x2="20" y2="36" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+            <line x1="2" y1="44" x2="18" y2="44" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
+            <line x1="4" y1="52" x2="16" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.14"/>
+            <polygon points="50,12 46,44 50,39 54,44" fill="white" opacity="0.85"/>
+            <polygon points="50,88 46,56 50,61 54,56" fill="white" opacity="0.3"/>
+            <polygon points="12,50 44,46 39,50 44,54" fill="white" opacity="0.3"/>
+            <polygon points="88,50 56,46 61,50 56,54" fill="white" opacity="0.3"/>
+            <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
+          </svg>
+          <div class="c2-name" style="position:relative;z-index:1;">True North</div>
+          <div class="c2-sub" style="position:relative;z-index:1;">Exports</div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard c2-back">
+          <div class="c2b-name">Julio Ventura</div>
+          <div class="c2b-title">Wholesale Paint Supply</div>
+          <div class="c2b-divider"></div>
+          <div class="c2b-items">
+            <div class="c2b-item">+1 (905) 650-6822</div>
+            <div class="c2b-item">info@truenorthexportsca.com</div>
+            <div class="c2b-item">Ontario, Canada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= CARD 3: SPLIT DIAGONAL ======= -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Design 03</div>
+        <h3>Split Diagonal</h3>
+        <p>A bold diagonal cut divides navy and white — the logo sits on the dark panel, the company name on the light. Creates strong visual tension and movement that mirrors the "exports" energy. The back inverts with a subtle red diagonal accent.</p>
+        <div class="card-tags">
+          <span>Dynamic</span>
+          <span>Bold</span>
+          <span>High-Energy</span>
+        </div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard c3-front">
+          <div class="diag-panel">
+            <svg width="54" height="54" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
+              <line x1="6" y1="36" x2="20" y2="36" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+              <line x1="2" y1="44" x2="18" y2="44" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
+              <line x1="4" y1="52" x2="16" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.14"/>
+              <polygon points="50,12 46,44 50,39 54,44" fill="white" opacity="0.85"/>
+              <polygon points="50,88 46,56 50,61 54,56" fill="white" opacity="0.3"/>
+              <polygon points="12,50 44,46 39,50 44,54" fill="white" opacity="0.3"/>
+              <polygon points="88,50 56,46 61,50 56,54" fill="white" opacity="0.3"/>
+              <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
+            </svg>
+          </div>
+          <div class="right-text">
+            <div class="rt-name">True<br>North</div>
+            <div class="rt-sub">Exports</div>
+            <div class="rt-tag">Wholesale Paint &bull; Canada</div>
+          </div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard c3-back">
+          <div class="diag-accent"></div>
+          <div class="c3b-content">
+            <div>
+              <div class="c3b-name">Julio Ventura</div>
+              <div class="c3b-title">Sales &bull; Wholesale Paint</div>
+            </div>
+            <div class="c3b-bottom">
+              <div class="c3b-item"><span class="c3b-dot"></span>+1 (905) 650-6822</div>
+              <div class="c3b-item"><span class="c3b-dot"></span>info@truenorthexportsca.com</div>
+              <div class="c3b-item"><span class="c3b-dot"></span>truenorthexportsca.com</div>
+              <div class="c3b-item"><span class="c3b-dot"></span>Ontario, Canada</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= CARD 4: DARK TEXTURED ======= -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Design 04</div>
+        <h3>Dark Textured</h3>
+        <p>Near-black background with a subtle dot texture — feels like premium soft-touch laminate. Oversized Bebas Neue typography commands attention. Red accents are surgical and intentional. This card says wholesale muscle with design sophistication.</p>
+        <div class="card-tags">
+          <span>Premium</span>
+          <span>Soft-Touch</span>
+          <span>Commanding</span>
+        </div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard c4-front">
+          <div class="texture"></div>
+          <svg width="50" height="50" viewBox="0 0 100 100" style="position:relative;z-index:1;">
+            <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+            <line x1="6" y1="36" x2="20" y2="36" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.25"/>
+            <line x1="2" y1="44" x2="18" y2="44" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.16"/>
+            <line x1="4" y1="52" x2="16" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.1"/>
+            <polygon points="50,12 46,44 50,39 54,44" fill="white" opacity="0.7"/>
+            <polygon points="50,88 46,56 50,61 54,56" fill="white" opacity="0.2"/>
+            <polygon points="12,50 44,46 39,50 44,54" fill="white" opacity="0.2"/>
+            <polygon points="88,50 56,46 61,50 56,54" fill="white" opacity="0.2"/>
+            <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A" opacity="0.9"/>
+          </svg>
+          <div class="c4-name">True North</div>
+          <div class="c4-exports">Exports</div>
+          <div class="c4-line"></div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard c4-back">
+          <div class="texture"></div>
+          <div class="red-edge"></div>
+          <div class="c4b-wrap">
+            <div class="c4b-top">
+              <div>
+                <div class="c4b-name">Julio Ventura</div>
+                <div class="c4b-title">Wholesale Paint Supply</div>
+              </div>
+              <svg width="26" height="26" viewBox="0 0 100 100" opacity="0.15">
+                <circle cx="50" cy="50" r="36" fill="none" stroke="white" stroke-width="3"/>
+                <polygon points="50,14 47,44 50,40 53,44" fill="white"/>
+                <path d="M50,28 L52,38 L56,34 L54,41 L62,41 L55,47 L58,54 L50,49 L42,54 L45,47 L38,41 L46,41 L44,34 L48,38 Z" fill="#C41E2A"/>
+              </svg>
+            </div>
+            <div class="c4b-grid">
+              <div class="c4b-item">PHONE<span class="c4b-val">+1 (905) 650-6822</span></div>
+              <div class="c4b-item">EMAIL<span class="c4b-val">info@truenorthexportsca.com</span></div>
+              <div class="c4b-item">WEB<span class="c4b-val">truenorthexportsca.com</span></div>
+              <div class="c4b-item">LOCATION<span class="c4b-val">Ontario, Canada</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= CARD 5: WHITE LUXE ======= -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Design 05</div>
+        <h3>White Luxe</h3>
+        <p>Bright, open, and confident. Playfair Display serif font alongside the logo gives a premium editorial feel. Asymmetric red and navy accent bars at opposing corners create visual rhythm. Contact icons on the back are housed in navy rounded squares for easy scanning.</p>
+        <div class="card-tags">
+          <span>Clean</span>
+          <span>Editorial</span>
+          <span>Premium White</span>
+        </div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard c5-front">
+          <div class="c5-top-line"></div>
+          <div class="c5-bot-line"></div>
+          <div class="c5-row">
+            <svg width="52" height="52" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="36" fill="none" stroke="#1B3A5C" stroke-width="2.5"/>
+              <ellipse cx="50" cy="50" rx="14" ry="35" fill="none" stroke="#1B3A5C" stroke-width="1" opacity="0.15"/>
+              <line x1="6" y1="36" x2="20" y2="36" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+              <line x1="2" y1="44" x2="18" y2="44" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" opacity="0.28"/>
+              <line x1="4" y1="52" x2="16" y2="52" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" opacity="0.18"/>
+              <polygon points="50,12 46,44 50,39 54,44" fill="#1B3A5C" opacity="0.9"/>
+              <polygon points="50,88 46,56 50,61 54,56" fill="#1B3A5C" opacity="0.35"/>
+              <polygon points="12,50 44,46 39,50 44,54" fill="#1B3A5C" opacity="0.35"/>
+              <polygon points="88,50 56,46 61,50 56,54" fill="#1B3A5C" opacity="0.35"/>
+              <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
+            </svg>
+            <div class="c5-text">
+              <div class="c5t-name">True North</div>
+              <div class="c5t-sub">Exports</div>
+            </div>
+          </div>
+          <div class="c5-person">
+            <div class="c5p-name">Julio Ventura</div>
+            <div class="c5p-title">Wholesale Paint Supply</div>
+          </div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard c5-back">
+          <div class="c5-top-line"></div>
+          <div class="c5-bot-line"></div>
+          <svg class="watermark-logo" width="120" height="120" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#1B3A5C" stroke-width="2"/>
+            <polygon points="50,12 46,44 50,39 54,44" fill="#1B3A5C"/>
+            <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
+          </svg>
+          <div class="c5b-items">
+            <div class="c5b-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+            <div class="c5b-text"><span class="c5b-label">Phone</span>+1 (905) 650-6822</div>
+            <div class="c5b-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+            <div class="c5b-text"><span class="c5b-label">Email</span>info@truenorthexportsca.com</div>
+            <div class="c5b-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg></div>
+            <div class="c5b-text"><span class="c5b-label">Web</span>truenorthexportsca.com</div>
+            <div class="c5b-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+            <div class="c5b-text"><span class="c5b-label">Location</span>Ontario, Canada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <p>True North Exports — Brand Concepts &mdash; <a href="example-1.html">View Example 1 (New Logo Concepts)</a></p>
+</footer>
+
+</body>
+</html>
