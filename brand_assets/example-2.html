@@ -784,6 +784,25 @@ section {
   opacity: 0.035;
 }
 
+/* ============ REAL LOGO ============ */
+.real-logo {
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+.real-logo.on-dark {
+  filter: brightness(10);
+}
+.real-logo.watermark {
+  opacity: 0.06;
+  position: absolute;
+}
+.real-logo.watermark-dark {
+  opacity: 0.1;
+  filter: brightness(10);
+  position: absolute;
+}
+
 /* ============ DIVIDER ============ */
 .section-divider {
   max-width: 1200px;
@@ -869,23 +888,7 @@ section {
         <div class="card-label">Front</div>
         <div class="bcard c1-front">
           <div class="logo-mark">
-            <svg width="60" height="60" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2.5"/>
-              <!-- Globe arcs -->
-              <ellipse cx="50" cy="50" rx="14" ry="35" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.2"/>
-              <line x1="14" y1="50" x2="86" y2="50" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-              <!-- Motion lines -->
-              <line x1="6" y1="36" x2="20" y2="36" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
-              <line x1="2" y1="44" x2="18" y2="44" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.28"/>
-              <line x1="4" y1="52" x2="16" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.18"/>
-              <!-- Compass points -->
-              <polygon points="50,12 46,44 50,39 54,44" fill="white" opacity="0.9"/>
-              <polygon points="50,88 46,56 50,61 54,56" fill="white" opacity="0.35"/>
-              <polygon points="12,50 44,46 39,50 44,54" fill="white" opacity="0.35"/>
-              <polygon points="88,50 56,46 61,50 56,54" fill="white" opacity="0.35"/>
-              <!-- Maple leaf -->
-              <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
-            </svg>
+            <img src="logo.png" alt="True North Exports" class="real-logo on-dark" width="60" height="60">
           </div>
           <div class="text-block">
             <div class="name">True North</div>
@@ -902,11 +905,7 @@ section {
                 <div class="person-name">Julio Ventura</div>
                 <div class="person-title">Wholesale Paint Supply</div>
               </div>
-              <svg width="30" height="30" viewBox="0 0 100 100" opacity="0.12">
-                <circle cx="50" cy="50" r="36" fill="none" stroke="#1B3A5C" stroke-width="3"/>
-                <polygon points="50,12 46,44 50,39 54,44" fill="#1B3A5C"/>
-                <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
-              </svg>
+              <img src="logo.png" alt="" class="real-logo" width="30" height="30" style="opacity:0.1;">
             </div>
             <div class="contact-grid">
               <div class="c-item"><span class="c-label">Phone</span>+1 (905) 650-6822</div>
@@ -934,18 +933,7 @@ section {
       <div class="card-preview">
         <div class="card-label">Front</div>
         <div class="bcard c2-front">
-          <svg width="56" height="56" viewBox="0 0 100 100" style="position:relative;z-index:1;">
-            <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
-            <ellipse cx="50" cy="50" rx="14" ry="35" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-            <line x1="6" y1="36" x2="20" y2="36" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
-            <line x1="2" y1="44" x2="18" y2="44" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
-            <line x1="4" y1="52" x2="16" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.14"/>
-            <polygon points="50,12 46,44 50,39 54,44" fill="white" opacity="0.85"/>
-            <polygon points="50,88 46,56 50,61 54,56" fill="white" opacity="0.3"/>
-            <polygon points="12,50 44,46 39,50 44,54" fill="white" opacity="0.3"/>
-            <polygon points="88,50 56,46 61,50 56,54" fill="white" opacity="0.3"/>
-            <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
-          </svg>
+          <img src="logo.png" alt="True North Exports" class="real-logo on-dark" width="56" height="56" style="position:relative;z-index:1;">
           <div class="c2-name" style="position:relative;z-index:1;">True North</div>
           <div class="c2-sub" style="position:relative;z-index:1;">Exports</div>
         </div>
@@ -979,17 +967,7 @@ section {
         <div class="card-label">Front</div>
         <div class="bcard c3-front">
           <div class="diag-panel">
-            <svg width="54" height="54" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
-              <line x1="6" y1="36" x2="20" y2="36" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
-              <line x1="2" y1="44" x2="18" y2="44" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
-              <line x1="4" y1="52" x2="16" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.14"/>
-              <polygon points="50,12 46,44 50,39 54,44" fill="white" opacity="0.85"/>
-              <polygon points="50,88 46,56 50,61 54,56" fill="white" opacity="0.3"/>
-              <polygon points="12,50 44,46 39,50 44,54" fill="white" opacity="0.3"/>
-              <polygon points="88,50 56,46 61,50 56,54" fill="white" opacity="0.3"/>
-              <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
-            </svg>
+            <img src="logo.png" alt="True North Exports" class="real-logo on-dark" width="54" height="54">
           </div>
           <div class="right-text">
             <div class="rt-name">True<br>North</div>
@@ -1032,17 +1010,7 @@ section {
         <div class="card-label">Front</div>
         <div class="bcard c4-front">
           <div class="texture"></div>
-          <svg width="50" height="50" viewBox="0 0 100 100" style="position:relative;z-index:1;">
-            <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
-            <line x1="6" y1="36" x2="20" y2="36" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.25"/>
-            <line x1="2" y1="44" x2="18" y2="44" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.16"/>
-            <line x1="4" y1="52" x2="16" y2="52" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.1"/>
-            <polygon points="50,12 46,44 50,39 54,44" fill="white" opacity="0.7"/>
-            <polygon points="50,88 46,56 50,61 54,56" fill="white" opacity="0.2"/>
-            <polygon points="12,50 44,46 39,50 44,54" fill="white" opacity="0.2"/>
-            <polygon points="88,50 56,46 61,50 56,54" fill="white" opacity="0.2"/>
-            <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A" opacity="0.9"/>
-          </svg>
+          <img src="logo.png" alt="True North Exports" class="real-logo on-dark" width="50" height="50" style="position:relative;z-index:1;">
           <div class="c4-name">True North</div>
           <div class="c4-exports">Exports</div>
           <div class="c4-line"></div>
@@ -1057,11 +1025,7 @@ section {
                 <div class="c4b-name">Julio Ventura</div>
                 <div class="c4b-title">Wholesale Paint Supply</div>
               </div>
-              <svg width="26" height="26" viewBox="0 0 100 100" opacity="0.15">
-                <circle cx="50" cy="50" r="36" fill="none" stroke="white" stroke-width="3"/>
-                <polygon points="50,14 47,44 50,40 53,44" fill="white"/>
-                <path d="M50,28 L52,38 L56,34 L54,41 L62,41 L55,47 L58,54 L50,49 L42,54 L45,47 L38,41 L46,41 L44,34 L48,38 Z" fill="#C41E2A"/>
-              </svg>
+              <img src="logo.png" alt="" class="real-logo watermark-dark" width="26" height="26">
             </div>
             <div class="c4b-grid">
               <div class="c4b-item">PHONE<span class="c4b-val">+1 (905) 650-6822</span></div>
@@ -1092,18 +1056,7 @@ section {
           <div class="c5-top-line"></div>
           <div class="c5-bot-line"></div>
           <div class="c5-row">
-            <svg width="52" height="52" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="36" fill="none" stroke="#1B3A5C" stroke-width="2.5"/>
-              <ellipse cx="50" cy="50" rx="14" ry="35" fill="none" stroke="#1B3A5C" stroke-width="1" opacity="0.15"/>
-              <line x1="6" y1="36" x2="20" y2="36" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
-              <line x1="2" y1="44" x2="18" y2="44" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" opacity="0.28"/>
-              <line x1="4" y1="52" x2="16" y2="52" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round" opacity="0.18"/>
-              <polygon points="50,12 46,44 50,39 54,44" fill="#1B3A5C" opacity="0.9"/>
-              <polygon points="50,88 46,56 50,61 54,56" fill="#1B3A5C" opacity="0.35"/>
-              <polygon points="12,50 44,46 39,50 44,54" fill="#1B3A5C" opacity="0.35"/>
-              <polygon points="88,50 56,46 61,50 56,54" fill="#1B3A5C" opacity="0.35"/>
-              <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
-            </svg>
+            <img src="logo.png" alt="True North Exports" class="real-logo" width="52" height="52">
             <div class="c5-text">
               <div class="c5t-name">True North</div>
               <div class="c5t-sub">Exports</div>
@@ -1118,11 +1071,7 @@ section {
         <div class="bcard c5-back">
           <div class="c5-top-line"></div>
           <div class="c5-bot-line"></div>
-          <svg class="watermark-logo" width="120" height="120" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="36" fill="none" stroke="#1B3A5C" stroke-width="2"/>
-            <polygon points="50,12 46,44 50,39 54,44" fill="#1B3A5C"/>
-            <path d="M50,26 L52,38 L58,33 L55,42 L65,42 L56,48 L60,57 L50,50 L40,57 L44,48 L35,42 L45,42 L42,33 L48,38 Z" fill="#C41E2A"/>
-          </svg>
+          <img src="logo.png" alt="" class="real-logo watermark" width="120" height="120" style="right:-15px;bottom:-15px;">
           <div class="c5b-items">
             <div class="c5b-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
             <div class="c5b-text"><span class="c5b-label">Phone</span>+1 (905) 650-6822</div>
