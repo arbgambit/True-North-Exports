@@ -433,6 +433,11 @@
     size: 8.5in 11in;
     margin: 0;
   }
+  @media screen and (max-width: 900px) {
+    body { padding: 0.5rem; }
+    .print-bar { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+
   @media print {
     *, *::before, *::after {
       -webkit-print-color-adjust: exact !important;
@@ -448,6 +453,7 @@
       box-shadow: none !important;
       width: 100% !important;
       height: 100% !important;
+      zoom: 1 !important;
     }
   }
 </style>
@@ -622,5 +628,16 @@
   </div>
 </div>
 
+<script>
+function scaleFlyer(){
+  var f=document.querySelector('.flyer');
+  if(!f)return;
+  if(window.innerWidth>=816){f.style.zoom='';return}
+  f.style.zoom=(window.innerWidth-16)/816;
+}
+window.addEventListener('resize',scaleFlyer);
+window.addEventListener('DOMContentLoaded',scaleFlyer);
+scaleFlyer();
+</script>
 </body>
 </html>
