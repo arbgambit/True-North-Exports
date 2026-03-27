@@ -4,85 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>True North Exports — Flyer 2</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <style>
-  :root { --navy:#0F2440; --navy2:#0A1A30; --red:#C41E2A; --gold:#C4A265; --cream:#F5F0E8; --white:#f8f6f2; }
-  *,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'DM Sans',sans-serif; background:#1a1a1e; display:flex; flex-direction:column; align-items:center; padding:2rem; min-height:100vh; }
+:root{--bg:#FFFFFF;--text:#1a1a1a;--accent:#6B7F5E;--accent2:#6B7F5E;--gold:#C9A84C;--muted:#888;--light:#F4F1EB;--line:#E5E0D8}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#333;display:flex;flex-direction:column;align-items:center;padding:2rem;min-height:100vh}
+.print-bar{margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem}
+.print-btn{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--accent);border:none;padding:.7rem 2rem;border-radius:6px;cursor:pointer;transition:background .2s,transform .15s}
+.print-btn:hover{background:#7a9070;transform:translateY(-1px)}
+.print-hint{font-size:.72rem;color:rgba(255,255,255,.3)}
 
-  .print-bar { margin-bottom:1.5rem; display:flex; align-items:center; gap:1rem; }
-  .print-btn { font-family:'DM Sans',sans-serif; font-size:.8rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--red); border:none; padding:.7rem 2rem; border-radius:6px; cursor:pointer; transition:background .2s,transform .15s; }
-  .print-btn:hover { background:#d6232f; transform:translateY(-1px); }
-  .print-hint { font-size:.72rem; color:rgba(255,255,255,.3); }
+.flyer{width:8.5in;height:11in;background:var(--bg);position:relative;overflow:hidden;color:var(--text);box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.flyer-inner{width:100%;height:100%;display:flex;flex-direction:column;position:relative;z-index:1}
 
-  .flyer { width:8.5in; height:11in; background:var(--navy); position:relative; overflow:hidden; color:var(--white); box-shadow:0 20px 60px rgba(0,0,0,.5); }
-  .flyer-inner { width:100%; height:100%; display:flex; flex-direction:column; position:relative; z-index:1; }
+/* ===== HEADER ===== */
+.fh{padding:.3in .5in .2in;display:flex;align-items:flex-start;justify-content:space-between;flex-shrink:0}
+.fh img{height:50px;width:auto}
+.fh-right{text-align:right;padding-top:6pt}
+.fh-tag{font-size:6pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2pt}
+.fh-sub{font-size:6pt;color:var(--muted);letter-spacing:.06em}
 
-  /* ===== HEADER ===== */
-  .fh { padding:.22in .45in; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.06); flex-shrink:0; }
-  .fh img { height:30px; width:auto; }
-  .fh-tag { font-size:6pt; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.3); }
+/* ===== HERO ===== */
+.f-hero{padding:0 .5in .2in;flex-shrink:0}
+.f-hero h1{font-family:'Playfair Display',serif;font-size:28pt;font-weight:500;line-height:1.15;color:var(--text);letter-spacing:-.01em}
+.f-hero h1 em{font-style:italic;color:var(--accent)}
+.f-hero .desc{font-size:7.5pt;color:var(--muted);line-height:1.7;max-width:5in;margin-top:6pt}
+.f-hero .line{width:50px;height:1.5px;background:var(--accent);margin-top:8pt}
 
-  /* ===== HERO ===== */
-  .f-hero { padding:.3in .45in .2in; position:relative; flex-shrink:0; }
-  .f-hero-leaf { position:absolute; right:.3in; top:50%; transform:translateY(-50%); width:1.8in; height:auto; opacity:.08; pointer-events:none; }
-  .f-hero h1 { font-family:'Bebas Neue',sans-serif; font-size:58pt; line-height:.88; letter-spacing:.02em; color:var(--white); position:relative; z-index:1; }
-  .f-hero .sub { font-family:'Bebas Neue',sans-serif; font-size:18pt; letter-spacing:.12em; color:var(--red); margin-top:4pt; position:relative; z-index:1; }
-  .f-hero .red-line { width:60px; height:2px; background:var(--red); margin-top:8pt; }
-  .f-hero .desc { font-size:7pt; color:rgba(255,255,255,.35); line-height:1.6; max-width:3.5in; margin-top:8pt; position:relative; z-index:1; }
+/* ===== SWATCHES ===== */
+.f-sw{padding:.15in .5in;flex-shrink:0}
+.sw-head{font-size:6pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);margin-bottom:6pt;display:flex;align-items:center;gap:6pt}
+.sw-head::after{content:'';flex:1;height:.5px;background:var(--line)}
+.sw-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:3pt}
+.sw{aspect-ratio:5/4;border-radius:2pt;position:relative;overflow:hidden}
+.sw::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.1) 0%,transparent 40%,rgba(0,0,0,.06) 100%);border-radius:inherit}
+.sw-n{position:absolute;bottom:2pt;left:3pt;font-size:4.5pt;font-weight:600;color:white;text-shadow:0 1px 2px rgba(0,0,0,.5);z-index:2;letter-spacing:.02em}
+.sw-lt .sw-n{color:var(--text);text-shadow:none}
 
-  /* ===== COLOR BARS ===== */
-  .f-bars { padding:0 .45in; flex-shrink:0; }
-  .bars-label { font-size:6pt; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--red); margin-bottom:6pt; display:flex; align-items:center; gap:6pt; }
-  .bars-label::after { content:''; flex:1; height:.5px; background:rgba(255,255,255,.06); }
-  .bar { width:100%; height:13px; display:flex; align-items:center; justify-content:space-between; padding:0 8pt; margin-bottom:1px; position:relative; }
-  .bar-name { font-size:5.5pt; font-weight:600; color:white; text-shadow:0 1px 2px rgba(0,0,0,.4); letter-spacing:.04em; z-index:1; }
-  .bar-hex { font-size:5pt; font-weight:400; color:rgba(255,255,255,.5); z-index:1; }
-  .bar-light .bar-name { color:var(--navy); text-shadow:none; }
-  .bar-light .bar-hex { color:rgba(15,36,64,.4); }
-  .bar-prem::before { content:''; width:3px; height:3px; border-radius:50%; background:var(--gold); position:absolute; left:2pt; top:50%; transform:translateY(-50%); }
-  .bar-prem .bar-name { padding-left:6pt; }
-  .prem-divider { font-size:5pt; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin:6pt 0 4pt; display:flex; align-items:center; gap:5pt; }
-  .prem-divider::before { content:''; width:3pt; height:3pt; border-radius:50%; background:var(--gold); }
+.prem-head{font-size:5.5pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:6pt 0 4pt;display:flex;align-items:center;gap:4pt}
+.prem-head::before{content:'';width:3pt;height:3pt;border-radius:50%;background:var(--gold)}
+.prem-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3pt}
+.prem-grid .sw{aspect-ratio:5/3}
 
-  /* ===== STATS ===== */
-  .f-stats { padding:.18in .45in; display:flex; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06); flex-shrink:0; }
-  .st { flex:1; text-align:center; padding:4pt 0; position:relative; }
-  .st:not(:last-child)::after { content:''; position:absolute; right:0; top:15%; bottom:15%; width:.5px; background:rgba(255,255,255,.08); }
-  .st-n { font-family:'Bebas Neue',sans-serif; font-size:28pt; color:var(--white); line-height:1; }
-  .st-l { font-size:5.5pt; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.25); margin-top:2pt; }
+/* ===== FEATURES ===== */
+.f-feat{padding:.12in .5in;display:flex;justify-content:space-between;gap:6pt;border-top:.5px solid var(--line);border-bottom:.5px solid var(--line);flex-shrink:0}
+.ft{flex:1;text-align:center;padding:6pt 0}
+.ft-icon{width:22pt;height:22pt;margin:0 auto 4pt;display:flex;align-items:center;justify-content:center}
+.ft-icon svg{width:18pt;height:18pt;stroke:var(--accent2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ft-icon img{width:14pt;height:14pt;object-fit:contain}
+.ft-label{font-size:6pt;font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:1pt}
+.ft-desc{font-size:5pt;color:var(--muted);line-height:1.3}
 
-  /* ===== FEATURES ===== */
-  .f-feats { padding:.15in .45in; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,.04); flex-shrink:0; }
-  .ft { background:var(--navy); padding:10pt 10pt; display:flex; align-items:flex-start; gap:8pt; }
-  .ft-icon { width:16pt; height:16pt; flex-shrink:0; margin-top:1pt; }
-  .ft-icon svg { width:100%; height:100%; stroke:var(--red); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-  .ft-icon img { width:100%; height:100%; object-fit:contain; }
-  .ft-text strong { display:block; font-size:6.5pt; font-weight:700; color:var(--white); letter-spacing:.03em; margin-bottom:1pt; }
-  .ft-text span { font-size:5.5pt; color:rgba(255,255,255,.3); line-height:1.4; }
+/* ===== FINISHES ===== */
+.f-fin{padding:.12in .5in;display:grid;grid-template-columns:1fr 1fr;gap:.15in;flex-shrink:0}
+.fin-card{border:1px solid var(--line);border-radius:6pt;overflow:hidden}
+.fin-vis{height:60pt;position:relative}
+.fin-satin{background:linear-gradient(150deg,#ddd8d1,#c6c0b9 35%,#e0dad4 58%,#c0bab3)}
+.fin-satin::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.55),transparent 45%,rgba(255,255,255,.12))}
+.fin-egg{background:linear-gradient(150deg,#e0dcd8,#d2ceca 35%,#dedad6 58%,#cac6c2)}
+.fin-egg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.25),transparent 60%)}
+.fin-name{position:absolute;bottom:5pt;left:8pt;font-family:'Playfair Display',serif;font-size:11pt;color:rgba(30,28,24,.35);z-index:1}
+.fin-body{padding:8pt 10pt}
+.fin-body h3{font-family:'Playfair Display',serif;font-size:10pt;font-weight:500;color:var(--text);margin-bottom:3pt}
+.fin-body p{font-size:6pt;color:var(--muted);line-height:1.6;margin-bottom:5pt}
+.fin-tags{display:flex;flex-wrap:wrap;gap:2pt}
+.fin-tag{font-size:4.5pt;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:1.5pt 5pt;border-radius:100px;background:var(--light);color:var(--text);border:.5px solid var(--line)}
+.fin-tag-a{background:rgba(107,127,94,.1);color:#4a5c40;border-color:rgba(107,127,94,.2)}
 
-  /* ===== CTA BAR ===== */
-  .f-cta { background:var(--red); padding:.22in .45in; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; position:relative; overflow:hidden; }
-  .f-cta-leaf { position:absolute; right:.2in; top:50%; transform:translateY(-50%); width:1in; opacity:.12; pointer-events:none; }
-  .f-cta h2 { font-family:'Bebas Neue',sans-serif; font-size:22pt; letter-spacing:.06em; color:var(--white); position:relative; z-index:1; }
-  .f-cta-info { text-align:right; position:relative; z-index:1; }
-  .f-cta-info p { font-size:7pt; color:rgba(255,255,255,.85); margin-bottom:1pt; }
-  .f-cta-info .badge24 { display:inline-flex; align-items:center; gap:3pt; font-size:5.5pt; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:rgba(255,255,255,.15); color:white; padding:2pt 8pt; border-radius:100px; margin-top:4pt; }
+/* ===== BOTTOM ===== */
+.f-bot{padding:.12in .5in;display:grid;grid-template-columns:1fr 1fr;gap:.4in;flex:1;align-content:start;flex-shrink:0}
+.col-label{font-size:6pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:6pt;display:flex;align-items:center;gap:5pt}
+.col-label::after{content:'';flex:1;height:.5px;background:var(--line)}
+.spec-list{display:flex;flex-direction:column}
+.spec-row{display:flex;justify-content:space-between;padding:2.5pt 0;border-bottom:.5px dotted var(--line)}
+.spec-row:last-child{border-bottom:none}
+.spec-k{font-size:6.5pt;font-weight:600;color:var(--text)}
+.spec-v{font-size:6.5pt;color:var(--muted);text-align:right}
 
-  /* ===== FOOTER ===== */
-  .f-foot { padding:.1in .45in; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,.06); flex-shrink:0; margin-top:auto; }
-  .f-foot span { font-size:5pt; color:rgba(255,255,255,.2); letter-spacing:.06em; }
-  .f-foot .ff-can { display:flex; align-items:center; gap:3pt; }
-  .f-foot img { width:8pt; height:8pt; object-fit:contain; opacity:.3; }
+.ct-name{font-family:'Playfair Display',serif;font-size:12pt;color:var(--text);margin-bottom:5pt}
+.ct-line{font-size:6.5pt;color:var(--muted);margin-bottom:2pt;line-height:1.5}
+.ct-origin{display:flex;align-items:center;gap:3pt;margin-top:6pt;font-size:5.5pt;font-weight:600;color:var(--accent2);letter-spacing:.04em}
+.ct-origin img{width:9pt;height:9pt;object-fit:contain}
+.ct-cta{display:inline-block;margin-top:8pt;padding:4pt 14pt;background:var(--accent);color:white;font-size:5.5pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:100px}
+.ct-small{font-size:5pt;color:var(--muted);font-style:italic;margin-top:5pt}
 
-  /* ===== PRINT ===== */
-  @page { size:8.5in 11in; margin:0; }
-  @media print {
-    *,*::before,*::after { -webkit-print-color-adjust:exact!important; print-color-adjust:exact!important; }
-    body { background:white!important; padding:0!important; }
-    .print-bar { display:none!important; }
-    .flyer { box-shadow:none!important; }
-  }
+/* ===== FOOTER ===== */
+.f-foot{padding:.1in .5in;border-top:.5px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;margin-top:auto}
+.f-foot span{font-size:5pt;color:var(--muted);letter-spacing:.05em}
+.f-foot .ff-r{display:flex;align-items:center;gap:3pt}
+.f-foot img{width:7pt;height:7pt;object-fit:contain;opacity:.5}
+
+@page{size:8.5in 11in;margin:0}
+@media print{
+  *,*::before,*::after{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  body{background:white!important;padding:0!important}
+  .print-bar{display:none!important}
+  .flyer{box-shadow:none!important}
+}
 </style>
 </head>
 <body>
@@ -93,104 +111,103 @@
 </div>
 
 <div class="flyer">
-  <div class="flyer-inner">
+<div class="flyer-inner">
 
-    <!-- HEADER -->
-    <div class="fh">
-      <img src="brand_assets/logo.png" alt="True North Exports">
-      <span class="fh-tag">Pintura al Por Mayor</span>
-    </div>
-
-    <!-- HERO -->
-    <div class="f-hero">
-      <img src="brand_assets/maple-leaf.png" alt="" class="f-hero-leaf">
-      <h1>PINTURA<br>RECICLADA</h1>
-      <div class="sub">SATIN & EGGSHELL</div>
-      <div class="red-line"></div>
-      <p class="desc">Látex 100% reciclado. Resistente al agua, anti-moho y formulada con químicos antimicrobianos. Ideal para cocinas, baños y exteriores. Exportación directa de Canadá a Panamá.</p>
-    </div>
-
-    <!-- COLOR BARS -->
-    <div class="f-bars">
-      <div class="bars-label">Colores Disponibles — 17 Colores</div>
-
-      <div class="bar" style="background:#4B5320"><span class="bar-name">Army Green</span><span class="bar-hex">#4B5320</span></div>
-      <div class="bar" style="background:#8A9A5B"><span class="bar-name">Sage Green</span><span class="bar-hex">#8A9A5B</span></div>
-      <div class="bar" style="background:#7B3F00"><span class="bar-name">Chocolate</span><span class="bar-hex">#7B3F00</span></div>
-      <div class="bar bar-light" style="background:#C8AD7F"><span class="bar-name">Latte</span><span class="bar-hex">#C8AD7F</span></div>
-      <div class="bar bar-light" style="background:#FFB7C5"><span class="bar-name">Cotton Candy</span><span class="bar-hex">#FFB7C5</span></div>
-      <div class="bar bar-light" style="background:#C4C4C4"><span class="bar-name">Light Grey</span><span class="bar-hex">#C4C4C4</span></div>
-      <div class="bar" style="background:#808080"><span class="bar-name">Grey Thunder</span><span class="bar-hex">#808080</span></div>
-      <div class="bar" style="background:#008080"><span class="bar-name">Teal</span><span class="bar-hex">#008080</span></div>
-      <div class="bar" style="background:#6A0D91"><span class="bar-name">Midnight Orchid</span><span class="bar-hex">#6A0D91</span></div>
-      <div class="bar bar-light" style="background:#C8A2C8"><span class="bar-name">Bashful Lilac</span><span class="bar-hex">#C8A2C8</span></div>
-      <div class="bar" style="background:#1B3A5C"><span class="bar-name">Navy Blue</span><span class="bar-hex">#1B3A5C</span></div>
-      <div class="bar bar-light" style="background:#87CEEB"><span class="bar-name">Sky Blue</span><span class="bar-hex">#87CEEB</span></div>
-
-      <div class="prem-divider">Premium — Disponibilidad Limitada</div>
-
-      <div class="bar bar-prem" style="background:#7C0A02"><span class="bar-name">Barn Red</span><span class="bar-hex">#7C0A02</span></div>
-      <div class="bar bar-prem bar-light" style="background:#F0EDE5;border:.5px solid rgba(0,0,0,.08)"><span class="bar-name">Dove White</span><span class="bar-hex">#F0EDE5</span></div>
-      <div class="bar bar-prem bar-light" style="background:#FAF0E6;border:.5px solid rgba(0,0,0,.08)"><span class="bar-name">Linen</span><span class="bar-hex">#FAF0E6</span></div>
-      <div class="bar bar-prem bar-light" style="background:#FFDA03"><span class="bar-name">Sunshine Yellow</span><span class="bar-hex">#FFDA03</span></div>
-      <div class="bar bar-prem bar-light" style="background:#FFDAB9"><span class="bar-name">Peach</span><span class="bar-hex">#FFDAB9</span></div>
-    </div>
-
-    <!-- STATS -->
-    <div class="f-stats">
-      <div class="st"><div class="st-n">232</div><div class="st-l">Totes en Stock</div></div>
-      <div class="st"><div class="st-n">17+</div><div class="st-l">Colores</div></div>
-      <div class="st"><div class="st-n">100%</div><div class="st-l">Reciclada</div></div>
-      <div class="st"><div class="st-n">2</div><div class="st-l">Acabados</div></div>
-    </div>
-
-    <!-- FEATURES -->
-    <div class="f-feats">
-      <div class="ft">
-        <div class="ft-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-7 7-7 11a7 7 0 1 0 14 0c0-4-4-7-7-11z"/></svg></div>
-        <div class="ft-text"><strong>Impermeable</strong><span>Baños, cocinas, exteriores</span></div>
-      </div>
-      <div class="ft">
-        <div class="ft-icon"><svg viewBox="0 0 24 24"><path d="M12 22c5.5 0 10-4.5 10-10H2c0 5.5 4.5 10 10 10z"/><path d="M5 8c2-3 5-5 7-6 2 1 5 3 7 6"/></svg></div>
-        <div class="ft-text"><strong>Anti-Moho</strong><span>Antimicrobianos activos</span></div>
-      </div>
-      <div class="ft">
-        <div class="ft-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 12h16"/><path d="M10 4v16"/></svg></div>
-        <div class="ft-text"><strong>Satin &amp; Eggshell</strong><span>Dos acabados premium</span></div>
-      </div>
-      <div class="ft">
-        <div class="ft-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
-        <div class="ft-text"><strong>Exterior</strong><span>Resistente a la intemperie</span></div>
-      </div>
-      <div class="ft">
-        <div class="ft-icon"><svg viewBox="0 0 24 24"><path d="M3 6l3 6c0 2.2 1.8 3 3 3s3-.8 3-3l3-6"/><path d="M12 6l3 6c0 2.2 1.8 3 3 3s3-.8 3-3l3-6"/></svg></div>
-        <div class="ft-text"><strong>Lavable</strong><span>Fácil limpieza sin daño</span></div>
-      </div>
-      <div class="ft">
-        <div class="ft-icon"><img src="brand_assets/maple-leaf.png" alt=""></div>
-        <div class="ft-text"><strong>Hecha en Canadá</strong><span>Calidad canadiense</span></div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="f-cta">
-      <img src="brand_assets/maple-leaf.png" alt="" class="f-cta-leaf">
-      <h2>SOLICITE SU COTIZACIÓN</h2>
-      <div class="f-cta-info">
-        <p><strong>Julio Ventura</strong></p>
-        <p>+1 (905) 650-6822</p>
-        <p>info@truenorthexportsca.com</p>
-        <div class="badge24">Respuesta en 24h</div>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="f-foot">
-      <span>&copy; 2026 True North Exports</span>
-      <span class="ff-can"><img src="brand_assets/maple-leaf.png" alt="">Canadá → Panamá</span>
-    </div>
-
+<!-- HEADER -->
+<div class="fh">
+  <img src="brand_assets/logo.png" alt="True North Exports">
+  <div class="fh-right">
+    <span class="fh-tag">Al Por Mayor</span>
+    <span class="fh-sub">Canadá → Panamá</span>
   </div>
+</div>
+
+<!-- HERO -->
+<div class="f-hero">
+  <h1>Pintura de Látex <em>100% Reciclada</em></h1>
+  <p class="desc">Acabados Satin y Eggshell en más de 17 colores. Resistente al agua, anti-moho y formulada con químicos antimicrobianos — ideal para cocinas, baños y exteriores. Exportación directa de Canadá a Panamá.</p>
+  <div class="line"></div>
+</div>
+
+<!-- SWATCHES -->
+<div class="f-sw">
+  <div class="sw-head">Colores Disponibles — 12 Estándar</div>
+  <div class="sw-grid">
+    <div class="sw" style="background:#4B5320"><span class="sw-n">Army Green</span></div>
+    <div class="sw" style="background:#8A9A5B"><span class="sw-n">Sage Green</span></div>
+    <div class="sw" style="background:#7B3F00"><span class="sw-n">Chocolate</span></div>
+    <div class="sw sw-lt" style="background:#C8AD7F"><span class="sw-n">Latte</span></div>
+    <div class="sw sw-lt" style="background:#FFB7C5"><span class="sw-n">Cotton Candy</span></div>
+    <div class="sw sw-lt" style="background:#C4C4C4"><span class="sw-n">Light Grey</span></div>
+    <div class="sw" style="background:#808080"><span class="sw-n">Grey Thunder</span></div>
+    <div class="sw" style="background:#008080"><span class="sw-n">Teal</span></div>
+    <div class="sw" style="background:#6A0D91"><span class="sw-n">Midnight Orchid</span></div>
+    <div class="sw sw-lt" style="background:#C8A2C8"><span class="sw-n">Bashful Lilac</span></div>
+    <div class="sw" style="background:#1B3A5C"><span class="sw-n">Navy Blue</span></div>
+    <div class="sw sw-lt" style="background:#87CEEB"><span class="sw-n">Sky Blue</span></div>
+  </div>
+  <div class="prem-head">Premium — Disponibilidad Limitada</div>
+  <div class="prem-grid">
+    <div class="sw" style="background:#7C0A02"><span class="sw-n">Barn Red</span></div>
+    <div class="sw sw-lt" style="background:#F0EDE5;border:.5px solid #ddd"><span class="sw-n">Dove White</span></div>
+    <div class="sw sw-lt" style="background:#FAF0E6;border:.5px solid #ddd"><span class="sw-n">Linen</span></div>
+    <div class="sw sw-lt" style="background:#FFDA03"><span class="sw-n">S. Yellow</span></div>
+    <div class="sw sw-lt" style="background:#FFDAB9"><span class="sw-n">Peach</span></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="f-feat">
+  <div class="ft"><div class="ft-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg></div><div class="ft-label">100% Reciclada</div><div class="ft-desc">Látex reciclado</div></div>
+  <div class="ft"><div class="ft-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-7 7-7 11a7 7 0 1 0 14 0c0-4-4-7-7-11z"/></svg></div><div class="ft-label">Impermeable</div><div class="ft-desc">Baños y cocinas</div></div>
+  <div class="ft"><div class="ft-icon"><svg viewBox="0 0 24 24"><path d="M12 22c5.5 0 10-4.5 10-10H2c0 5.5 4.5 10 10 10z"/><path d="M5 8c2-3 5-5 7-6 2 1 5 3 7 6"/></svg></div><div class="ft-label">Anti-Moho</div><div class="ft-desc">Antimicrobianos</div></div>
+  <div class="ft"><div class="ft-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div><div class="ft-label">Exterior</div><div class="ft-desc">Resistente al clima</div></div>
+  <div class="ft"><div class="ft-icon"><img src="brand_assets/maple-leaf.png" alt=""></div><div class="ft-label">Canadiense</div><div class="ft-desc">Calidad premium</div></div>
+</div>
+
+<!-- STATS -->
+<div style="padding:.12in .5in;display:flex;justify-content:space-between;border-top:.5px solid var(--line);border-bottom:.5px solid var(--line);flex-shrink:0">
+  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:22pt;color:var(--accent2);line-height:1">232</div><div style="font-size:5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">Totes en Stock</div></div>
+  <div style="width:.5px;background:var(--line);margin:4pt 0"></div>
+  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:22pt;color:var(--accent2);line-height:1">17+</div><div style="font-size:5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">Colores</div></div>
+  <div style="width:.5px;background:var(--line);margin:4pt 0"></div>
+  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:22pt;color:var(--accent2);line-height:1">100%</div><div style="font-size:5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">Reciclada</div></div>
+  <div style="width:.5px;background:var(--line);margin:4pt 0"></div>
+  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:22pt;color:var(--accent2);line-height:1">CAN</div><div style="font-size:5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">→ Panamá</div></div>
+</div>
+
+<!-- BOTTOM -->
+<div class="f-bot">
+  <div>
+    <div class="col-label">Especificaciones</div>
+    <div class="spec-list">
+      <div class="spec-row"><span class="spec-k">Tipo</span><span class="spec-v">Látex 100% reciclado</span></div>
+      <div class="spec-row"><span class="spec-k">Resistencia</span><span class="spec-v">Impermeable, Anti-moho</span></div>
+      <div class="spec-row"><span class="spec-k">Fórmula</span><span class="spec-v">Antimicrobianos activos</span></div>
+      <div class="spec-row"><span class="spec-k">Uso</span><span class="spec-v">Interior, exterior, baños, cocinas</span></div>
+      <div class="spec-row"><span class="spec-k">Presentación</span><span class="spec-v">Totes al por mayor</span></div>
+      <div class="spec-row"><span class="spec-k">Origen</span><span class="spec-v">Canadá</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="col-label">Contacto</div>
+    <div class="ct-name">Julio Ventura</div>
+    <div class="ct-line">+1 (905) 650-6822</div>
+    <div class="ct-line">info@truenorthexportsca.com</div>
+    <div class="ct-line">Panamá, Centroamérica</div>
+    <div class="ct-origin"><img src="brand_assets/maple-leaf.png" alt="">Exportación canadiense</div>
+    <div class="ct-cta">Solicitar Cotización</div>
+    <div class="ct-small">Respuesta en menos de 24 horas</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="f-foot">
+  <span>© 2026 True North Exports. Todos los derechos reservados.</span>
+  <div class="ff-r"><img src="brand_assets/maple-leaf.png" alt=""><span>Hecho en Canadá</span></div>
+</div>
+
+</div>
 </div>
 
 </body>
