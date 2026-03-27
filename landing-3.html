@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True North Exports — Pintura Reciclada al Por Mayor</title>
+<meta name="description" content="Exportadores canadienses de pintura de látex 100% reciclada. Calidad premium para Panamá y Latinoamérica.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=Sora:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy: { DEFAULT: '#1B3A5C', deep: '#0F2440', darker: '#0A1A30', light: '#2A5580' },
+        brand: { red: '#C41E2A', cream: '#F5F0E8', 'cream-dark': '#E8E0D0', gold: '#C4A265' },
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        body: ['Sora', 'sans-serif'],
+      },
+    }
+  }
+}
+</script>
+<style>
+html { scroll-behavior: smooth; }
+body { font-family: 'Sora', sans-serif; background: #0F2440; color: #F5F0E8; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+/* Grain overlay */
+body::after { content:''; position:fixed; inset:0; z-index:9998; pointer-events:none; opacity:0.022; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size:200px; }
+
+/* ===== HERO PAINT SWIRL ===== */
+.hero-swirl {
+  position: absolute; inset: -50%; z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 40%, #C41E2A 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 20%, #4B5320 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 75%, #C4A265 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 65%, #008080 0%, transparent 35%),
+    radial-gradient(ellipse at 30% 80%, #6A0D91 0%, transparent 30%);
+  filter: blur(90px);
+  opacity: 0.45;
+  animation: paintSwirl 25s ease-in-out infinite alternate;
+}
+@keyframes paintSwirl {
+  0%   { transform: rotate(0deg) scale(1); }
+  25%  { transform: rotate(15deg) scale(1.05); }
+  50%  { transform: rotate(-10deg) scale(0.98); }
+  75%  { transform: rotate(20deg) scale(1.08); }
+  100% { transform: rotate(-5deg) scale(1.02); }
+}
+
+/* ===== PAINT FILL TEXT ===== */
+@property --fill {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+.paint-fill-text {
+  background: linear-gradient(0deg, #C41E2A 0%, #C41E2A var(--fill), transparent var(--fill), transparent 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fillPaint 2s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+}
+@keyframes fillPaint {
+  to { --fill: 100%; }
+}
+
+/* ===== REVEALS ===== */
+.reveal {
+  opacity: 0; transform: translateY(32px) scale(0.97); filter: blur(4px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1), filter 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+.reveal-d1 { transition-delay: 80ms; }
+.reveal-d2 { transition-delay: 160ms; }
+.reveal-d3 { transition-delay: 240ms; }
+.reveal-d4 { transition-delay: 320ms; }
+.reveal-d5 { transition-delay: 400ms; }
+
+/* ===== COLOR SHOWCASE ===== */
+.color-showcase {
+  background-color: var(--showcase-bg, #F5F0E8);
+  color: var(--showcase-text, #0F2440);
+  transition: background-color 0.8s cubic-bezier(0.16,1,0.3,1), color 0.6s ease;
+}
+.swatch-btn {
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease;
+  cursor: pointer; border: 3px solid transparent; outline: none;
+}
+.swatch-btn:hover { transform: translateY(-6px) scale(1.08); }
+.swatch-btn:active { transform: translateY(-2px) scale(1.02); }
+.swatch-btn:focus-visible { box-shadow: 0 0 0 3px #C41E2A; }
+.swatch-btn.active { border-color: white; box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+
+/* ===== 3D TILT CARDS ===== */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.5s ease;
+}
+.tilt-card:hover {
+  transform: perspective(800px) rotateY(-4deg) rotateX(3deg) translateY(-8px);
+  box-shadow: 12px 24px 48px rgba(15,36,64,0.2), 0 0 0 1px rgba(196,30,42,0.08);
+}
+
+/* ===== PAINT DRIP ===== */
+.paint-drip-bg {
+  clip-path: polygon(0 8%, 5% 6%, 10% 9%, 15% 5%, 20% 7%, 25% 4%, 30% 8%, 35% 3%, 40% 6%, 45% 4%, 50% 7%, 55% 3%, 60% 6%, 65% 4%, 70% 8%, 75% 5%, 80% 7%, 85% 4%, 90% 6%, 95% 3%, 100% 5%, 100% 100%, 0 100%);
+  transition: clip-path 1.4s cubic-bezier(0.16,1,0.3,1);
+}
+.paint-drip-bg.dripped {
+  clip-path: polygon(0 0, 5% 0, 10% 0, 15% 0, 20% 0, 25% 0, 30% 0, 35% 0, 40% 0, 45% 0, 50% 0, 55% 0, 60% 0, 65% 0, 70% 0, 75% 0, 80% 0, 85% 0, 90% 0, 95% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ===== BUTTONS ===== */
+.btn { transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s ease, box-shadow 0.3s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(0.97); }
+
+/* ===== NAV ===== */
+.nav-link { transition: color 0.2s ease; }
+
+/* ===== FORM ===== */
+.form-input {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-input:focus {
+  outline: none; border-color: #C41E2A;
+  box-shadow: 0 0 0 3px rgba(196,30,42,0.15), 0 0 20px rgba(196,30,42,0.06);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #0A1A30; }
+::-webkit-scrollbar-thumb { background: #1B3A5C; border-radius: 4px; }
+
+/* Stagger hero elements */
+@keyframes heroFade { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+.hero-stagger { animation: heroFade 0.9s cubic-bezier(0.16,1,0.3,1) both; }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-navy-deep/90 backdrop-blur-lg border-b border-white/[0.04]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16 lg:h-[72px]">
+    <a href="#" class="block"><img src="brand_assets/logo.png" alt="True North Exports" class="h-9 lg:h-11 w-auto"></a>
+    <div class="hidden md:flex items-center gap-9">
+      <a href="#colores" class="nav-link font-body text-[11px] tracking-[0.18em] uppercase text-white/45 hover:text-white focus-visible:text-white focus-visible:underline underline-offset-4">Colores</a>
+      <a href="#nosotros" class="nav-link font-body text-[11px] tracking-[0.18em] uppercase text-white/45 hover:text-white focus-visible:text-white focus-visible:underline underline-offset-4">Nosotros</a>
+      <a href="#ventajas" class="nav-link font-body text-[11px] tracking-[0.18em] uppercase text-white/45 hover:text-white focus-visible:text-white focus-visible:underline underline-offset-4">Ventajas</a>
+      <a href="#contacto" class="btn px-5 py-2.5 bg-brand-red text-white font-body text-[11px] tracking-[0.12em] uppercase rounded-md hover:opacity-90 focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep" style="box-shadow:0 4px 16px rgba(196,30,42,0.3);">Cotización</a>
+    </div>
+    <button onclick="document.getElementById('mob-menu').classList.toggle('hidden')" class="md:hidden text-white/60 hover:text-white p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mob-menu" class="hidden md:hidden bg-navy-deep/95 backdrop-blur-md border-t border-white/5 px-6 pb-5 pt-3 flex flex-col gap-3">
+    <a href="#colores" class="font-body text-sm text-white/50 hover:text-white py-2">Colores</a>
+    <a href="#nosotros" class="font-body text-sm text-white/50 hover:text-white py-2">Nosotros</a>
+    <a href="#ventajas" class="font-body text-sm text-white/50 hover:text-white py-2">Ventajas</a>
+    <a href="#contacto" class="btn px-5 py-3 bg-brand-red text-white text-sm text-center rounded-md mt-1">Solicitar Cotización</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="relative min-h-screen flex items-center overflow-hidden">
+  <div class="hero-swirl"></div>
+  <!-- Secondary swirl layer for depth -->
+  <div class="absolute inset-[-30%] z-0 opacity-25" style="background:radial-gradient(ellipse at 60% 50%, #87CEEB 0%, transparent 40%), radial-gradient(ellipse at 25% 60%, #7B3F00 0%, transparent 35%); filter:blur(100px); animation:paintSwirl 30s ease-in-out infinite alternate-reverse;"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-28 pb-16 lg:pt-36 lg:pb-24 w-full">
+    <div class="max-w-3xl">
+      <!-- Badge -->
+      <div class="hero-stagger inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/8 mb-10" style="animation-delay:0.2s;">
+        <img src="brand_assets/maple-leaf.png" alt="" class="w-3 h-3 object-contain opacity-70">
+        <span class="font-body text-[10px] tracking-[0.22em] uppercase text-white/35">Exportadores Canadienses de Pintura Reciclada</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-stagger font-display font-800 text-[clamp(2.4rem,6.5vw,5.5rem)] leading-[1.02] tracking-[-0.025em] mb-7" style="animation-delay:0.4s;">
+        Pintura<br>
+        <span class="paint-fill-text">Reciclada</span> de<br>
+        Calidad Canadiense
+      </h1>
+
+      <!-- Sub -->
+      <p class="hero-stagger font-body text-base lg:text-lg text-white/40 leading-[1.7] max-w-lg mb-10" style="animation-delay:0.6s;">
+        Látex 100% reciclado. Más de 17 colores premium. Exportación directa de Canadá a Panamá y toda Latinoamérica, al por mayor.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-stagger flex flex-wrap gap-4" style="animation-delay:0.75s;">
+        <a href="#contacto" class="btn inline-flex items-center gap-3 px-8 py-4 bg-brand-red text-white font-body font-600 text-[13px] tracking-[0.08em] uppercase rounded-lg focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep" style="box-shadow:0 8px 28px rgba(196,30,42,0.35);">
+          Solicitar Cotización
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 8h7m-2.5-2.5L11 8l-2.5 2.5"/></svg>
+        </a>
+        <a href="#colores" class="btn inline-flex items-center gap-3 px-8 py-4 border border-white/12 text-white/55 font-body font-500 text-[13px] tracking-[0.08em] uppercase rounded-lg hover:text-white hover:border-white/25 focus-visible:ring-2 focus-visible:ring-white/20">
+          Explorar Colores
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div class="hero-stagger flex flex-wrap gap-12 lg:gap-16 mt-20 pt-10 border-t border-white/[0.06]" style="animation-delay:0.9s;">
+      <div>
+        <div class="font-display font-700 text-4xl lg:text-5xl text-white counter" data-target="17" data-suffix="+">0</div>
+        <div class="font-body text-[10px] tracking-[0.18em] uppercase text-white/25 mt-2">Colores Disponibles</div>
+      </div>
+      <div>
+        <div class="font-display font-700 text-4xl lg:text-5xl text-white counter" data-target="232" data-suffix="">0</div>
+        <div class="font-body text-[10px] tracking-[0.18em] uppercase text-white/25 mt-2">Totes Exportados</div>
+      </div>
+      <div>
+        <div class="font-display font-700 text-4xl lg:text-5xl text-white counter" data-target="100" data-suffix="%">0</div>
+        <div class="font-body text-[10px] tracking-[0.18em] uppercase text-white/25 mt-2">Reciclada</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+    <div class="w-5 h-8 rounded-full border border-white/15 flex justify-center pt-1.5">
+      <div class="w-0.5 h-2 bg-white/30 rounded-full animate-bounce"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COLOR SHOWCASE ===== -->
+<section id="colores" class="color-showcase py-24 lg:py-32 relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <!-- Header -->
+    <div class="text-center mb-14 reveal">
+      <span class="font-body text-[11px] tracking-[0.22em] uppercase opacity-50 flex items-center justify-center gap-3 mb-5">
+        <span class="w-8 h-px bg-current"></span>Nuestros Colores<span class="w-8 h-px bg-current"></span>
+      </span>
+      <h2 class="font-display font-700 text-4xl lg:text-5xl tracking-[-0.02em] mb-4">
+        Explore la Paleta
+      </h2>
+      <p class="font-body text-sm lg:text-base opacity-50 max-w-md mx-auto leading-relaxed">
+        Haga clic en cualquier color para sumergirse en él. Disponibles al por mayor en contenedores y totes.
+      </p>
+    </div>
+
+    <!-- Active color detail panel -->
+    <div class="reveal reveal-d1 text-center mb-10">
+      <div id="color-detail" class="inline-flex items-center gap-4 px-6 py-3 rounded-full border border-current/10 opacity-60" style="transition: opacity 0.4s ease;">
+        <div id="detail-swatch" class="w-6 h-6 rounded-full border-2 border-white/30" style="background:#F5F0E8;"></div>
+        <span id="detail-name" class="font-display font-600 text-lg">Seleccione un color</span>
+        <span class="opacity-30">|</span>
+        <span id="detail-hex" class="font-body text-xs tracking-wider opacity-50">#F5F0E8</span>
+        <span id="detail-totes" class="font-body text-xs tracking-wider opacity-50"></span>
+      </div>
+    </div>
+
+    <!-- Standard Colors -->
+    <div class="mb-10 reveal reveal-d2">
+      <div class="flex items-center gap-3 mb-5">
+        <span class="w-5 h-px bg-current opacity-20"></span>
+        <span class="font-body text-[10px] tracking-[0.18em] uppercase opacity-40">Colores Estándar</span>
+      </div>
+      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 lg:gap-4">
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#4B5320" data-name="Army Green" data-totes="22" style="background:#4B5320; box-shadow:0 8px 24px rgba(75,83,32,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Army Green</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#8A9A5B" data-name="Sage Green" data-totes="30" style="background:#8A9A5B; box-shadow:0 8px 24px rgba(138,154,91,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Sage Green</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#7B3F00" data-name="Chocolate" data-totes="54" style="background:#7B3F00; box-shadow:0 8px 24px rgba(123,63,0,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Chocolate</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#C8AD7F" data-name="Latte" data-totes="20" style="background:#C8AD7F; box-shadow:0 8px 24px rgba(200,173,127,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Latte</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#FFB7C5" data-name="Cotton Candy" data-totes="1" style="background:#FFB7C5; box-shadow:0 8px 24px rgba(255,183,197,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Cotton Candy</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#C4C4C4" data-name="Light Grey" data-totes="4" style="background:#C4C4C4; box-shadow:0 8px 24px rgba(196,196,196,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Light Grey</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#808080" data-name="Grey Thunder" data-totes="32" style="background:#808080; box-shadow:0 8px 24px rgba(128,128,128,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Grey Thunder</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#008080" data-name="Teal" data-totes="9" style="background:#008080; box-shadow:0 8px 24px rgba(0,128,128,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Teal</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#6A0D91" data-name="Midnight Orchid" data-totes="17" style="background:#6A0D91; box-shadow:0 8px 24px rgba(106,13,145,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Midnight Orchid</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#C8A2C8" data-name="Bashful Lilac" data-totes="1" style="background:#C8A2C8; box-shadow:0 8px 24px rgba(200,162,200,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Bashful Lilac</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#1B3A5C" data-name="Navy Blue" data-totes="3" style="background:#1B3A5C; box-shadow:0 8px 24px rgba(27,58,92,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Navy Blue</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#87CEEB" data-name="Sky Blue" data-totes="12" style="background:#87CEEB; box-shadow:0 8px 24px rgba(135,206,235,0.2);">
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Sky Blue</span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Premium Colors -->
+    <div class="reveal reveal-d3">
+      <div class="flex items-center gap-3 mb-5">
+        <span class="w-5 h-px opacity-30" style="background:var(--showcase-text, #0F2440);"></span>
+        <span class="font-body text-[10px] tracking-[0.18em] uppercase opacity-40">Colores Premium</span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-gold/15 ml-1">
+          <span class="w-1 h-1 rounded-full bg-brand-gold"></span>
+          <span class="font-body text-[8px] tracking-wider text-brand-gold uppercase font-500">Limitado</span>
+        </span>
+      </div>
+      <div class="grid grid-cols-3 sm:grid-cols-5 gap-3 lg:gap-4">
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#7C0A02" data-name="Barn Red" data-totes="5" style="background:#7C0A02; box-shadow:0 8px 24px rgba(124,10,2,0.2);">
+          <div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-gold"></div>
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-white/80 uppercase">Barn Red</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#F0EDE5" data-name="Dove White" data-totes="21" style="background:#F0EDE5; box-shadow:0 8px 24px rgba(0,0,0,0.06);">
+          <div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-gold"></div>
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-navy-deep/70 uppercase">Dove White</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#FAF0E6" data-name="Linen" data-totes="3" style="background:#FAF0E6; box-shadow:0 8px 24px rgba(0,0,0,0.05);">
+          <div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-gold"></div>
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-navy-deep/70 uppercase">Linen</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#FFDA03" data-name="Sunshine Yellow" data-totes="1" style="background:#FFDA03; box-shadow:0 8px 24px rgba(255,218,3,0.2);">
+          <div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-gold"></div>
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-navy-deep/80 uppercase">Sunshine Yellow</span></span>
+        </button>
+        <button class="swatch-btn rounded-xl overflow-hidden aspect-[4/5] relative group" data-color="#FFDAB9" data-name="Peach" data-totes="1" style="background:#FFDAB9; box-shadow:0 8px 24px rgba(255,218,185,0.2);">
+          <div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-gold"></div>
+          <span class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100" style="transition:opacity 0.3s ease;"><span class="font-body text-[9px] tracking-wider text-navy-deep/70 uppercase">Peach</span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOBRE NOSOTROS ===== -->
+<section id="nosotros" class="py-24 lg:py-32 bg-brand-cream text-navy-deep relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div>
+        <span class="reveal font-body text-[11px] tracking-[0.22em] uppercase text-brand-red font-500 flex items-center gap-3 mb-6">
+          <span class="w-8 h-px bg-brand-red"></span>Sobre Nosotros
+        </span>
+        <h2 class="reveal reveal-d1 font-display font-700 text-3xl lg:text-[2.8rem] text-navy-deep tracking-[-0.02em] leading-[1.1] mb-7">
+          Cada Litro Protege<br>el Planeta
+        </h2>
+        <p class="reveal reveal-d2 font-body text-[15px] text-navy/60 leading-[1.8] mb-5">
+          True North Exports recolecta y recicla pintura de látex en Canadá, transformándola en productos de calidad premium. Exportamos a Panamá y toda Latinoamérica con la misión de reducir residuos industriales sin sacrificar rendimiento.
+        </p>
+        <p class="reveal reveal-d3 font-body text-[15px] text-navy/60 leading-[1.8] mb-10">
+          Nuestra pintura es duradera, lavable y disponible en más de 17 colores. Cada tote que vendemos es un paso hacia un futuro más sustentable.
+        </p>
+
+        <!-- Stat cards -->
+        <div class="reveal reveal-d4 grid grid-cols-3 gap-4">
+          <div class="bg-white rounded-xl p-4 text-center" style="box-shadow:0 4px 20px rgba(15,36,64,0.06);">
+            <div class="font-display font-700 text-2xl text-navy-deep counter" data-target="232" data-suffix="+">0</div>
+            <div class="font-body text-[9px] tracking-[0.12em] uppercase text-navy/35 mt-1">Totes</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 text-center" style="box-shadow:0 4px 20px rgba(15,36,64,0.06);">
+            <div class="font-display font-700 text-2xl text-navy-deep counter" data-target="17" data-suffix="">0</div>
+            <div class="font-body text-[9px] tracking-[0.12em] uppercase text-navy/35 mt-1">Colores</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 text-center" style="box-shadow:0 4px 20px rgba(15,36,64,0.06);">
+            <div class="font-display font-700 text-2xl text-brand-red counter" data-target="100" data-suffix="%">0</div>
+            <div class="font-body text-[9px] tracking-[0.12em] uppercase text-navy/35 mt-1">Reciclada</div>
+          </div>
+        </div>
+      </div>
+      <!-- Logo visual -->
+      <div class="reveal reveal-d2 flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-sm">
+          <!-- Main logo on white -->
+          <div class="aspect-square rounded-3xl bg-white flex items-center justify-center relative overflow-hidden" style="box-shadow:0 24px 64px rgba(15,36,64,0.08), 0 0 0 1px rgba(15,36,64,0.04);">
+            <img src="brand_assets/maple-leaf.png" alt="" class="absolute w-[65%] h-[65%] object-contain opacity-[0.04]">
+            <img src="brand_assets/logo.png" alt="True North Exports" class="relative z-10 w-56 h-auto">
+            <!-- Corner accents in brand colors -->
+            <div class="absolute top-6 left-6 w-8 h-8 border-t-2 border-l-2 border-brand-red/15 rounded-tl-md"></div>
+            <div class="absolute bottom-6 right-6 w-8 h-8 border-b-2 border-r-2 border-navy/10 rounded-br-md"></div>
+          </div>
+          <!-- Floating accent blocks -->
+          <div class="absolute -bottom-4 -right-4 w-20 h-20 rounded-2xl bg-brand-red/8 -z-10"></div>
+          <div class="absolute -top-4 -left-4 w-14 h-14 rounded-xl bg-brand-gold/10 -z-10"></div>
+          <!-- Small leaf accent -->
+          <div class="absolute -bottom-2 -left-6 w-10 h-10 flex items-center justify-center">
+            <img src="brand_assets/maple-leaf.png" alt="" class="w-6 h-6 object-contain opacity-20">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ¿POR QUÉ ELEGIRNOS? ===== -->
+<section id="ventajas" class="py-24 lg:py-32 bg-white text-navy-deep">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16 reveal">
+      <span class="font-body text-[11px] tracking-[0.22em] uppercase text-brand-red font-500 flex items-center justify-center gap-3 mb-5">
+        <span class="w-8 h-px bg-brand-red"></span>Ventajas<span class="w-8 h-px bg-brand-red"></span>
+      </span>
+      <h2 class="font-display font-700 text-3xl lg:text-[2.8rem] tracking-[-0.02em]">¿Por Qué Elegirnos?</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal tilt-card bg-brand-cream rounded-2xl p-7 lg:p-8" style="box-shadow:0 6px 24px rgba(15,36,64,0.06), 0 0 0 1px rgba(15,36,64,0.03);">
+        <div class="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center mb-6">
+          <svg width="26" height="26" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"><circle cx="13" cy="13" r="10"/><path d="M9 13l3 3 5-5"/></svg>
+        </div>
+        <h4 class="font-body font-600 text-[15px] text-navy-deep mb-2">100% Eco-Friendly</h4>
+        <p class="font-body text-[13px] text-navy/45 leading-relaxed">Pintura completamente reciclada. Cada compra reduce residuos y protege el medio ambiente.</p>
+      </div>
+      <div class="reveal reveal-d1 tilt-card bg-brand-cream rounded-2xl p-7 lg:p-8" style="box-shadow:0 6px 24px rgba(15,36,64,0.06), 0 0 0 1px rgba(15,36,64,0.03);">
+        <div class="w-14 h-14 rounded-2xl bg-red-50 flex items-center justify-center mb-6">
+          <img src="brand_assets/maple-leaf.png" alt="" class="w-6 h-6 object-contain">
+        </div>
+        <h4 class="font-body font-600 text-[15px] text-navy-deep mb-2">Calidad Canadiense</h4>
+        <p class="font-body text-[13px] text-navy/45 leading-relaxed">Producida bajo estrictos estándares canadienses. Durabilidad y cobertura garantizadas.</p>
+      </div>
+      <div class="reveal reveal-d2 tilt-card bg-brand-cream rounded-2xl p-7 lg:p-8" style="box-shadow:0 6px 24px rgba(15,36,64,0.06), 0 0 0 1px rgba(15,36,64,0.03);">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center mb-6">
+          <svg width="26" height="26" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"><rect x="5" y="5" width="16" height="16" rx="3"/><path d="M5 11h16M11 5v16"/></svg>
+        </div>
+        <h4 class="font-body font-600 text-[15px] text-navy-deep mb-2">Precios al Por Mayor</h4>
+        <p class="font-body text-[13px] text-navy/45 leading-relaxed">Precios competitivos para distribuidores. Descuentos por volumen disponibles.</p>
+      </div>
+      <div class="reveal reveal-d3 tilt-card bg-brand-cream rounded-2xl p-7 lg:p-8" style="box-shadow:0 6px 24px rgba(15,36,64,0.06), 0 0 0 1px rgba(15,36,64,0.03);">
+        <div class="w-14 h-14 rounded-2xl bg-sky-50 flex items-center justify-center mb-6">
+          <svg width="26" height="26" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-linecap="round"><path d="M13 3L3 8l10 5 10-5-10-5z"/><path d="M3 18l10 5 10-5M3 13l10 5 10-5"/></svg>
+        </div>
+        <h4 class="font-body font-600 text-[15px] text-navy-deep mb-2">Envío Internacional</h4>
+        <p class="font-body text-[13px] text-navy/45 leading-relaxed">Logística completa de exportación a Panamá y toda Latinoamérica. Contenedores sellados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESO — PAINT DRIP ===== -->
+<section class="relative bg-navy-deep overflow-hidden">
+  <div class="paint-drip-bg bg-navy-darker py-24 lg:py-32 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="text-center mb-16 reveal">
+        <span class="font-body text-[11px] tracking-[0.22em] uppercase text-brand-red font-500 flex items-center justify-center gap-3 mb-5">
+          <span class="w-8 h-px bg-brand-red"></span>Cómo Funciona<span class="w-8 h-px bg-brand-red"></span>
+        </span>
+        <h2 class="font-display font-700 text-3xl lg:text-[2.8rem] text-white tracking-[-0.02em]">Proceso de Exportación</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-10 lg:gap-14">
+        <div class="reveal text-center relative">
+          <div class="w-18 h-18 rounded-2xl bg-brand-red/10 border border-brand-red/15 flex items-center justify-center mx-auto mb-7">
+            <span class="font-display font-700 text-3xl text-brand-red">01</span>
+          </div>
+          <h4 class="font-body font-600 text-lg text-white mb-3">Solicite Cotización</h4>
+          <p class="font-body text-sm text-white/35 leading-relaxed max-w-xs mx-auto">Contáctenos con sus necesidades de color y volumen. Respuesta en menos de 24 horas.</p>
+          <div class="hidden md:block absolute top-9 right-[-18%] w-[36%] h-px opacity-20" style="background:linear-gradient(to right, #C41E2A, #C4A265);"></div>
+        </div>
+        <div class="reveal reveal-d1 text-center relative">
+          <div class="w-18 h-18 rounded-2xl bg-brand-gold/10 border border-brand-gold/15 flex items-center justify-center mx-auto mb-7">
+            <span class="font-display font-700 text-3xl text-brand-gold">02</span>
+          </div>
+          <h4 class="font-body font-600 text-lg text-white mb-3">Producción</h4>
+          <p class="font-body text-sm text-white/35 leading-relaxed max-w-xs mx-auto">Preparamos su pedido en instalaciones canadienses. Control de calidad en cada lote.</p>
+          <div class="hidden md:block absolute top-9 right-[-18%] w-[36%] h-px opacity-20" style="background:linear-gradient(to right, #C4A265, rgba(255,255,255,0.3));"></div>
+        </div>
+        <div class="reveal reveal-d2 text-center">
+          <div class="w-18 h-18 rounded-2xl bg-white/5 border border-white/8 flex items-center justify-center mx-auto mb-7">
+            <span class="font-display font-700 text-3xl text-white/60">03</span>
+          </div>
+          <h4 class="font-body font-600 text-lg text-white mb-3">Envío a Panamá</h4>
+          <p class="font-body text-sm text-white/35 leading-relaxed max-w-xs mx-auto">Envío internacional completo. Contenedores sellados con documentación incluida.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="py-24 lg:py-32 bg-brand-cream text-navy-deep">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-14 lg:gap-20">
+      <div class="reveal">
+        <span class="font-body text-[11px] tracking-[0.22em] uppercase text-brand-red font-500 flex items-center gap-3 mb-6">
+          <span class="w-8 h-px bg-brand-red"></span>Contacto
+        </span>
+        <h2 class="font-display font-700 text-3xl lg:text-[2.8rem] tracking-[-0.02em] leading-tight mb-4">Solicite su Cotización</h2>
+        <p class="font-body text-[15px] text-navy/50 leading-relaxed mb-9">Cuéntenos sobre los colores y cantidades que necesita. Respuesta en menos de 24 horas.</p>
+        <form class="space-y-5" onsubmit="event.preventDefault(); alert('¡Gracias! Nos pondremos en contacto pronto.');">
+          <div>
+            <label class="font-body text-[10px] tracking-[0.15em] uppercase text-navy/40 font-500 block mb-2">Nombre</label>
+            <input type="text" required class="form-input w-full px-4 py-3.5 bg-white border border-navy/8 rounded-lg font-body text-sm text-navy-deep placeholder:text-navy/20" placeholder="Su nombre completo">
+          </div>
+          <div>
+            <label class="font-body text-[10px] tracking-[0.15em] uppercase text-navy/40 font-500 block mb-2">Correo</label>
+            <input type="email" required class="form-input w-full px-4 py-3.5 bg-white border border-navy/8 rounded-lg font-body text-sm text-navy-deep placeholder:text-navy/20" placeholder="email@ejemplo.com">
+          </div>
+          <div>
+            <label class="font-body text-[10px] tracking-[0.15em] uppercase text-navy/40 font-500 block mb-2">Mensaje</label>
+            <textarea rows="4" required class="form-input w-full px-4 py-3.5 bg-white border border-navy/8 rounded-lg font-body text-sm text-navy-deep placeholder:text-navy/20 resize-none" placeholder="Colores, cantidades, destino de envío..."></textarea>
+          </div>
+          <button type="submit" class="btn w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-red text-white font-body font-600 text-[13px] tracking-[0.08em] uppercase rounded-lg focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2" style="box-shadow:0 8px 24px rgba(196,30,42,0.25);">
+            Enviar Mensaje
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 8h7m-2.5-2.5L11 8l-2.5 2.5"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="bg-white rounded-3xl p-8 lg:p-10 h-full relative overflow-hidden" style="box-shadow:0 24px 64px rgba(15,36,64,0.08), 0 0 0 1px rgba(15,36,64,0.04);">
+          <img src="brand_assets/maple-leaf.png" alt="" class="absolute right-[-8%] bottom-[-8%] w-48 opacity-[0.04] pointer-events-none">
+          <div class="absolute top-6 right-6 w-6 h-6 border-t border-r border-brand-red/10 rounded-tr-sm"></div>
+          <img src="brand_assets/logo.png" alt="True North Exports" class="w-36 mb-10">
+          <div class="space-y-7">
+            <div>
+              <div class="font-body text-[9px] tracking-[0.2em] uppercase text-navy/30 mb-1.5">Contacto</div>
+              <div class="font-body text-sm text-navy-deep">Julio Ventura</div>
+            </div>
+            <div>
+              <div class="font-body text-[9px] tracking-[0.2em] uppercase text-navy/30 mb-1.5">Teléfono</div>
+              <a href="tel:+19056506822" class="nav-link font-body text-sm text-navy-deep hover:text-brand-red focus-visible:text-brand-red focus-visible:underline underline-offset-4">+1 (905) 650-6822</a>
+            </div>
+            <div>
+              <div class="font-body text-[9px] tracking-[0.2em] uppercase text-navy/30 mb-1.5">Correo</div>
+              <a href="mailto:info@truenorthexportsca.com" class="nav-link font-body text-sm text-navy-deep hover:text-brand-red focus-visible:text-brand-red focus-visible:underline underline-offset-4">info@truenorthexportsca.com</a>
+            </div>
+            <div>
+              <div class="font-body text-[9px] tracking-[0.2em] uppercase text-navy/30 mb-1.5">Ubicación</div>
+              <div class="font-body text-sm text-navy-deep">Panamá, Centroamérica</div>
+              <div class="font-body text-xs text-navy/40 mt-1">Producción: Canadá</div>
+            </div>
+          </div>
+          <div class="mt-10 pt-8 border-t border-navy/[0.06]">
+            <div class="font-body text-[9px] tracking-[0.2em] uppercase text-navy/30 mb-2">Horario</div>
+            <div class="font-body text-sm text-navy/60">Lun — Vie: 8:00 AM — 6:00 PM ET</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-navy-deep border-t border-white/[0.04] py-14 lg:py-18">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-3 gap-10 items-start mb-12">
+      <div>
+        <img src="brand_assets/logo.png" alt="True North Exports" class="w-28 mb-4">
+        <p class="font-body text-[13px] text-white/30 leading-relaxed max-w-[240px]">Exportadores canadienses de pintura de látex 100% reciclada.</p>
+      </div>
+      <div>
+        <h5 class="font-body text-[9px] tracking-[0.22em] uppercase text-white/25 font-500 mb-4">Navegación</h5>
+        <div class="flex flex-col gap-2.5">
+          <a href="#colores" class="nav-link font-body text-sm text-white/40 hover:text-white focus-visible:text-white">Colores</a>
+          <a href="#nosotros" class="nav-link font-body text-sm text-white/40 hover:text-white focus-visible:text-white">Nosotros</a>
+          <a href="#ventajas" class="nav-link font-body text-sm text-white/40 hover:text-white focus-visible:text-white">Ventajas</a>
+          <a href="#contacto" class="nav-link font-body text-sm text-white/40 hover:text-white focus-visible:text-white">Contacto</a>
+        </div>
+      </div>
+      <div>
+        <h5 class="font-body text-[9px] tracking-[0.22em] uppercase text-white/25 font-500 mb-4">Contacto</h5>
+        <div class="flex flex-col gap-2.5">
+          <a href="tel:+19056506822" class="nav-link font-body text-sm text-white/40 hover:text-white">+1 (905) 650-6822</a>
+          <a href="mailto:info@truenorthexportsca.com" class="nav-link font-body text-sm text-white/40 hover:text-white">info@truenorthexportsca.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-body text-[11px] text-white/20 tracking-wider">&copy; 2026 True North Exports. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-2">
+        <img src="brand_assets/maple-leaf.png" alt="" class="w-3 h-3 object-contain opacity-35">
+        <span class="font-body text-[10px] text-white/20 tracking-[0.15em] uppercase">Hecho en Canadá</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// ===== SCROLL REVEALS =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ===== PAINT DRIP ANIMATION =====
+const dripObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('dripped'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.paint-drip-bg').forEach(el => dripObserver.observe(el));
+
+// ===== COUNTER ANIMATION =====
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 2200;
+  let start = null;
+  const step = (ts) => {
+    if (!start) start = ts;
+    const progress = Math.min((ts - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+    el.textContent = Math.floor(eased * target) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.counted) {
+      e.target.dataset.counted = 'true';
+      animateCounter(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+// ===== COLOR SHOWCASE INTERACTION =====
+const showcase = document.querySelector('.color-showcase');
+const swatches = document.querySelectorAll('.swatch-btn');
+const detailName = document.getElementById('detail-name');
+const detailHex = document.getElementById('detail-hex');
+const detailSwatch = document.getElementById('detail-swatch');
+const detailTotes = document.getElementById('detail-totes');
+const detailPanel = document.getElementById('color-detail');
+
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1,3), 16);
+  const g = parseInt(hex.slice(3,5), 16);
+  const b = parseInt(hex.slice(5,7), 16);
+  return [r, g, b];
+}
+
+function getLuminance(hex) {
+  const [r, g, b] = hexToRgb(hex);
+  return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+}
+
+swatches.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const color = btn.dataset.color;
+    const name = btn.dataset.name;
+    const totes = btn.dataset.totes;
+    const lum = getLuminance(color);
+    const textColor = lum > 0.55 ? '#0F2440' : '#F5F0E8';
+
+    // Update section
+    showcase.style.setProperty('--showcase-bg', color);
+    showcase.style.setProperty('--showcase-text', textColor);
+
+    // Update detail panel
+    detailName.textContent = name;
+    detailHex.textContent = color.toUpperCase();
+    detailSwatch.style.background = color;
+    detailTotes.textContent = '| ' + totes + ' totes';
+    detailPanel.style.opacity = '1';
+
+    // Update active state
+    swatches.forEach(s => s.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
