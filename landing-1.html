@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True North Exports — Pintura Reciclada al Por Mayor</title>
+<meta name="description" content="Exportadores canadienses de pintura de látex 100% reciclada. Calidad premium, precios al por mayor para Panamá y Latinoamérica.">
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy: { DEFAULT: '#1B3A5C', deep: '#0F2440', light: '#2A5580' },
+        brand: { red: '#C41E2A', 'red-light': '#E8323E', cream: '#F5F0E8', 'cream-dark': '#E8E0D0', gold: '#C4A265', 'gold-light': '#D4B87A' },
+      },
+      fontFamily: {
+        display: ['Sora', 'sans-serif'],
+        body: ['"Source Serif 4"', 'serif'],
+      },
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Source Serif 4', serif; -webkit-font-smoothing: antialiased; }
+
+  body::after {
+    content: ''; position: fixed; inset: 0; z-index: 9998; pointer-events: none; opacity: 0.018;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px;
+  }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .swatch-card { transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1); }
+  .swatch-card:hover { transform: translateY(-6px) scale(1.03); }
+
+  .btn-primary { transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s ease, box-shadow 0.25s ease; }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-primary:active { transform: translateY(0) scale(0.98); }
+
+  .nav-link { transition: color 0.2s ease, opacity 0.2s ease; }
+
+  .feature-card { transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease; }
+  .feature-card:hover { transform: translateY(-4px); }
+
+  .step-connector { background: linear-gradient(to right, #C41E2A, #C4A265); }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0F2440; }
+  ::-webkit-scrollbar-thumb { background: #1B3A5C; border-radius: 3px; }
+
+  input:focus, textarea:focus { outline: none; box-shadow: 0 0 0 2px rgba(196,30,42,0.3); border-color: #C41E2A; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body class="bg-brand-cream text-navy-deep">
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-navy-deep/95 backdrop-blur-md border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16 lg:h-[72px]">
+    <a href="#" class="flex items-center gap-3">
+      <img src="brand_assets/logo.png" alt="True North Exports" class="h-10 lg:h-12 w-auto">
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#nosotros" class="nav-link font-display text-xs tracking-widest uppercase text-white/60 hover:text-white focus-visible:text-white focus-visible:underline underline-offset-4">Nosotros</a>
+      <a href="#productos" class="nav-link font-display text-xs tracking-widest uppercase text-white/60 hover:text-white focus-visible:text-white focus-visible:underline underline-offset-4">Productos</a>
+      <a href="#ventajas" class="nav-link font-display text-xs tracking-widest uppercase text-white/60 hover:text-white focus-visible:text-white focus-visible:underline underline-offset-4">Ventajas</a>
+      <a href="#contacto" class="btn-primary inline-flex items-center gap-2 px-5 py-2.5 bg-brand-red text-white font-display text-xs tracking-wider uppercase rounded-md hover:opacity-90 focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep" style="box-shadow: 0 4px 14px rgba(196,30,42,0.3);">
+        Cotización
+      </a>
+    </div>
+    <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-white/70 hover:text-white p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-red">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-navy-deep border-t border-white/5 px-6 pb-5 pt-3 flex flex-col gap-3">
+    <a href="#nosotros" class="nav-link font-display text-sm text-white/60 hover:text-white py-2">Sobre Nosotros</a>
+    <a href="#productos" class="nav-link font-display text-sm text-white/60 hover:text-white py-2">Productos</a>
+    <a href="#ventajas" class="nav-link font-display text-sm text-white/60 hover:text-white py-2">Ventajas</a>
+    <a href="#contacto" class="btn-primary inline-flex items-center justify-center px-5 py-2.5 bg-brand-red text-white font-display text-sm rounded-md mt-2">Solicitar Cotización</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="relative min-h-screen flex items-center bg-navy-deep overflow-hidden">
+  <img src="brand_assets/maple-leaf.png" alt="" class="absolute right-[-8%] top-[10%] w-[55vw] max-w-[700px] opacity-[0.04] pointer-events-none select-none" aria-hidden="true">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(196,30,42,0.08) 0%, transparent 60%);"></div>
+  <div class="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(27,58,92,0.3) 0%, transparent 60%);"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-32 pb-20 lg:pt-36 lg:pb-28">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 mb-8" style="animation: fadeDown 0.7s ease-out;">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse"></span>
+        <span class="font-display text-[10px] tracking-[0.2em] uppercase text-white/40">Exportadores Canadienses de Pintura</span>
+      </div>
+
+      <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.05] tracking-tight mb-6" style="animation: fadeUp 0.7s ease-out 0.15s both;">
+        Pintura Reciclada de<br>
+        <span class="text-brand-red">Calidad Canadiense</span>
+      </h1>
+
+      <p class="font-body text-lg lg:text-xl text-white/50 leading-relaxed max-w-xl mb-10" style="animation: fadeUp 0.7s ease-out 0.3s both;">
+        Pintura de látex 100% reciclada, exportada desde Canadá a Panamá y toda Latinoamérica. Precios al por mayor, calidad premium, compromiso ambiental.
+      </p>
+
+      <div class="flex flex-wrap gap-4" style="animation: fadeUp 0.7s ease-out 0.45s both;">
+        <a href="#contacto" class="btn-primary inline-flex items-center gap-3 px-7 py-4 bg-brand-red text-white font-display font-semibold text-sm tracking-wider uppercase rounded-lg focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2 focus-visible:ring-offset-navy-deep" style="box-shadow: 0 6px 20px rgba(196,30,42,0.35);">
+          Solicitar Cotización
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 9h8m-3-3 3 3-3 3"/></svg>
+        </a>
+        <a href="#productos" class="btn-primary inline-flex items-center gap-3 px-7 py-4 border border-white/15 text-white/70 font-display font-medium text-sm tracking-wider uppercase rounded-lg hover:text-white hover:border-white/30 focus-visible:ring-2 focus-visible:ring-white/30">
+          Ver Colores
+        </a>
+      </div>
+
+      <div class="flex flex-wrap gap-10 mt-16 pt-10 border-t border-white/[0.08]" style="animation: fadeUp 0.7s ease-out 0.6s both;">
+        <div>
+          <div class="font-display font-bold text-3xl text-white">17+</div>
+          <div class="font-display text-[10px] tracking-[0.15em] uppercase text-white/35 mt-1">Colores Disponibles</div>
+        </div>
+        <div>
+          <div class="font-display font-bold text-3xl text-white">100%</div>
+          <div class="font-display text-[10px] tracking-[0.15em] uppercase text-white/35 mt-1">Reciclada</div>
+        </div>
+        <div>
+          <div class="font-display font-bold text-3xl text-white">CAN</div>
+          <div class="font-display text-[10px] tracking-[0.15em] uppercase text-white/35 mt-1">Calidad Canadiense</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
+    <span class="font-display text-[9px] tracking-[0.2em] uppercase text-white/50">Scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-white/40 to-transparent"></div>
+  </div>
+</section>
+
+<!-- ============ SOBRE NOSOTROS ============ -->
+<section id="nosotros" class="py-24 lg:py-32 bg-brand-cream relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+      <div class="reveal">
+        <span class="font-display text-[11px] tracking-[0.2em] uppercase text-brand-red font-medium flex items-center gap-3 mb-5">
+          <span class="w-7 h-px bg-brand-red"></span>Sobre Nosotros
+        </span>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-navy-deep tracking-tight leading-tight mb-6">
+          Compromiso Ambiental,<br>Calidad sin Compromiso
+        </h2>
+        <p class="font-body text-base lg:text-lg text-navy/70 leading-[1.7] mb-6">
+          True North Exports nace de la convicción de que la pintura de calidad no tiene que dañar el planeta. Recolectamos y reciclamos pintura de látex en Canadá, transformándola en productos premium que exportamos a Panamá y toda Latinoamérica.
+        </p>
+        <p class="font-body text-base lg:text-lg text-navy/70 leading-[1.7] mb-8">
+          Cada litro de nuestra pintura es 100% reciclado, reduciendo residuos y ofreciendo a nuestros clientes una alternativa sustentable sin sacrificar rendimiento ni durabilidad.
+        </p>
+        <div class="flex flex-wrap gap-6">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-navy-deep/5 flex items-center justify-center">
+              <svg width="20" height="20" fill="none" stroke="#C41E2A" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><path d="M7 10l2 2 4-4"/></svg>
+            </div>
+            <span class="font-display text-xs tracking-wide text-navy-deep/70 uppercase">Certificada</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-navy-deep/5 flex items-center justify-center">
+              <svg width="20" height="20" fill="none" stroke="#C41E2A" stroke-width="1.5"><path d="M10 2v16M2 10h16"/><circle cx="10" cy="10" r="8"/></svg>
+            </div>
+            <span class="font-display text-xs tracking-wide text-navy-deep/70 uppercase">Sustentable</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-navy-deep/5 flex items-center justify-center">
+              <img src="brand_assets/maple-leaf.png" alt="" class="w-4 h-4 object-contain">
+            </div>
+            <span class="font-display text-xs tracking-wide text-navy-deep/70 uppercase">Canadiense</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal flex justify-center lg:justify-end" style="transition-delay: 0.15s;">
+        <div class="relative">
+          <div class="w-72 h-72 lg:w-80 lg:h-80 rounded-2xl bg-navy-deep flex items-center justify-center relative overflow-hidden" style="box-shadow: 0 20px 60px rgba(15,36,64,0.25), 0 4px 12px rgba(15,36,64,0.15);">
+            <img src="brand_assets/maple-leaf.png" alt="" class="absolute inset-0 w-full h-full object-contain opacity-[0.06] scale-110 p-8">
+            <img src="brand_assets/logo.png" alt="True North Exports" class="relative z-10 w-44 lg:w-52 h-auto">
+          </div>
+          <div class="absolute -bottom-3 -right-3 w-16 h-16 rounded-lg bg-brand-red/10"></div>
+          <div class="absolute -top-3 -left-3 w-10 h-10 rounded-md bg-brand-gold/15"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTOS ============ -->
+<section id="productos" class="py-24 lg:py-32 bg-white relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16 reveal">
+      <span class="font-display text-[11px] tracking-[0.2em] uppercase text-brand-red font-medium flex items-center justify-center gap-3 mb-5">
+        <span class="w-7 h-px bg-brand-red"></span>Nuestros Productos<span class="w-7 h-px bg-brand-red"></span>
+      </span>
+      <h2 class="font-display font-bold text-3xl lg:text-4xl text-navy-deep tracking-tight mb-4">
+        Pintura de Látex 100% Reciclada
+      </h2>
+      <p class="font-body text-base lg:text-lg text-navy/50 max-w-xl mx-auto leading-relaxed">
+        Disponible en más de 17 colores, en presentaciones al por mayor. Disponibilidad por contenedores y totes.
+      </p>
+    </div>
+
+    <!-- Standard Colors -->
+    <div class="mb-14 reveal" style="transition-delay: 0.1s;">
+      <h3 class="font-display font-semibold text-lg text-navy-deep mb-6 flex items-center gap-3">
+        <span class="w-5 h-px bg-navy-deep/20"></span>
+        Colores Estándar
+        <span class="font-display text-[10px] tracking-wider text-navy/40 font-normal ml-2">12 COLORES</span>
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(75,83,32,0.1), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#4B5320;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Army Green</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#4B5320</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(138,154,91,0.12), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#8A9A5B;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Sage Green</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#8A9A5B</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(123,63,0,0.12), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#7B3F00;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Chocolate</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#7B3F00</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(200,173,127,0.15), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#C8AD7F;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Latte</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#C8AD7F</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(255,183,197,0.18), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#FFB7C5;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Cotton Candy</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#FFB7C5</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(196,196,196,0.15), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#C4C4C4;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Light Grey</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#C4C4C4</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(128,128,128,0.12), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#808080;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Grey Thunder</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#808080</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(0,128,128,0.12), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#008080;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Teal</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#008080</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(106,13,145,0.1), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#6A0D91;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Midnight Orchid</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#6A0D91</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(200,162,200,0.15), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#C8A2C8;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Bashful Lilac</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#C8A2C8</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(27,58,92,0.12), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#1B3A5C;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Navy Blue</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#1B3A5C</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer" style="box-shadow: 0 4px 16px rgba(135,206,235,0.15), 0 1px 3px rgba(0,0,0,0.06);"><div class="h-24 lg:h-28" style="background:#87CEEB;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Sky Blue</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#87CEEB</div></div></div>
+      </div>
+    </div>
+
+    <!-- Premium Colors -->
+    <div class="reveal" style="transition-delay: 0.2s;">
+      <h3 class="font-display font-semibold text-lg text-navy-deep mb-6 flex items-center gap-3">
+        <span class="w-5 h-px bg-brand-gold"></span>
+        Colores Premium
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-gold/10 ml-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+          <span class="font-display text-[9px] tracking-wider text-brand-gold font-medium uppercase">Disponibilidad Limitada</span>
+        </span>
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer relative" style="box-shadow: 0 4px 16px rgba(124,10,2,0.1), 0 1px 3px rgba(0,0,0,0.06);"><div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-gold"></div><div class="h-24 lg:h-28" style="background:#7C0A02;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Barn Red</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#7C0A02</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer relative" style="box-shadow: 0 4px 16px rgba(240,237,229,0.15), 0 1px 3px rgba(0,0,0,0.06);"><div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-gold"></div><div class="h-24 lg:h-28 border-b border-brand-cream-dark/30" style="background:#F0EDE5;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Dove White</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#F0EDE5</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer relative" style="box-shadow: 0 4px 16px rgba(250,240,230,0.15), 0 1px 3px rgba(0,0,0,0.06);"><div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-gold"></div><div class="h-24 lg:h-28 border-b border-brand-cream-dark/30" style="background:#FAF0E6;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Linen</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#FAF0E6</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer relative" style="box-shadow: 0 4px 16px rgba(255,218,3,0.15), 0 1px 3px rgba(0,0,0,0.06);"><div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-gold"></div><div class="h-24 lg:h-28" style="background:#FFDA03;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Sunshine Yellow</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#FFDA03</div></div></div>
+
+        <div class="swatch-card rounded-xl overflow-hidden bg-brand-cream cursor-pointer relative" style="box-shadow: 0 4px 16px rgba(255,218,185,0.18), 0 1px 3px rgba(0,0,0,0.06);"><div class="absolute top-2 right-2 w-2 h-2 rounded-full bg-brand-gold"></div><div class="h-24 lg:h-28" style="background:#FFDAB9;"></div><div class="px-3 py-3"><div class="font-display text-[11px] font-medium text-navy-deep tracking-wide">Peach</div><div class="font-display text-[9px] text-navy/30 tracking-wider mt-0.5">#FFDAB9</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POR QUÉ ELEGIRNOS ============ -->
+<section id="ventajas" class="py-24 lg:py-32 bg-brand-cream relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16 reveal">
+      <span class="font-display text-[11px] tracking-[0.2em] uppercase text-brand-red font-medium flex items-center justify-center gap-3 mb-5">
+        <span class="w-7 h-px bg-brand-red"></span>Ventajas<span class="w-7 h-px bg-brand-red"></span>
+      </span>
+      <h2 class="font-display font-bold text-3xl lg:text-4xl text-navy-deep tracking-tight mb-4">¿Por Qué Elegirnos?</h2>
+      <p class="font-body text-base lg:text-lg text-navy/50 max-w-lg mx-auto leading-relaxed">Combinamos sustentabilidad, calidad canadiense y precios competitivos para el mercado latinoamericano.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal" style="transition-delay: 0.1s;">
+      <div class="feature-card bg-white rounded-2xl p-7" style="box-shadow: 0 4px 20px rgba(15,36,64,0.06), 0 1px 4px rgba(0,0,0,0.04);">
+        <div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center mb-5">
+          <svg width="24" height="24" fill="none" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-5"/></svg>
+        </div>
+        <h4 class="font-display font-semibold text-base text-navy-deep mb-2">100% Eco-Friendly</h4>
+        <p class="font-body text-sm text-navy/50 leading-relaxed">Pintura completamente reciclada. Cada compra reduce residuos industriales y protege el medio ambiente.</p>
+      </div>
+      <div class="feature-card bg-white rounded-2xl p-7" style="box-shadow: 0 4px 20px rgba(15,36,64,0.06), 0 1px 4px rgba(0,0,0,0.04);">
+        <div class="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-5">
+          <img src="brand_assets/maple-leaf.png" alt="" class="w-5 h-5 object-contain">
+        </div>
+        <h4 class="font-display font-semibold text-base text-navy-deep mb-2">Calidad Canadiense</h4>
+        <p class="font-body text-sm text-navy/50 leading-relaxed">Producida bajo estrictos estándares canadienses de calidad. Durabilidad y cobertura garantizadas.</p>
+      </div>
+      <div class="feature-card bg-white rounded-2xl p-7" style="box-shadow: 0 4px 20px rgba(15,36,64,0.06), 0 1px 4px rgba(0,0,0,0.04);">
+        <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center mb-5">
+          <svg width="24" height="24" fill="none" stroke="#d97706" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg>
+        </div>
+        <h4 class="font-display font-semibold text-base text-navy-deep mb-2">Precios al Por Mayor</h4>
+        <p class="font-body text-sm text-navy/50 leading-relaxed">Precios competitivos diseñados para distribuidores y negocios. Descuentos por volumen disponibles.</p>
+      </div>
+      <div class="feature-card bg-white rounded-2xl p-7" style="box-shadow: 0 4px 20px rgba(15,36,64,0.06), 0 1px 4px rgba(0,0,0,0.04);">
+        <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5">
+          <svg width="24" height="24" fill="none" stroke="#2563eb" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h4 class="font-display font-semibold text-base text-navy-deep mb-2">Envío Internacional</h4>
+        <p class="font-body text-sm text-navy/50 leading-relaxed">Logística completa de exportación desde Canadá a Panamá y toda Latinoamérica. Contenedores y totes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESO ============ -->
+<section class="py-24 lg:py-32 bg-navy-deep relative overflow-hidden">
+  <img src="brand_assets/maple-leaf.png" alt="" class="absolute left-[-5%] bottom-[-10%] w-[40vw] max-w-[400px] opacity-[0.03] pointer-events-none select-none" aria-hidden="true">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+    <div class="text-center mb-16 reveal">
+      <span class="font-display text-[11px] tracking-[0.2em] uppercase text-brand-red font-medium flex items-center justify-center gap-3 mb-5">
+        <span class="w-7 h-px bg-brand-red"></span>Cómo Funciona<span class="w-7 h-px bg-brand-red"></span>
+      </span>
+      <h2 class="font-display font-bold text-3xl lg:text-4xl text-white tracking-tight mb-4">Proceso de Exportación</h2>
+      <p class="font-body text-base lg:text-lg text-white/40 max-w-lg mx-auto leading-relaxed">Tres pasos simples para recibir pintura reciclada de calidad canadiense en su negocio.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-12 reveal" style="transition-delay: 0.1s;">
+      <div class="text-center relative">
+        <div class="w-16 h-16 rounded-2xl bg-brand-red/10 flex items-center justify-center mx-auto mb-6 border border-brand-red/20">
+          <span class="font-display font-bold text-2xl text-brand-red">01</span>
+        </div>
+        <h4 class="font-display font-semibold text-lg text-white mb-3">Solicite Cotización</h4>
+        <p class="font-body text-sm text-white/40 leading-relaxed">Contáctenos con sus necesidades de color y volumen. Respondemos en menos de 24 horas con precios personalizados.</p>
+        <div class="hidden md:block absolute top-8 right-[-20%] w-[40%] h-px step-connector opacity-30"></div>
+      </div>
+      <div class="text-center relative">
+        <div class="w-16 h-16 rounded-2xl bg-brand-gold/10 flex items-center justify-center mx-auto mb-6 border border-brand-gold/20">
+          <span class="font-display font-bold text-2xl text-brand-gold">02</span>
+        </div>
+        <h4 class="font-display font-semibold text-lg text-white mb-3">Producción</h4>
+        <p class="font-body text-sm text-white/40 leading-relaxed">Preparamos su pedido en nuestras instalaciones canadienses. Control de calidad en cada lote de producción.</p>
+        <div class="hidden md:block absolute top-8 right-[-20%] w-[40%] h-px step-connector opacity-30"></div>
+      </div>
+      <div class="text-center">
+        <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-6 border border-white/10">
+          <span class="font-display font-bold text-2xl text-white/70">03</span>
+        </div>
+        <h4 class="font-display font-semibold text-lg text-white mb-3">Envío a Panamá</h4>
+        <p class="font-body text-sm text-white/40 leading-relaxed">Coordinamos el envío internacional completo. Contenedores sellados con documentación de exportación incluida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section id="contacto" class="py-24 lg:py-32 bg-brand-cream relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-14 lg:gap-20">
+      <div class="reveal">
+        <span class="font-display text-[11px] tracking-[0.2em] uppercase text-brand-red font-medium flex items-center gap-3 mb-5">
+          <span class="w-7 h-px bg-brand-red"></span>Contacto
+        </span>
+        <h2 class="font-display font-bold text-3xl lg:text-4xl text-navy-deep tracking-tight mb-4">Solicite su Cotización</h2>
+        <p class="font-body text-base text-navy/50 leading-relaxed mb-8">Cuéntenos sobre sus necesidades y le enviaremos una cotización personalizada en menos de 24 horas.</p>
+        <form class="space-y-5" onsubmit="event.preventDefault(); alert('¡Gracias! Nos pondremos en contacto pronto.');">
+          <div>
+            <label class="font-display text-[11px] tracking-wider uppercase text-navy/50 font-medium block mb-2">Nombre Completo</label>
+            <input type="text" required class="w-full px-4 py-3.5 bg-white border border-navy-deep/10 rounded-lg font-body text-sm text-navy-deep placeholder:text-navy/25" style="transition: border-color 0.2s ease, box-shadow 0.2s ease;" placeholder="Su nombre">
+          </div>
+          <div>
+            <label class="font-display text-[11px] tracking-wider uppercase text-navy/50 font-medium block mb-2">Correo Electrónico</label>
+            <input type="email" required class="w-full px-4 py-3.5 bg-white border border-navy-deep/10 rounded-lg font-body text-sm text-navy-deep placeholder:text-navy/25" style="transition: border-color 0.2s ease, box-shadow 0.2s ease;" placeholder="email@ejemplo.com">
+          </div>
+          <div>
+            <label class="font-display text-[11px] tracking-wider uppercase text-navy/50 font-medium block mb-2">Mensaje</label>
+            <textarea rows="4" required class="w-full px-4 py-3.5 bg-white border border-navy-deep/10 rounded-lg font-body text-sm text-navy-deep placeholder:text-navy/25 resize-none" style="transition: border-color 0.2s ease, box-shadow 0.2s ease;" placeholder="Cuéntenos sobre los colores y cantidades que necesita..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-brand-red text-white font-display font-semibold text-sm tracking-wider uppercase rounded-lg focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2" style="box-shadow: 0 6px 20px rgba(196,30,42,0.25);">
+            Enviar Mensaje
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 9h8m-3-3 3 3-3 3"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="reveal" style="transition-delay: 0.15s;">
+        <div class="bg-navy-deep rounded-2xl p-8 lg:p-10 relative overflow-hidden h-full" style="box-shadow: 0 20px 60px rgba(15,36,64,0.2);">
+          <img src="brand_assets/maple-leaf.png" alt="" class="absolute right-[-10%] bottom-[-10%] w-48 opacity-[0.04] pointer-events-none">
+          <img src="brand_assets/logo.png" alt="True North Exports" class="w-36 mb-8">
+          <div class="space-y-6">
+            <div>
+              <div class="font-display text-[10px] tracking-[0.15em] uppercase text-white/30 mb-2">Contacto</div>
+              <div class="font-display text-sm text-white/80">Julio Ventura</div>
+            </div>
+            <div>
+              <div class="font-display text-[10px] tracking-[0.15em] uppercase text-white/30 mb-2">Teléfono</div>
+              <a href="tel:+19056506822" class="font-display text-sm text-white/80 hover:text-white focus-visible:text-white focus-visible:underline" style="transition: color 0.2s ease;">+1 (905) 650-6822</a>
+            </div>
+            <div>
+              <div class="font-display text-[10px] tracking-[0.15em] uppercase text-white/30 mb-2">Correo</div>
+              <a href="mailto:info@truenorthexportsca.com" class="font-display text-sm text-white/80 hover:text-white focus-visible:text-white focus-visible:underline" style="transition: color 0.2s ease;">info@truenorthexportsca.com</a>
+            </div>
+            <div>
+              <div class="font-display text-[10px] tracking-[0.15em] uppercase text-white/30 mb-2">Ubicación</div>
+              <div class="font-display text-sm text-white/80">Panamá, Centroamérica</div>
+              <div class="font-display text-xs text-white/40 mt-1">Sede de producción: Canadá</div>
+            </div>
+          </div>
+          <div class="mt-10 pt-8 border-t border-white/[0.08]">
+            <div class="font-display text-[10px] tracking-[0.15em] uppercase text-white/30 mb-3">Horario</div>
+            <div class="font-display text-sm text-white/70">Lunes a Viernes: 8:00 AM — 6:00 PM</div>
+            <div class="font-display text-xs text-white/40 mt-1">Hora del Este (ET)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-navy-deep border-t border-white/5 py-14 lg:py-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-3 gap-10 items-start mb-12">
+      <div>
+        <img src="brand_assets/logo.png" alt="True North Exports" class="w-32 mb-5">
+        <p class="font-body text-sm text-white/35 leading-relaxed max-w-xs">Exportadores canadienses de pintura de látex 100% reciclada para el mercado latinoamericano.</p>
+      </div>
+      <div>
+        <h5 class="font-display text-[10px] tracking-[0.2em] uppercase text-white/30 font-medium mb-4">Navegación</h5>
+        <div class="flex flex-col gap-3">
+          <a href="#nosotros" class="font-display text-sm text-white/50 hover:text-white focus-visible:text-white focus-visible:underline" style="transition: color 0.2s ease;">Sobre Nosotros</a>
+          <a href="#productos" class="font-display text-sm text-white/50 hover:text-white focus-visible:text-white focus-visible:underline" style="transition: color 0.2s ease;">Productos</a>
+          <a href="#ventajas" class="font-display text-sm text-white/50 hover:text-white focus-visible:text-white focus-visible:underline" style="transition: color 0.2s ease;">Ventajas</a>
+          <a href="#contacto" class="font-display text-sm text-white/50 hover:text-white focus-visible:text-white focus-visible:underline" style="transition: color 0.2s ease;">Contacto</a>
+        </div>
+      </div>
+      <div>
+        <h5 class="font-display text-[10px] tracking-[0.2em] uppercase text-white/30 font-medium mb-4">Contacto</h5>
+        <div class="flex flex-col gap-3">
+          <a href="tel:+19056506822" class="font-display text-sm text-white/50 hover:text-white" style="transition: color 0.2s ease;">+1 (905) 650-6822</a>
+          <a href="mailto:info@truenorthexportsca.com" class="font-display text-sm text-white/50 hover:text-white" style="transition: color 0.2s ease;">info@truenorthexportsca.com</a>
+          <span class="font-display text-sm text-white/50">Panamá, Centroamérica</span>
+        </div>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="font-display text-[11px] text-white/25 tracking-wider">&copy; 2026 True North Exports. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-2">
+        <img src="brand_assets/maple-leaf.png" alt="" class="w-3.5 h-3.5 object-contain opacity-40">
+        <span class="font-display text-[10px] text-white/25 tracking-wider uppercase">Hecho en Canadá</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
