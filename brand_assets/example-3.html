@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True North Exports — Example 3: Canadian Maple Leaf Designs</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============ VARIABLES ============ */
+:root {
+  --navy: #1B3A5C;
+  --navy-deep: #0F2440;
+  --navy-light: #2A5580;
+  --red: #C41E2A;
+  --red-light: #E8323E;
+  --cream: #F5F0E8;
+  --cream-dark: #E8E0D0;
+  --gold: #C4A265;
+  --gold-light: #D4B87A;
+  --charcoal: #1A1A1F;
+  --slate: #2A2A32;
+  --slate-light: #3A3A44;
+  --white: #FFFFFF;
+  --text-muted: #8A8A96;
+  --card-w: 380px;
+  --card-h: 218px;
+}
+
+/* ============ RESET & BASE ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--charcoal);
+  color: var(--cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============ NOISE OVERLAY ============ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 3px; }
+
+/* ============ HERO SECTION ============ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 4rem 2rem;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(27,58,92,0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(196,30,42,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 1px solid var(--slate-light);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  animation: fadeDown 0.8s ease-out;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s ease-out 0.2s both;
+}
+
+.hero h1 span {
+  display: block;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--red);
+  -webkit-text-fill-color: var(--red);
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 500px;
+  line-height: 1.6;
+  animation: fadeUp 0.8s ease-out 0.4s both;
+}
+
+.hero-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--navy-light);
+  margin: 2rem auto;
+  animation: fadeUp 0.8s ease-out 0.5s both;
+}
+
+.hero-client {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  animation: fadeUp 0.8s ease-out 0.6s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ SECTIONS ============ */
+section {
+  padding: 6rem 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--red);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 4rem;
+  font-size: 0.95rem;
+}
+
+/* ============ COLOR PALETTE ============ */
+.palette-section {
+  padding: 5rem 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 2rem;
+}
+
+.palette-chip {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--slate);
+  transition: transform 0.3s ease;
+}
+.palette-chip:hover { transform: translateY(-4px); }
+
+.palette-color {
+  height: 100px;
+  position: relative;
+}
+
+.palette-info {
+  padding: 14px 16px;
+}
+
+.palette-name {
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.palette-hex {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ============ CARD DESIGNS ============ */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6rem;
+}
+
+.card-concept {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.card-concept:nth-child(even) { direction: rtl; }
+.card-concept:nth-child(even) > * { direction: ltr; }
+
+.card-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-info .card-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--red);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.card-info p {
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card-tags span {
+  padding: 4px 12px;
+  border: 1px solid var(--slate-light);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.card-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: -12px;
+}
+
+/* ============ BUSINESS CARD BASE ============ */
+.bcard {
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  flex-shrink: 0;
+}
+
+.bcard:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* ============ SVG LOGO COMPONENT ============ */
+.tne-logo {
+  display: inline-block;
+}
+
+/* ============ DESIGN 1 — MODERN PROFESSIONAL ============ */
+.d1-front {
+  background: var(--navy-deep);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+}
+
+.d1-front::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+.d1-front .logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.d1-front .company-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.2em;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.d1-front .company-sub {
+  font-size: 9px;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.d1-front .divider-line {
+  width: 40px;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  margin: 4px 0;
+}
+
+.d1-front .person-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+}
+
+.d1-back {
+  background: var(--white);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.d1-back::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+.d1-back .back-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.d1-back .back-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy-deep);
+  margin-bottom: 2px;
+}
+
+.d1-back .back-title {
+  font-size: 9px;
+  color: var(--red);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.d1-back .watermark {
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.04;
+}
+
+.d1-back .contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.d1-back .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 9.5px;
+  color: var(--navy);
+}
+
+.d1-back .contact-item .ci-icon {
+  width: 16px;
+  height: 16px;
+  background: var(--navy-deep);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.d1-back .contact-item .ci-icon svg {
+  width: 9px;
+  height: 9px;
+  fill: var(--white);
+}
+
+/* ============ DESIGN 2 — PAINT SWATCH ============ */
+.d2-front {
+  background: var(--cream);
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.d2-front .swatch-strip {
+  width: 85px;
+  display: flex;
+  flex-direction: column;
+}
+
+.d2-front .swatch-strip .sw {
+  flex: 1;
+  position: relative;
+}
+
+.d2-front .swatch-strip .sw:nth-child(1) { background: var(--navy-deep); }
+.d2-front .swatch-strip .sw:nth-child(2) { background: var(--navy); }
+.d2-front .swatch-strip .sw:nth-child(3) { background: var(--navy-light); }
+.d2-front .swatch-strip .sw:nth-child(4) { background: var(--red); }
+.d2-front .swatch-strip .sw:nth-child(5) { background: var(--red-light); }
+
+.d2-front .swatch-strip .sw-label {
+  position: absolute;
+  left: 8px;
+  bottom: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5.5px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.05em;
+}
+
+.d2-front .front-content {
+  flex: 1;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.d2-front .front-content .d2-company {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--navy-deep);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.d2-front .front-content .d2-exports {
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--red);
+}
+
+.d2-front .front-content .d2-tagline {
+  font-size: 8px;
+  color: #888;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.d2-back {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.d2-back .swatch-back {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+
+.d2-back .sb-left {
+  background: var(--navy-deep);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.d2-back .sb-left .sb-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--white);
+}
+
+.d2-back .sb-left .sb-title {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.d2-back .sb-left .sb-divider {
+  width: 24px;
+  height: 2px;
+  background: var(--red);
+}
+
+.d2-back .sb-right {
+  background: var(--cream);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.d2-back .sb-right .sb-item {
+  font-size: 8.5px;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.d2-back .sb-right .sb-item .dot {
+  width: 4px;
+  height: 4px;
+  background: var(--red);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ============ DESIGN 3 — PREMIUM EXECUTIVE ============ */
+.d3-front {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+  border: 1px solid var(--cream-dark);
+}
+
+.d3-front .gold-border {
+  position: absolute;
+  inset: 10px;
+  border: 0.5px solid var(--gold);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+.d3-front .d3-logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.d3-front .d3-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  letter-spacing: 0.15em;
+}
+
+.d3-front .d3-sub {
+  font-size: 8px;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.d3-back {
+  background: var(--cream);
+  padding: 30px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  border: 1px solid var(--cream-dark);
+}
+
+.d3-back .gold-border {
+  position: absolute;
+  inset: 10px;
+  border: 0.5px solid var(--gold);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+.d3-back .d3b-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy-deep);
+  margin-bottom: 2px;
+}
+
+.d3-back .d3b-title {
+  font-size: 8px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.d3-back .d3b-divider {
+  width: 30px;
+  height: 0.5px;
+  background: var(--gold);
+  margin-bottom: 18px;
+}
+
+.d3-back .d3b-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.d3-back .d3b-contact .d3b-item {
+  font-size: 9px;
+  color: var(--navy);
+  letter-spacing: 0.03em;
+}
+
+.d3-back .maple-pattern {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0.06;
+}
+
+/* ============ DESIGN 4 — BOLD INDUSTRIAL ============ */
+.d4-front {
+  background: var(--navy-deep);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.d4-front .d4-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.d4-front .d4-left {
+  width: 45%;
+  height: 100%;
+  background: var(--red);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+}
+
+.d4-front .d4-right {
+  flex: 1;
+  padding: 24px 20px 24px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.d4-front .d4-right .d4-company {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+}
+
+.d4-front .d4-right .d4-tagline {
+  font-size: 7.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 8px;
+}
+
+.d4-back {
+  background: var(--charcoal);
+  padding: 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.d4-back .d4-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.d4-back .d4b-stripe {
+  width: 5px;
+  background: var(--red);
+  flex-shrink: 0;
+}
+
+.d4-back .d4b-content {
+  flex: 1;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.d4-back .d4b-top .d4b-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.d4-back .d4b-top .d4b-title {
+  font-size: 8px;
+  color: var(--red);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.d4-back .d4b-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.d4-back .d4b-item {
+  font-size: 8px;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.d4-back .d4b-item strong {
+  font-size: 6.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  display: block;
+  margin-bottom: 1px;
+  font-weight: 500;
+}
+
+/* ============ DESIGN 5 — PAINT SPLASH ============ */
+.d5-front {
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.d5-front .splash-bg {
+  position: absolute;
+  top: -30px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,30,42,0.15) 0%, rgba(196,30,42,0.05) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.d5-front .splash-bg2 {
+  position: absolute;
+  bottom: -50px;
+  left: -30px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,58,92,0.12) 0%, rgba(27,58,92,0.04) 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.d5-front .d5-company {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+}
+
+.d5-front .d5-exports {
+  font-size: 9px;
+  letter-spacing: 0.4em;
+  color: var(--red);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.d5-back {
+  background: var(--navy-deep);
+  position: relative;
+  overflow: hidden;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.d5-back .drip-element {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  width: 3px;
+  height: 70px;
+  background: linear-gradient(to bottom, var(--red), var(--red-light), transparent);
+  border-radius: 0 0 3px 3px;
+}
+
+.d5-back .drip-element:nth-child(2) {
+  right: 55px;
+  height: 45px;
+  width: 2px;
+}
+
+.d5-back .drip-element:nth-child(3) {
+  right: 30px;
+  height: 30px;
+  width: 2px;
+  opacity: 0.6;
+}
+
+.d5-back .d5b-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--white);
+}
+
+.d5-back .d5b-title {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--red-light);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.d5-back .d5b-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.d5-back .d5b-contact .d5b-item {
+  font-size: 9px;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.d5-back .brush-stroke {
+  position: absolute;
+  bottom: -5px;
+  left: -10px;
+  width: 160px;
+  height: 40px;
+  opacity: 0.1;
+}
+
+/* ============ LOGO SECTION ============ */
+.logo-concepts {
+  padding: 6rem 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5rem;
+}
+
+.logo-concept {
+  background: var(--slate);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.logo-concept-header {
+  padding: 32px 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.logo-concept-header .lc-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--red);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.logo-concept-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.logo-concept-header p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.logo-variants {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  min-height: 200px;
+}
+
+.logo-variant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  position: relative;
+  gap: 16px;
+}
+
+.logo-variant:not(:last-child) {
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.logo-variant-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lv-light { background: var(--cream); }
+.lv-mono { background: var(--cream); }
+.lv-dark { background: var(--navy-deep); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .card-concept {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .card-concept:nth-child(even) { direction: ltr; }
+
+  .logo-variants {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-variant:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  :root {
+    --card-w: 320px;
+    --card-h: 184px;
+  }
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--slate);
+  margin-top: 4rem;
+}
+
+.footer p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+
+/* ============ SECTION DIVIDER ============ */
+.section-divider {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-divider hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--slate-light), transparent);
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-badge">Example 03 — Canadian Maple Leaf</div>
+  <h1>
+    <span>True North</span>
+    <em>Exports</em>
+  </h1>
+  <p class="hero-sub">A refined version featuring the iconic Canadian maple leaf in place of the star shape. Five business card concepts and five reimagined logo directions — all with authentic Canadian identity.</p>
+  <div class="hero-divider"></div>
+  <p class="hero-client">Prepared for Julio Ventura — March 2026</p>
+</header>
+
+<!-- ============ COLOR PALETTE ============ -->
+<section class="palette-section">
+  <div class="section-label">01 — Brand Foundation</div>
+  <h2 class="section-title">Color Palette</h2>
+  <p class="section-desc">The core palette draws from Canadian identity — deep navy authority, maple red energy, and warm cream grounding. Extended with gold for premium applications.</p>
+  <div class="palette-grid">
+    <div class="palette-chip">
+      <div class="palette-color" style="background: var(--navy-deep);"></div>
+      <div class="palette-info">
+        <div class="palette-name">Navy Deep</div>
+        <div class="palette-hex">#0F2440</div>
+      </div>
+    </div>
+    <div class="palette-chip">
+      <div class="palette-color" style="background: var(--navy);"></div>
+      <div class="palette-info">
+        <div class="palette-name">Primary Navy</div>
+        <div class="palette-hex">#1B3A5C</div>
+      </div>
+    </div>
+    <div class="palette-chip">
+      <div class="palette-color" style="background: var(--navy-light);"></div>
+      <div class="palette-info">
+        <div class="palette-name">Navy Light</div>
+        <div class="palette-hex">#2A5580</div>
+      </div>
+    </div>
+    <div class="palette-chip">
+      <div class="palette-color" style="background: var(--red);"></div>
+      <div class="palette-info">
+        <div class="palette-name">Maple Red</div>
+        <div class="palette-hex">#C41E2A</div>
+      </div>
+    </div>
+    <div class="palette-chip">
+      <div class="palette-color" style="background: var(--red-light);"></div>
+      <div class="palette-info">
+        <div class="palette-name">Red Light</div>
+        <div class="palette-hex">#E8323E</div>
+      </div>
+    </div>
+    <div class="palette-chip">
+      <div class="palette-color" style="background: var(--gold);"></div>
+      <div class="palette-info">
+        <div class="palette-name">Premium Gold</div>
+        <div class="palette-hex">#C4A265</div>
+      </div>
+    </div>
+    <div class="palette-chip">
+      <div class="palette-color" style="background: var(--cream);"></div>
+      <div class="palette-info">
+        <div class="palette-name" style="color: var(--navy);">Warm Cream</div>
+        <div class="palette-hex">#F5F0E8</div>
+      </div>
+    </div>
+    <div class="palette-chip">
+      <div class="palette-color" style="background: var(--charcoal);"></div>
+      <div class="palette-info">
+        <div class="palette-name">Charcoal</div>
+        <div class="palette-hex">#1A1A1F</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ BUSINESS CARDS ============ -->
+<section>
+  <div class="section-label">02 — Business Card Concepts</div>
+  <h2 class="section-title">Five Directions</h2>
+  <p class="section-desc">Each concept presents a distinct personality while maintaining the core brand identity. Cards shown at print-proportional scale with front and back.</p>
+
+  <div class="cards-grid">
+
+    <!-- ======= DESIGN 1: MODERN PROFESSIONAL ======= -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Concept 01</div>
+        <h3>Modern Professional</h3>
+        <p>Clean lines and confident restraint. The logo takes center stage on a deep navy field, with a razor-thin red accent line adding precision. The back flips to white with structured contact details and a ghosted compass watermark for brand continuity.</p>
+        <div class="card-tags">
+          <span>Minimal</span>
+          <span>Corporate</span>
+          <span>Versatile</span>
+        </div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard d1-front">
+          <div class="logo-area">
+            <svg width="52" height="52" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2.5"/>
+              <circle cx="50" cy="50" r="36" fill="none" stroke="white" stroke-width="2.5" stroke-dasharray="60 180" stroke-dashoffset="-30"/>
+              <!-- Compass points -->
+              <polygon points="50,12 46,42 50,38 54,42" fill="white" opacity="0.9"/>
+              <polygon points="50,88 46,58 50,62 54,58" fill="white" opacity="0.5"/>
+              <polygon points="12,50 42,46 38,50 42,54" fill="white" opacity="0.5"/>
+              <polygon points="88,50 58,46 62,50 58,54" fill="white" opacity="0.5"/>
+              <!-- Motion lines -->
+              <line x1="8" y1="38" x2="22" y2="38" stroke="white" stroke-width="1.5" opacity="0.4"/>
+              <line x1="4" y1="45" x2="20" y2="45" stroke="white" stroke-width="1.5" opacity="0.3"/>
+              <line x1="6" y1="52" x2="18" y2="52" stroke="white" stroke-width="1.5" opacity="0.25"/>
+              <!-- Maple leaf -->
+              <path d="M50,24 L52,30 L56,27 L54,33 L60,30 L57,36 L63,35 L58,40 L64,40 L58,44 L62,50 L56,47 L56,52 L53,48 L50,54 L47,48 L44,52 L44,47 L38,50 L42,44 L36,40 L42,40 L37,35 L43,36 L40,30 L46,33 L44,27 L48,30 Z" fill="#C41E2A"/>
+            </svg>
+            <div class="company-name">True North</div>
+            <div class="divider-line"></div>
+            <div class="company-sub">Exports</div>
+            <div class="person-name">Julio Ventura</div>
+          </div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard d1-back">
+          <svg class="watermark" width="140" height="140" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#1B3A5C" stroke-width="1.5"/>
+            <polygon points="50,12 46,42 50,38 54,42" fill="#1B3A5C"/>
+            <polygon points="50,88 46,58 50,62 54,58" fill="#1B3A5C"/>
+            <polygon points="12,50 42,46 38,50 42,54" fill="#1B3A5C"/>
+            <polygon points="88,50 58,46 62,50 58,54" fill="#1B3A5C"/>
+            <path d="M50,24 L52,30 L56,27 L54,33 L60,30 L57,36 L63,35 L58,40 L64,40 L58,44 L62,50 L56,47 L56,52 L53,48 L50,54 L47,48 L44,52 L44,47 L38,50 L42,44 L36,40 L42,40 L37,35 L43,36 L40,30 L46,33 L44,27 L48,30 Z" fill="#C41E2A"/>
+          </svg>
+          <div class="back-top">
+            <div>
+              <div class="back-name">Julio Ventura</div>
+              <div class="back-title">Wholesale Paint Supply</div>
+            </div>
+          </div>
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+              +1 (905) 650-6822
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+              info@truenorthexportsca.com
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+              Canada
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= DESIGN 2: PAINT SWATCH ======= -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Concept 02</div>
+        <h3>Paint Swatch</h3>
+        <p>Directly references the paint industry with a color swatch strip running down the left edge — each band a shade from the brand palette with tiny hex codes, like a professional paint chip. The back splits into a navy/cream panel for a bold two-tone contact layout.</p>
+        <div class="card-tags">
+          <span>Industry-Specific</span>
+          <span>Creative</span>
+          <span>Memorable</span>
+        </div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard d2-front">
+          <div class="swatch-strip">
+            <div class="sw"><span class="sw-label">0F2440</span></div>
+            <div class="sw"><span class="sw-label">1B3A5C</span></div>
+            <div class="sw"><span class="sw-label">2A5580</span></div>
+            <div class="sw"><span class="sw-label">C41E2A</span></div>
+            <div class="sw"><span class="sw-label">E8323E</span></div>
+          </div>
+          <div class="front-content">
+            <div>
+              <svg width="36" height="36" viewBox="0 0 100 100" style="margin-bottom: 8px;">
+                <circle cx="50" cy="50" r="36" fill="none" stroke="#1B3A5C" stroke-width="2.5"/>
+                <polygon points="50,12 46,42 50,38 54,42" fill="#1B3A5C"/>
+                <polygon points="50,88 46,58 50,62 54,58" fill="#1B3A5C" opacity="0.5"/>
+                <polygon points="12,50 42,46 38,50 42,54" fill="#1B3A5C" opacity="0.5"/>
+                <polygon points="88,50 58,46 62,50 58,54" fill="#1B3A5C" opacity="0.5"/>
+                <line x1="8" y1="38" x2="22" y2="38" stroke="#1B3A5C" stroke-width="1.5" opacity="0.4"/>
+                <line x1="4" y1="45" x2="20" y2="45" stroke="#1B3A5C" stroke-width="1.5" opacity="0.3"/>
+                <line x1="6" y1="52" x2="18" y2="52" stroke="#1B3A5C" stroke-width="1.5" opacity="0.2"/>
+                <path d="M50,24 L52,30 L56,27 L54,33 L60,30 L57,36 L63,35 L58,40 L64,40 L58,44 L62,50 L56,47 L56,52 L53,48 L50,54 L47,48 L44,52 L44,47 L38,50 L42,44 L36,40 L42,40 L37,35 L43,36 L40,30 L46,33 L44,27 L48,30 Z" fill="#C41E2A"/>
+              </svg>
+              <div class="d2-company">True North<br><span class="d2-exports">Exports</span></div>
+            </div>
+            <div class="d2-tagline">Wholesale Paint Supplier &bull; Canada</div>
+          </div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard d2-back">
+          <div class="swatch-back">
+            <div class="sb-left">
+              <div>
+                <div class="sb-name">Julio Ventura</div>
+                <div class="sb-title">Sales Director</div>
+              </div>
+              <div class="sb-divider"></div>
+              <svg width="28" height="28" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+                <polygon points="50,18 47,42 50,40 53,42" fill="rgba(255,255,255,0.4)"/>
+                <path d="M50,27 L52,32 L55,30 L54,34 L58,32 L56,37 L61,36 L57,40 L62,41 L57,44 L60,49 L55,47 L55,51 L53,48 L50,53 L47,48 L45,51 L45,47 L40,49 L43,44 L38,41 L43,40 L39,36 L44,37 L42,32 L46,34 L45,30 L48,32 Z" fill="#C41E2A" opacity="0.7"/>
+              </svg>
+            </div>
+            <div class="sb-right">
+              <div class="sb-item"><span class="dot"></span>+1 (905) 650-6822</div>
+              <div class="sb-item"><span class="dot"></span>info@truenorthexportsca.com</div>
+              <div class="sb-item"><span class="dot"></span>truenorthexportsca.com</div>
+              <div class="sb-item"><span class="dot"></span>Ontario, Canada</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= DESIGN 3: PREMIUM EXECUTIVE ======= -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Concept 03</div>
+        <h3>Premium Executive</h3>
+        <p>Understated luxury. Warm cream stock with a fine gold border inset suggesting foil stamping. Playfair Display serif typography and generous whitespace convey establishment and trust. A faint maple leaf pattern on the back adds subtle Canadian pride.</p>
+        <div class="card-tags">
+          <span>Luxury</span>
+          <span>Foil-Ready</span>
+          <span>Refined</span>
+        </div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard d3-front">
+          <div class="gold-border"></div>
+          <div class="d3-logo-area">
+            <svg width="48" height="48" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="36" fill="none" stroke="#C4A265" stroke-width="1.5"/>
+              <polygon points="50,14 47,42 50,39 53,42" fill="#1B3A5C" opacity="0.8"/>
+              <polygon points="50,86 47,58 50,61 53,58" fill="#1B3A5C" opacity="0.3"/>
+              <polygon points="14,50 42,47 39,50 42,53" fill="#1B3A5C" opacity="0.3"/>
+              <polygon points="86,50 58,47 61,50 58,53" fill="#1B3A5C" opacity="0.3"/>
+              <path d="M50,24 L52,30 L56,27 L54,33 L60,30 L57,36 L63,35 L58,40 L64,40 L58,44 L62,50 L56,47 L56,52 L53,48 L50,54 L47,48 L44,52 L44,47 L38,50 L42,44 L36,40 L42,40 L37,35 L43,36 L40,30 L46,33 L44,27 L48,30 Z" fill="#C41E2A" opacity="0.85"/>
+            </svg>
+            <div class="d3-name">True North</div>
+            <div class="d3-sub">Exports</div>
+          </div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard d3-back">
+          <div class="gold-border"></div>
+          <svg class="maple-pattern" width="80" height="80" viewBox="0 0 100 100" opacity="0.06">
+            <path d="M50,6 L53,16 L58,12 L56,20 L64,16 L60,24 L68,24 L62,30 L70,32 L62,36 L66,44 L58,40 L58,48 L54,44 L50,52 L46,44 L42,48 L42,40 L34,44 L38,36 L30,32 L38,30 L32,24 L40,24 L36,16 L44,20 L42,12 L47,16 Z" fill="#1B3A5C"/>
+            <path d="M80,58 L81,63 L84,61 L83,65 L87,63 L85,67 L89,67 L86,70 L90,71 L86,73 L88,77 L84,75 L84,78 L82,76 L80,80 L78,76 L76,78 L76,75 L72,77 L74,73 L70,71 L74,70 L71,67 L75,67 L73,63 L77,65 L76,61 L79,63 Z" fill="#1B3A5C"/>
+            <path d="M25,68 L26,73 L28,71 L27,75 L31,73 L29,77 L33,77 L30,80 L34,81 L30,83 L32,87 L28,85 L28,88 L27,86 L25,90 L23,86 L22,88 L22,85 L18,87 L20,83 L16,81 L20,80 L17,77 L21,77 L19,73 L23,75 L22,71 L24,73 Z" fill="#1B3A5C"/>
+          </svg>
+          <div>
+            <div class="d3b-name">Julio Ventura</div>
+            <div class="d3b-title">Wholesale Paint Supply</div>
+          </div>
+          <div class="d3b-divider"></div>
+          <div class="d3b-contact">
+            <div class="d3b-item">+1 (905) 650-6822</div>
+            <div class="d3b-item">info@truenorthexportsca.com</div>
+            <div class="d3b-item">Ontario, Canada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= DESIGN 4: BOLD INDUSTRIAL ======= -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Concept 04</div>
+        <h3>Bold Industrial</h3>
+        <p>Built for the trade floor. A dramatic diagonal red panel slices across deep navy, housing the logo mark. Subtle grid lines evoke technical drawings and shipping manifests. Heavy typography and a red racing stripe on the back reinforce the wholesale muscle of the brand.</p>
+        <div class="card-tags">
+          <span>Bold</span>
+          <span>B2B</span>
+          <span>High-Impact</span>
+        </div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard d4-front">
+          <div class="d4-grid-bg"></div>
+          <div class="d4-left">
+            <svg width="48" height="48" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="34" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+              <polygon points="50,14 47,42 50,39 53,42" fill="white" opacity="0.9"/>
+              <polygon points="50,86 47,58 50,61 53,58" fill="white" opacity="0.4"/>
+              <polygon points="14,50 42,47 39,50 42,53" fill="white" opacity="0.4"/>
+              <polygon points="86,50 58,47 61,50 58,53" fill="white" opacity="0.4"/>
+              <path d="M50,24 L52,30 L56,27 L54,33 L60,30 L57,36 L63,35 L58,40 L64,40 L58,44 L62,50 L56,47 L56,52 L53,48 L50,54 L47,48 L44,52 L44,47 L38,50 L42,44 L36,40 L42,40 L37,35 L43,36 L40,30 L46,33 L44,27 L48,30 Z" fill="white" opacity="0.95"/>
+            </svg>
+          </div>
+          <div class="d4-right">
+            <div class="d4-company">True<br>North<br>Exports</div>
+            <div class="d4-tagline">Wholesale Paint Supply &bull; Since Est.</div>
+          </div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard d4-back">
+          <div class="d4-grid-bg"></div>
+          <div class="d4b-stripe"></div>
+          <div class="d4b-content">
+            <div class="d4b-top">
+              <div class="d4b-name">Julio Ventura</div>
+              <div class="d4b-title">Sales &bull; Wholesale Paint</div>
+            </div>
+            <div class="d4b-bottom">
+              <div class="d4b-item">
+                <div><strong>Phone</strong>+1 (905) 650-6822</div>
+              </div>
+              <div class="d4b-item">
+                <div><strong>Email</strong>info@truenorthexportsca.com</div>
+              </div>
+              <div class="d4b-item">
+                <div><strong>Web</strong>truenorthexportsca.com</div>
+              </div>
+              <div class="d4b-item">
+                <div><strong>Location</strong>Ontario, Canada</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= DESIGN 5: PAINT SPLASH ======= -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Concept 05</div>
+        <h3>Creative Splash</h3>
+        <p>The most expressive option — soft radial paint blooms on white create an artistic atmosphere on the front. The back goes dark with paint drip elements cascading from the top edge, adding movement and personality. Perfect for making a lasting impression at trade shows.</p>
+        <div class="card-tags">
+          <span>Artistic</span>
+          <span>Expressive</span>
+          <span>Trade-Show Ready</span>
+        </div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard d5-front">
+          <div class="splash-bg"></div>
+          <div class="splash-bg2"></div>
+          <svg width="50" height="50" viewBox="0 0 100 100" style="position: relative; z-index: 1;">
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#1B3A5C" stroke-width="2"/>
+            <polygon points="50,12 46,42 50,38 54,42" fill="#1B3A5C"/>
+            <polygon points="50,88 46,58 50,62 54,58" fill="#1B3A5C" opacity="0.4"/>
+            <polygon points="12,50 42,46 38,50 42,54" fill="#1B3A5C" opacity="0.4"/>
+            <polygon points="88,50 58,46 62,50 58,54" fill="#1B3A5C" opacity="0.4"/>
+            <line x1="8" y1="38" x2="22" y2="38" stroke="#1B3A5C" stroke-width="1.5" opacity="0.3"/>
+            <line x1="4" y1="45" x2="20" y2="45" stroke="#1B3A5C" stroke-width="1.5" opacity="0.2"/>
+            <line x1="6" y1="52" x2="18" y2="52" stroke="#1B3A5C" stroke-width="1.5" opacity="0.15"/>
+            <path d="M50,24 L52,30 L56,27 L54,33 L60,30 L57,36 L63,35 L58,40 L64,40 L58,44 L62,50 L56,47 L56,52 L53,48 L50,54 L47,48 L44,52 L44,47 L38,50 L42,44 L36,40 L42,40 L37,35 L43,36 L40,30 L46,33 L44,27 L48,30 Z" fill="#C41E2A"/>
+          </svg>
+          <div class="d5-company">True North</div>
+          <div class="d5-exports">Exports</div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard d5-back">
+          <div class="drip-element"></div>
+          <div class="drip-element"></div>
+          <div class="drip-element"></div>
+          <svg class="brush-stroke" viewBox="0 0 200 50">
+            <path d="M0,40 Q30,10 60,35 T120,25 T180,38 Q190,40 200,35 L200,50 L0,50 Z" fill="rgba(196,30,42,0.3)"/>
+          </svg>
+          <div>
+            <div class="d5b-name">Julio Ventura</div>
+            <div class="d5b-title">Wholesale Paint Supply</div>
+          </div>
+          <div class="d5b-contact">
+            <div class="d5b-item">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              +1 (905) 650-6822
+            </div>
+            <div class="d5b-item">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              info@truenorthexportsca.com
+            </div>
+            <div class="d5b-item">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              Ontario, Canada
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============ LOGO CONCEPTS ============ -->
+<section class="logo-concepts">
+  <div class="section-label">03 — Logo Explorations</div>
+  <h2 class="section-title">Five Logo Directions</h2>
+  <p class="section-desc">From refined evolutions of the existing mark to entirely new concepts — each direction shown in full color, single-color, and reversed applications.</p>
+
+  <div class="logo-grid">
+
+    <!-- LOGO 1: REFINED ORIGINAL -->
+    <div class="logo-concept">
+      <div class="logo-concept-header">
+        <div class="lc-num">Logo Concept 01</div>
+        <h3>Refined Original</h3>
+        <p>A sharper, more balanced version of the existing compass-and-maple-leaf mark. Cleaner geometry, better-proportioned elements, and refined stroke weights give the logo a modern edge while honoring its origins.</p>
+      </div>
+      <div class="logo-variants">
+        <div class="logo-variant lv-light">
+          <span class="logo-variant-label">Full Color</span>
+          <svg width="120" height="140" viewBox="0 0 120 140">
+            <!-- Outer circle -->
+            <circle cx="60" cy="58" r="38" fill="none" stroke="#1B3A5C" stroke-width="3"/>
+            <!-- Motion lines -->
+            <line x1="10" y1="42" x2="26" y2="42" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+            <line x1="6" y1="50" x2="24" y2="50" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+            <line x1="8" y1="58" x2="22" y2="58" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" opacity="0.25"/>
+            <!-- Globe arcs -->
+            <ellipse cx="60" cy="58" rx="16" ry="36" fill="none" stroke="#1B3A5C" stroke-width="1.2" opacity="0.2"/>
+            <ellipse cx="60" cy="58" rx="36" ry="16" fill="none" stroke="#1B3A5C" stroke-width="1.2" opacity="0.2" clip-path="inset(0 0 0 50%)"/>
+            <!-- Compass N point -->
+            <polygon points="60,18 56,48 60,44 64,48" fill="#1B3A5C"/>
+            <!-- Compass S point -->
+            <polygon points="60,98 56,68 60,72 64,68" fill="#1B3A5C" opacity="0.4"/>
+            <!-- Compass W point -->
+            <polygon points="20,58 50,54 46,58 50,62" fill="#1B3A5C" opacity="0.4"/>
+            <!-- Compass E point -->
+            <polygon points="100,58 70,54 74,58 70,62" fill="#1B3A5C" opacity="0.4"/>
+            <!-- Maple Leaf -->
+            <path d="M60,28 L62,35 L67,32 L65,38 L72,35 L69,42 L76,41 L70,46 L77,47 L70,51 L74,58 L67,55 L67,60 L64,56 L60,63 L56,56 L53,60 L53,55 L46,58 L50,51 L43,47 L50,46 L44,41 L51,42 L48,35 L55,38 L53,32 L58,35 Z" fill="#C41E2A"/>
+            <!-- Text -->
+            <text x="60" y="112" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="12" fill="#1B3A5C" letter-spacing="0.15em">TRUE NORTH</text>
+            <text x="60" y="128" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="9" fill="#1B3A5C" letter-spacing="0.3em">EXPORTS</text>
+          </svg>
+        </div>
+        <div class="logo-variant lv-mono">
+          <span class="logo-variant-label">Single Color</span>
+          <svg width="120" height="140" viewBox="0 0 120 140">
+            <circle cx="60" cy="58" r="38" fill="none" stroke="#1B3A5C" stroke-width="3"/>
+            <line x1="10" y1="42" x2="26" y2="42" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+            <line x1="6" y1="50" x2="24" y2="50" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+            <line x1="8" y1="58" x2="22" y2="58" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round" opacity="0.25"/>
+            <polygon points="60,18 56,48 60,44 64,48" fill="#1B3A5C"/>
+            <polygon points="60,98 56,68 60,72 64,68" fill="#1B3A5C" opacity="0.4"/>
+            <polygon points="20,58 50,54 46,58 50,62" fill="#1B3A5C" opacity="0.4"/>
+            <polygon points="100,58 70,54 74,58 70,62" fill="#1B3A5C" opacity="0.4"/>
+            <path d="M60,28 L62,35 L67,32 L65,38 L72,35 L69,42 L76,41 L70,46 L77,47 L70,51 L74,58 L67,55 L67,60 L64,56 L60,63 L56,56 L53,60 L53,55 L46,58 L50,51 L43,47 L50,46 L44,41 L51,42 L48,35 L55,38 L53,32 L58,35 Z" fill="#1B3A5C"/>
+            <text x="60" y="112" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="12" fill="#1B3A5C" letter-spacing="0.15em">TRUE NORTH</text>
+            <text x="60" y="128" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="9" fill="#1B3A5C" letter-spacing="0.3em">EXPORTS</text>
+          </svg>
+        </div>
+        <div class="logo-variant lv-dark">
+          <span class="logo-variant-label" style="color: rgba(255,255,255,0.4);">Reversed</span>
+          <svg width="120" height="140" viewBox="0 0 120 140">
+            <circle cx="60" cy="58" r="38" fill="none" stroke="white" stroke-width="3"/>
+            <line x1="10" y1="42" x2="26" y2="42" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+            <line x1="6" y1="50" x2="24" y2="50" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.35"/>
+            <line x1="8" y1="58" x2="22" y2="58" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.25"/>
+            <polygon points="60,18 56,48 60,44 64,48" fill="white"/>
+            <polygon points="60,98 56,68 60,72 64,68" fill="white" opacity="0.4"/>
+            <polygon points="20,58 50,54 46,58 50,62" fill="white" opacity="0.4"/>
+            <polygon points="100,58 70,54 74,58 70,62" fill="white" opacity="0.4"/>
+            <path d="M60,28 L62,35 L67,32 L65,38 L72,35 L69,42 L76,41 L70,46 L77,47 L70,51 L74,58 L67,55 L67,60 L64,56 L60,63 L56,56 L53,60 L53,55 L46,58 L50,51 L43,47 L50,46 L44,41 L51,42 L48,35 L55,38 L53,32 L58,35 Z" fill="#C41E2A"/>
+            <text x="60" y="112" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="12" fill="white" letter-spacing="0.15em">TRUE NORTH</text>
+            <text x="60" y="128" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="9" fill="white" letter-spacing="0.3em">EXPORTS</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 2: MINIMAL MARK -->
+    <div class="logo-concept">
+      <div class="logo-concept-header">
+        <div class="lc-num">Logo Concept 02</div>
+        <h3>Minimal Mark</h3>
+        <p>Stripped down to the absolute essentials — a single geometric compass needle with an integrated maple leaf notch. Works at any size from favicon to billboard. The wordmark uses clean, spaced typography to complement the simplicity.</p>
+      </div>
+      <div class="logo-variants">
+        <div class="logo-variant lv-light">
+          <span class="logo-variant-label">Full Color</span>
+          <svg width="120" height="140" viewBox="0 0 120 140">
+            <!-- Simple circle -->
+            <circle cx="60" cy="55" r="32" fill="none" stroke="#1B3A5C" stroke-width="2.5"/>
+            <!-- Single compass needle — north -->
+            <polygon points="60,22 54,55 60,50 66,55" fill="#1B3A5C"/>
+            <!-- South (subtle) -->
+            <polygon points="60,88 56,60 60,64 64,60" fill="#1B3A5C" opacity="0.2"/>
+            <!-- Maple leaf cutout/accent — small, centered -->
+            <path d="M60,33 L62,38 L65,36 L64,40 L68,38 L66,42 L71,42 L67,45 L72,46 L67,49 L70,53 L65,51 L65,55 L63,52 L60,57 L57,52 L55,55 L55,51 L50,53 L53,49 L48,46 L53,45 L49,42 L54,42 L52,38 L56,40 L55,36 L58,38 Z" fill="#C41E2A"/>
+            <!-- Clean wordmark -->
+            <text x="60" y="106" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10" fill="#1B3A5C" letter-spacing="0.25em">TRUE NORTH</text>
+            <text x="60" y="120" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="300" font-size="8" fill="#1B3A5C" letter-spacing="0.45em">EXPORTS</text>
+          </svg>
+        </div>
+        <div class="logo-variant lv-mono">
+          <span class="logo-variant-label">Single Color</span>
+          <svg width="120" height="140" viewBox="0 0 120 140">
+            <circle cx="60" cy="55" r="32" fill="none" stroke="#1B3A5C" stroke-width="2.5"/>
+            <polygon points="60,22 54,55 60,50 66,55" fill="#1B3A5C"/>
+            <polygon points="60,88 56,60 60,64 64,60" fill="#1B3A5C" opacity="0.2"/>
+            <path d="M60,33 L62,38 L65,36 L64,40 L68,38 L66,42 L71,42 L67,45 L72,46 L67,49 L70,53 L65,51 L65,55 L63,52 L60,57 L57,52 L55,55 L55,51 L50,53 L53,49 L48,46 L53,45 L49,42 L54,42 L52,38 L56,40 L55,36 L58,38 Z" fill="#1B3A5C" opacity="0.7"/>
+            <text x="60" y="106" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10" fill="#1B3A5C" letter-spacing="0.25em">TRUE NORTH</text>
+            <text x="60" y="120" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="300" font-size="8" fill="#1B3A5C" letter-spacing="0.45em">EXPORTS</text>
+          </svg>
+        </div>
+        <div class="logo-variant lv-dark">
+          <span class="logo-variant-label" style="color: rgba(255,255,255,0.4);">Reversed</span>
+          <svg width="120" height="140" viewBox="0 0 120 140">
+            <circle cx="60" cy="55" r="32" fill="none" stroke="white" stroke-width="2.5"/>
+            <polygon points="60,22 54,55 60,50 66,55" fill="white"/>
+            <polygon points="60,88 56,60 60,64 64,60" fill="white" opacity="0.2"/>
+            <path d="M60,33 L62,38 L65,36 L64,40 L68,38 L66,42 L71,42 L67,45 L72,46 L67,49 L70,53 L65,51 L65,55 L63,52 L60,57 L57,52 L55,55 L55,51 L50,53 L53,49 L48,46 L53,45 L49,42 L54,42 L52,38 L56,40 L55,36 L58,38 Z" fill="#C41E2A"/>
+            <text x="60" y="106" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10" fill="white" letter-spacing="0.25em">TRUE NORTH</text>
+            <text x="60" y="120" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="300" font-size="8" fill="white" letter-spacing="0.45em">EXPORTS</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 3: PAINT INDUSTRY -->
+    <div class="logo-concept">
+      <div class="logo-concept-header">
+        <div class="lc-num">Logo Concept 03</div>
+        <h3>Paint Industry Integration</h3>
+        <p>A bold brush stroke sweeps upward to form both a compass needle pointing north and a stylized maple leaf shape. The paint connection is immediate and organic. A paint drip detail adds character while the circle grounds the composition.</p>
+      </div>
+      <div class="logo-variants">
+        <div class="logo-variant lv-light">
+          <span class="logo-variant-label">Full Color</span>
+          <svg width="140" height="150" viewBox="0 0 140 150">
+            <!-- Circle -->
+            <circle cx="70" cy="60" r="38" fill="none" stroke="#1B3A5C" stroke-width="2.5"/>
+            <!-- Brush stroke going upward (north) forming leaf shape -->
+            <path d="M62,90 C58,75 50,65 52,50 C54,38 60,28 70,22 C72,28 74,32 73,40 C72,48 68,55 70,60 C72,55 76,48 78,40 C80,32 78,28 70,22 C80,28 86,38 88,50 C90,65 82,75 78,90 C76,82 72,76 70,70 C68,76 64,82 62,90 Z" fill="#C41E2A"/>
+            <!-- Paint drip from bottom of circle -->
+            <path d="M70,98 L70,112 C70,116 66,118 66,114 C66,110 70,108 70,112" fill="none" stroke="#C41E2A" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="68" cy="116" r="3" fill="#C41E2A"/>
+            <!-- Small compass ticks -->
+            <line x1="70" y1="20" x2="70" y2="26" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round"/>
+            <line x1="110" y1="60" x2="104" y2="60" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round"/>
+            <line x1="30" y1="60" x2="36" y2="60" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round"/>
+            <!-- Text -->
+            <text x="70" y="132" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="11" fill="#1B3A5C" letter-spacing="0.12em">TRUE NORTH</text>
+            <text x="70" y="146" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="8" fill="#C41E2A" letter-spacing="0.35em">EXPORTS</text>
+          </svg>
+        </div>
+        <div class="logo-variant lv-mono">
+          <span class="logo-variant-label">Single Color</span>
+          <svg width="140" height="150" viewBox="0 0 140 150">
+            <circle cx="70" cy="60" r="38" fill="none" stroke="#1B3A5C" stroke-width="2.5"/>
+            <path d="M62,90 C58,75 50,65 52,50 C54,38 60,28 70,22 C72,28 74,32 73,40 C72,48 68,55 70,60 C72,55 76,48 78,40 C80,32 78,28 70,22 C80,28 86,38 88,50 C90,65 82,75 78,90 C76,82 72,76 70,70 C68,76 64,82 62,90 Z" fill="#1B3A5C"/>
+            <path d="M70,98 L70,112 C70,116 66,118 66,114 C66,110 70,108 70,112" fill="none" stroke="#1B3A5C" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="68" cy="116" r="3" fill="#1B3A5C"/>
+            <line x1="70" y1="20" x2="70" y2="26" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round"/>
+            <line x1="110" y1="60" x2="104" y2="60" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round"/>
+            <line x1="30" y1="60" x2="36" y2="60" stroke="#1B3A5C" stroke-width="2" stroke-linecap="round"/>
+            <text x="70" y="132" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="11" fill="#1B3A5C" letter-spacing="0.12em">TRUE NORTH</text>
+            <text x="70" y="146" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="8" fill="#1B3A5C" letter-spacing="0.35em">EXPORTS</text>
+          </svg>
+        </div>
+        <div class="logo-variant lv-dark">
+          <span class="logo-variant-label" style="color: rgba(255,255,255,0.4);">Reversed</span>
+          <svg width="140" height="150" viewBox="0 0 140 150">
+            <circle cx="70" cy="60" r="38" fill="none" stroke="white" stroke-width="2.5"/>
+            <path d="M62,90 C58,75 50,65 52,50 C54,38 60,28 70,22 C72,28 74,32 73,40 C72,48 68,55 70,60 C72,55 76,48 78,40 C80,32 78,28 70,22 C80,28 86,38 88,50 C90,65 82,75 78,90 C76,82 72,76 70,70 C68,76 64,82 62,90 Z" fill="#C41E2A"/>
+            <path d="M70,98 L70,112 C70,116 66,118 66,114 C66,110 70,108 70,112" fill="none" stroke="#C41E2A" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="68" cy="116" r="3" fill="#C41E2A"/>
+            <line x1="70" y1="20" x2="70" y2="26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <line x1="110" y1="60" x2="104" y2="60" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <line x1="30" y1="60" x2="36" y2="60" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <text x="70" y="132" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="11" fill="white" letter-spacing="0.12em">TRUE NORTH</text>
+            <text x="70" y="146" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="8" fill="#C41E2A" letter-spacing="0.35em">EXPORTS</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 4: TYPOGRAPHY-FORWARD -->
+    <div class="logo-concept">
+      <div class="logo-concept-header">
+        <div class="lc-num">Logo Concept 04</div>
+        <h3>Typography-Forward Monogram</h3>
+        <p>A bold "TNE" monogram where the N is formed by a compass needle pointing upward. The negative space between the T and E creates a subtle maple leaf silhouette. The full wordmark is stacked beneath for complete brand recognition. Strong, modern, and instantly identifiable.</p>
+      </div>
+      <div class="logo-variants">
+        <div class="logo-variant lv-light">
+          <span class="logo-variant-label">Full Color</span>
+          <svg width="160" height="140" viewBox="0 0 160 140">
+            <!-- TNE Monogram -->
+            <!-- T -->
+            <rect x="18" y="20" width="36" height="6" rx="1" fill="#1B3A5C"/>
+            <rect x="33" y="20" width="6" height="50" rx="1" fill="#1B3A5C"/>
+            <!-- N as compass needle -->
+            <polygon points="72,20 66,70 72,62 78,70" fill="#C41E2A"/>
+            <polygon points="72,20 78,70 72,62 66,70" fill="#1B3A5C" opacity="0.0"/>
+            <rect x="62" y="20" width="6" height="50" rx="1" fill="#1B3A5C"/>
+            <rect x="92" y="20" width="6" height="50" rx="1" fill="#1B3A5C"/>
+            <polygon points="62,20 98,62 98,70 62,28" fill="#1B3A5C" opacity="0.15"/>
+            <!-- Diagonal of N -->
+            <polygon points="64,20 96,64 96,70 64,26" fill="#1B3A5C"/>
+            <!-- E -->
+            <rect x="108" y="20" width="6" height="50" rx="1" fill="#1B3A5C"/>
+            <rect x="108" y="20" width="32" height="6" rx="1" fill="#1B3A5C"/>
+            <rect x="108" y="39" width="24" height="5" rx="1" fill="#C41E2A"/>
+            <rect x="108" y="64" width="32" height="6" rx="1" fill="#1B3A5C"/>
+            <!-- Small compass indicator above N -->
+            <circle cx="72" cy="14" r="3" fill="none" stroke="#C41E2A" stroke-width="1"/>
+            <circle cx="72" cy="14" r="1" fill="#C41E2A"/>
+            <!-- Full wordmark below -->
+            <text x="80" y="96" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10" fill="#1B3A5C" letter-spacing="0.2em">TRUE NORTH</text>
+            <text x="80" y="112" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="8" fill="#1B3A5C" letter-spacing="0.4em">EXPORTS</text>
+            <!-- Underline accent -->
+            <rect x="45" y="118" width="70" height="1.5" rx="0.75" fill="#C41E2A"/>
+          </svg>
+        </div>
+        <div class="logo-variant lv-mono">
+          <span class="logo-variant-label">Single Color</span>
+          <svg width="160" height="140" viewBox="0 0 160 140">
+            <rect x="18" y="20" width="36" height="6" rx="1" fill="#1B3A5C"/>
+            <rect x="33" y="20" width="6" height="50" rx="1" fill="#1B3A5C"/>
+            <polygon points="72,20 66,70 72,62 78,70" fill="#1B3A5C"/>
+            <rect x="62" y="20" width="6" height="50" rx="1" fill="#1B3A5C"/>
+            <rect x="92" y="20" width="6" height="50" rx="1" fill="#1B3A5C"/>
+            <polygon points="64,20 96,64 96,70 64,26" fill="#1B3A5C"/>
+            <rect x="108" y="20" width="6" height="50" rx="1" fill="#1B3A5C"/>
+            <rect x="108" y="20" width="32" height="6" rx="1" fill="#1B3A5C"/>
+            <rect x="108" y="39" width="24" height="5" rx="1" fill="#1B3A5C" opacity="0.6"/>
+            <rect x="108" y="64" width="32" height="6" rx="1" fill="#1B3A5C"/>
+            <circle cx="72" cy="14" r="3" fill="none" stroke="#1B3A5C" stroke-width="1"/>
+            <circle cx="72" cy="14" r="1" fill="#1B3A5C"/>
+            <text x="80" y="96" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10" fill="#1B3A5C" letter-spacing="0.2em">TRUE NORTH</text>
+            <text x="80" y="112" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="8" fill="#1B3A5C" letter-spacing="0.4em">EXPORTS</text>
+            <rect x="45" y="118" width="70" height="1.5" rx="0.75" fill="#1B3A5C"/>
+          </svg>
+        </div>
+        <div class="logo-variant lv-dark">
+          <span class="logo-variant-label" style="color: rgba(255,255,255,0.4);">Reversed</span>
+          <svg width="160" height="140" viewBox="0 0 160 140">
+            <rect x="18" y="20" width="36" height="6" rx="1" fill="white"/>
+            <rect x="33" y="20" width="6" height="50" rx="1" fill="white"/>
+            <polygon points="72,20 66,70 72,62 78,70" fill="#C41E2A"/>
+            <rect x="62" y="20" width="6" height="50" rx="1" fill="white"/>
+            <rect x="92" y="20" width="6" height="50" rx="1" fill="white"/>
+            <polygon points="64,20 96,64 96,70 64,26" fill="white"/>
+            <rect x="108" y="20" width="6" height="50" rx="1" fill="white"/>
+            <rect x="108" y="20" width="32" height="6" rx="1" fill="white"/>
+            <rect x="108" y="39" width="24" height="5" rx="1" fill="#C41E2A"/>
+            <rect x="108" y="64" width="32" height="6" rx="1" fill="white"/>
+            <circle cx="72" cy="14" r="3" fill="none" stroke="#C41E2A" stroke-width="1"/>
+            <circle cx="72" cy="14" r="1" fill="#C41E2A"/>
+            <text x="80" y="96" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="10" fill="white" letter-spacing="0.2em">TRUE NORTH</text>
+            <text x="80" y="112" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="400" font-size="8" fill="white" letter-spacing="0.4em">EXPORTS</text>
+            <rect x="45" y="118" width="70" height="1.5" rx="0.75" fill="#C41E2A"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 5: SHIELD / BADGE -->
+    <div class="logo-concept">
+      <div class="logo-concept-header">
+        <div class="lc-num">Logo Concept 05</div>
+        <h3>Heritage Shield</h3>
+        <p>A classic badge/crest format that conveys trust, quality, and establishment — critical for a wholesale supplier where relationships are everything. The shield shape contains a compass, maple leaf, and a subtle paint roller silhouette. "Est." dating adds legitimacy.</p>
+      </div>
+      <div class="logo-variants">
+        <div class="logo-variant lv-light">
+          <span class="logo-variant-label">Full Color</span>
+          <svg width="120" height="155" viewBox="0 0 120 155">
+            <!-- Shield shape -->
+            <path d="M60,8 L105,25 L105,75 C105,105 60,135 60,135 C60,135 15,105 15,75 L15,25 Z" fill="none" stroke="#1B3A5C" stroke-width="3"/>
+            <path d="M60,14 L100,29 L100,74 C100,100 60,128 60,128 C60,128 20,100 20,74 L20,29 Z" fill="none" stroke="#1B3A5C" stroke-width="1" opacity="0.3"/>
+            <!-- Inner content -->
+            <!-- Mini compass -->
+            <circle cx="60" cy="55" r="22" fill="none" stroke="#1B3A5C" stroke-width="1.5"/>
+            <polygon points="60,32 57,52 60,49 63,52" fill="#1B3A5C" opacity="0.8"/>
+            <polygon points="60,78 57,58 60,61 63,58" fill="#1B3A5C" opacity="0.3"/>
+            <polygon points="37,55 57,53 54,55 57,57" fill="#1B3A5C" opacity="0.3"/>
+            <polygon points="83,55 63,53 66,55 63,57" fill="#1B3A5C" opacity="0.3"/>
+            <!-- Maple leaf center -->
+            <path d="M60,38 L61,42 L63,41 L62.5,44 L65.5,42.5 L64,45.5 L67,45 L64.5,47.5 L68,48 L64.5,50 L66.5,53 L63,51.5 L63,54 L62,52 L60,55.5 L58,52 L57,54 L57,51.5 L53.5,53 L55.5,50 L52,48 L55.5,47.5 L53,45 L56,45.5 L54.5,42.5 L57.5,44 L57,41 L59,42 Z" fill="#C41E2A"/>
+            <!-- Banner text area -->
+            <text x="60" y="26" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="7" fill="#1B3A5C" letter-spacing="0.2em">TRUE NORTH</text>
+            <!-- Bottom curve text -->
+            <text x="60" y="92" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="500" font-size="6" fill="#1B3A5C" letter-spacing="0.25em">EXPORTS</text>
+            <!-- Est. line -->
+            <line x1="38" y1="97" x2="82" y2="97" stroke="#1B3A5C" stroke-width="0.5" opacity="0.3"/>
+            <text x="60" y="106" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="5" fill="#C41E2A" letter-spacing="0.15em">WHOLESALE PAINT SUPPLY</text>
+            <!-- Paint roller mini icon -->
+            <rect x="48" y="112" width="12" height="4" rx="2" fill="#1B3A5C" opacity="0.5"/>
+            <line x1="60" y1="114" x2="66" y2="118" stroke="#1B3A5C" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <rect x="64" y="116" width="6" height="3" rx="1" fill="#1B3A5C" opacity="0.5"/>
+            <!-- Canada text -->
+            <text x="60" y="128" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="5" fill="#1B3A5C" letter-spacing="0.3em" opacity="0.4">CANADA</text>
+          </svg>
+        </div>
+        <div class="logo-variant lv-mono">
+          <span class="logo-variant-label">Single Color</span>
+          <svg width="120" height="155" viewBox="0 0 120 155">
+            <path d="M60,8 L105,25 L105,75 C105,105 60,135 60,135 C60,135 15,105 15,75 L15,25 Z" fill="none" stroke="#1B3A5C" stroke-width="3"/>
+            <path d="M60,14 L100,29 L100,74 C100,100 60,128 60,128 C60,128 20,100 20,74 L20,29 Z" fill="none" stroke="#1B3A5C" stroke-width="1" opacity="0.3"/>
+            <circle cx="60" cy="55" r="22" fill="none" stroke="#1B3A5C" stroke-width="1.5"/>
+            <polygon points="60,32 57,52 60,49 63,52" fill="#1B3A5C" opacity="0.8"/>
+            <polygon points="60,78 57,58 60,61 63,58" fill="#1B3A5C" opacity="0.3"/>
+            <polygon points="37,55 57,53 54,55 57,57" fill="#1B3A5C" opacity="0.3"/>
+            <polygon points="83,55 63,53 66,55 63,57" fill="#1B3A5C" opacity="0.3"/>
+            <path d="M60,38 L61,42 L63,41 L62.5,44 L65.5,42.5 L64,45.5 L67,45 L64.5,47.5 L68,48 L64.5,50 L66.5,53 L63,51.5 L63,54 L62,52 L60,55.5 L58,52 L57,54 L57,51.5 L53.5,53 L55.5,50 L52,48 L55.5,47.5 L53,45 L56,45.5 L54.5,42.5 L57.5,44 L57,41 L59,42 Z" fill="#1B3A5C"/>
+            <text x="60" y="26" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="7" fill="#1B3A5C" letter-spacing="0.2em">TRUE NORTH</text>
+            <text x="60" y="92" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="500" font-size="6" fill="#1B3A5C" letter-spacing="0.25em">EXPORTS</text>
+            <line x1="38" y1="97" x2="82" y2="97" stroke="#1B3A5C" stroke-width="0.5" opacity="0.3"/>
+            <text x="60" y="106" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="5" fill="#1B3A5C" letter-spacing="0.15em">WHOLESALE PAINT SUPPLY</text>
+            <rect x="48" y="112" width="12" height="4" rx="2" fill="#1B3A5C" opacity="0.5"/>
+            <line x1="60" y1="114" x2="66" y2="118" stroke="#1B3A5C" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <rect x="64" y="116" width="6" height="3" rx="1" fill="#1B3A5C" opacity="0.5"/>
+            <text x="60" y="128" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="5" fill="#1B3A5C" letter-spacing="0.3em" opacity="0.4">CANADA</text>
+          </svg>
+        </div>
+        <div class="logo-variant lv-dark">
+          <span class="logo-variant-label" style="color: rgba(255,255,255,0.4);">Reversed</span>
+          <svg width="120" height="155" viewBox="0 0 120 155">
+            <path d="M60,8 L105,25 L105,75 C105,105 60,135 60,135 C60,135 15,105 15,75 L15,25 Z" fill="none" stroke="white" stroke-width="3"/>
+            <path d="M60,14 L100,29 L100,74 C100,100 60,128 60,128 C60,128 20,100 20,74 L20,29 Z" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+            <circle cx="60" cy="55" r="22" fill="none" stroke="white" stroke-width="1.5"/>
+            <polygon points="60,32 57,52 60,49 63,52" fill="white" opacity="0.8"/>
+            <polygon points="60,78 57,58 60,61 63,58" fill="white" opacity="0.3"/>
+            <polygon points="37,55 57,53 54,55 57,57" fill="white" opacity="0.3"/>
+            <polygon points="83,55 63,53 66,55 63,57" fill="white" opacity="0.3"/>
+            <path d="M60,38 L61,42 L63,41 L62.5,44 L65.5,42.5 L64,45.5 L67,45 L64.5,47.5 L68,48 L64.5,50 L66.5,53 L63,51.5 L63,54 L62,52 L60,55.5 L58,52 L57,54 L57,51.5 L53.5,53 L55.5,50 L52,48 L55.5,47.5 L53,45 L56,45.5 L54.5,42.5 L57.5,44 L57,41 L59,42 Z" fill="#C41E2A"/>
+            <text x="60" y="26" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="700" font-size="7" fill="white" letter-spacing="0.2em">TRUE NORTH</text>
+            <text x="60" y="92" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="500" font-size="6" fill="white" letter-spacing="0.25em">EXPORTS</text>
+            <line x1="38" y1="97" x2="82" y2="97" stroke="white" stroke-width="0.5" opacity="0.3"/>
+            <text x="60" y="106" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="5" fill="#C41E2A" letter-spacing="0.15em">WHOLESALE PAINT SUPPLY</text>
+            <rect x="48" y="112" width="12" height="4" rx="2" fill="white" opacity="0.5"/>
+            <line x1="60" y1="114" x2="66" y2="118" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            <rect x="64" y="116" width="6" height="3" rx="1" fill="white" opacity="0.5"/>
+            <text x="60" y="128" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="5" fill="white" letter-spacing="0.3em" opacity="0.4">CANADA</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <p>Example 03 — Canadian Maple Leaf &mdash; True North Exports &mdash; Prepared March 2026</p>
+</footer>
+
+</body>
+</html>
