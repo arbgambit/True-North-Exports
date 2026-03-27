@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True North Exports — Example 4: New Maple Leaf Logos</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B3A5C;
+  --navy-deep: #0F2440;
+  --red: #C41E2A;
+  --red-light: #E8323E;
+  --cream: #F5F0E8;
+  --cream-dark: #E8E0D0;
+  --gold: #C4A265;
+  --charcoal: #111116;
+  --slate: #1E1E26;
+  --slate-light: #2E2E38;
+  --white: #FFFFFF;
+  --text-muted: #7A7A88;
+  --card-w: 380px;
+  --card-h: 218px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--charcoal);
+  color: var(--cream);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--charcoal); }
+::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 3px; }
+
+/* ============ BACK LINK ============ */
+.back-link {
+  position: fixed; top: 20px; left: 20px; z-index: 100;
+  font-size: 0.72rem; color: var(--text-muted); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+  letter-spacing: 0.1em; transition: color 0.3s;
+}
+.back-link:hover { color: var(--cream); }
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 55vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; padding: 6rem 2rem 3rem;
+  position: relative;
+}
+.hero::before {
+  content: ''; position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(196,30,42,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 18px; border: 1px solid var(--slate-light);
+  border-radius: 100px; font-size: 0.65rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 2rem;
+  animation: fadeDown 0.7s ease-out;
+}
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  letter-spacing: 0.06em; line-height: 1.05;
+  margin-bottom: 1rem;
+  animation: fadeUp 0.7s ease-out 0.15s both;
+}
+.hero h1 span { color: var(--red); }
+.hero-sub {
+  font-size: 0.95rem; color: var(--text-muted);
+  max-width: 480px; line-height: 1.6;
+  animation: fadeUp 0.7s ease-out 0.3s both;
+}
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeDown { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
+
+/* ============ SECTIONS ============ */
+section { padding: 4rem 2rem 6rem; max-width: 1200px; margin: 0 auto; }
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--red);
+  margin-bottom: 1rem; display: flex; align-items: center; gap: 12px;
+}
+.section-label::before { content:''; width:28px; height:1px; background:var(--red); }
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.04em; margin-bottom: 0.6rem;
+}
+.section-desc {
+  color: var(--text-muted); max-width: 520px;
+  line-height: 1.6; margin-bottom: 4rem; font-size: 0.88rem;
+}
+.divider { max-width:1200px; margin:0 auto; padding:0 2rem; }
+.divider hr { border:none; height:1px; background:linear-gradient(to right, transparent, var(--slate-light), transparent); }
+
+/* ============ LOGO CONCEPTS GRID ============ */
+.logo-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; }
+
+.logo-block {
+  background: var(--slate);
+  border-radius: 14px; overflow: hidden;
+}
+.logo-block-header {
+  padding: 28px 34px; border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.logo-block-header .lb-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; color: var(--red);
+  letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px;
+}
+.logo-block-header h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em; margin-bottom: 6px;
+}
+.logo-block-header p {
+  font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; max-width: 550px;
+}
+
+.logo-variants {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  min-height: 240px;
+}
+.logo-variant {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 36px 20px; position: relative;
+}
+.logo-variant:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.04); }
+.lv-cream { background: var(--cream); }
+.lv-white { background: var(--white); }
+.lv-dark { background: var(--navy-deep); }
+.lv-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text-muted);
+  position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+}
+
+/* ============ LOGO 1: COMPASS LEAF ============ */
+.logo-compass-leaf {
+  position: relative; width: 130px; height: 160px;
+  display: flex; flex-direction: column; align-items: center;
+}
+.logo-compass-leaf .compass-ring {
+  position: relative; width: 90px; height: 90px;
+  border: 2.5px solid var(--navy);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-compass-leaf .compass-ring::before,
+.logo-compass-leaf .compass-ring::after {
+  content: ''; position: absolute; background: var(--navy);
+}
+.logo-compass-leaf .compass-ring::before {
+  width: 2px; height: 14px; top: -8px; left: 50%; transform: translateX(-50%);
+}
+.logo-compass-leaf .compass-ring::after {
+  width: 14px; height: 2px; right: -8px; top: 50%; transform: translateY(-50%);
+}
+.logo-compass-leaf .tick-s {
+  position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
+  width: 2px; height: 14px; background: var(--navy);
+}
+.logo-compass-leaf .tick-w {
+  position: absolute; left: -8px; top: 50%; transform: translateY(-50%);
+  width: 14px; height: 2px; background: var(--navy);
+}
+.logo-compass-leaf .compass-ring .leaf-img {
+  width: 52px; height: 52px; object-fit: contain;
+  position: relative; z-index: 1; margin-top: -2px;
+}
+.logo-compass-leaf .logo-text {
+  text-align: center; margin-top: 12px;
+}
+.logo-compass-leaf .logo-text .t1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px; letter-spacing: 0.2em; color: var(--navy-deep);
+}
+.logo-compass-leaf .logo-text .t2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px; letter-spacing: 0.45em; color: var(--navy);
+  text-transform: uppercase; font-weight: 400;
+}
+
+/* On dark variant */
+.lv-dark .logo-compass-leaf .compass-ring { border-color: rgba(255,255,255,0.3); }
+.lv-dark .logo-compass-leaf .compass-ring::before,
+.lv-dark .logo-compass-leaf .compass-ring::after,
+.lv-dark .logo-compass-leaf .tick-s,
+.lv-dark .logo-compass-leaf .tick-w { background: rgba(255,255,255,0.3); }
+.lv-dark .logo-compass-leaf .logo-text .t1 { color: var(--white); }
+.lv-dark .logo-compass-leaf .logo-text .t2 { color: rgba(255,255,255,0.5); }
+
+/* ============ LOGO 2: SHIELD EMBLEM ============ */
+.logo-shield {
+  display: flex; flex-direction: column; align-items: center;
+  width: 140px; height: 170px;
+}
+.logo-shield .shield-shape {
+  width: 80px; height: 96px; position: relative;
+  background: var(--navy-deep);
+  clip-path: polygon(50% 0%, 100% 10%, 100% 65%, 50% 100%, 0% 65%, 0% 10%);
+  display: flex; align-items: center; justify-content: center;
+  padding-top: 6px;
+}
+.logo-shield .shield-shape .leaf-img {
+  width: 38px; height: 38px; object-fit: contain;
+  position: relative; z-index: 1;
+}
+.logo-shield .shield-ticks {
+  position: absolute; inset: -6px; pointer-events: none;
+}
+.logo-shield .shield-ticks span {
+  position: absolute; width: 8px; height: 2px; background: var(--navy-deep);
+}
+.logo-shield .shield-ticks .st-n { top: 0; left: 50%; transform: translateX(-50%) rotate(0); width: 2px; height: 8px; }
+.logo-shield .shield-ticks .st-s { bottom: 0; left: 50%; transform: translateX(-50%); width: 2px; height: 8px; }
+.logo-shield .shield-ticks .st-e { right: 0; top: 38%; transform: translateY(-50%); }
+.logo-shield .shield-ticks .st-w { left: 0; top: 38%; transform: translateY(-50%); }
+.logo-shield .shield-text { text-align: center; margin-top: 10px; }
+.logo-shield .shield-text .s1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px; letter-spacing: 0.18em; color: var(--navy-deep);
+}
+.logo-shield .shield-text .s2 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5.5px; letter-spacing: 0.18em; color: var(--text-muted);
+  text-transform: uppercase; margin-top: 3px;
+}
+
+.lv-dark .logo-shield .shield-shape { background: rgba(255,255,255,0.12); }
+.lv-dark .logo-shield .shield-ticks span { background: rgba(255,255,255,0.3); }
+.lv-dark .logo-shield .shield-text .s1 { color: var(--white); }
+.lv-dark .logo-shield .shield-text .s2 { color: rgba(255,255,255,0.4); }
+
+/* ============ LOGO 3: SPLIT LEAF ============ */
+.logo-split {
+  display: flex; align-items: center; gap: 16px;
+  height: 80px;
+}
+.logo-split .leaf-img {
+  width: 56px; height: 56px; object-fit: contain;
+}
+.logo-split .split-divider {
+  width: 1.5px; height: 50px; background: var(--navy); opacity: 0.3;
+}
+.logo-split .split-text {}
+.logo-split .split-text .sp1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px; letter-spacing: 0.08em; color: var(--navy-deep);
+  line-height: 1;
+}
+.logo-split .split-text .sp2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8px; letter-spacing: 0.4em; color: var(--red);
+  text-transform: uppercase; margin-top: 2px;
+}
+.logo-split .split-text .sp3 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 5.5px; letter-spacing: 0.12em; color: var(--text-muted);
+  text-transform: uppercase; margin-top: 6px;
+}
+
+.lv-dark .logo-split .split-divider { background: rgba(255,255,255,0.2); }
+.lv-dark .logo-split .split-text .sp1 { color: var(--white); }
+.lv-dark .logo-split .split-text .sp2 { color: var(--red-light); }
+.lv-dark .logo-split .split-text .sp3 { color: rgba(255,255,255,0.35); }
+
+/* ============ LOGO 4: CIRCLE BADGE ============ */
+.logo-circle {
+  display: flex; flex-direction: column; align-items: center;
+  width: 130px; height: 155px;
+}
+.logo-circle .circle-mark {
+  position: relative; width: 80px; height: 80px;
+  border: 2.5px solid var(--navy);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-circle .circle-mark .leaf-img {
+  width: 44px; height: 44px; object-fit: contain;
+}
+/* Motion lines */
+.logo-circle .circle-mark::before {
+  content: '';
+  position: absolute; left: -16px; top: 28%;
+  width: 12px; height: 2px; background: var(--navy);
+  box-shadow: -4px 8px 0 var(--navy), -2px 16px 0 var(--navy);
+  opacity: 0.4;
+}
+.logo-circle .circle-text {
+  text-align: center; margin-top: 10px;
+}
+.logo-circle .circle-text .ct1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px; letter-spacing: 0.2em; color: var(--navy-deep);
+}
+.logo-circle .circle-text .ct2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 7px; letter-spacing: 0.4em; color: var(--navy);
+  text-transform: uppercase;
+}
+
+.lv-dark .logo-circle .circle-mark { border-color: rgba(255,255,255,0.3); }
+.lv-dark .logo-circle .circle-mark::before {
+  background: rgba(255,255,255,0.3);
+  box-shadow: -4px 8px 0 rgba(255,255,255,0.2), -2px 16px 0 rgba(255,255,255,0.15);
+}
+.lv-dark .logo-circle .circle-text .ct1 { color: var(--white); }
+.lv-dark .logo-circle .circle-text .ct2 { color: rgba(255,255,255,0.45); }
+
+/* ============ LOGO 5: STACKED MODERN ============ */
+.logo-stacked {
+  display: flex; flex-direction: column; align-items: center;
+  width: 130px; height: 160px;
+}
+.logo-stacked .stacked-leaf {
+  position: relative; width: 60px; height: 60px;
+  display: flex; align-items: center; justify-content: center;
+}
+.logo-stacked .stacked-leaf .leaf-img {
+  width: 56px; height: 56px; object-fit: contain;
+}
+/* Compass needle over the stem */
+.logo-stacked .stacked-leaf::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+  width: 2px; height: 16px;
+  background: linear-gradient(to bottom, transparent 0%, var(--navy) 30%, var(--navy) 100%);
+}
+.logo-stacked .stacked-text {
+  text-align: center; margin-top: 14px;
+}
+.logo-stacked .stacked-text .sk1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; letter-spacing: 0.14em; color: var(--navy-deep);
+  line-height: 1;
+}
+.logo-stacked .stacked-text .sk2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 7.5px; letter-spacing: 0.5em; color: var(--red);
+  text-transform: uppercase; margin-top: 2px;
+}
+.logo-stacked .stacked-text .sk-line {
+  width: 24px; height: 1px; background: var(--navy); opacity: 0.2;
+  margin: 6px auto 0;
+}
+
+.lv-dark .logo-stacked .stacked-leaf::after {
+  background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.3) 100%);
+}
+.lv-dark .logo-stacked .stacked-text .sk1 { color: var(--white); }
+.lv-dark .logo-stacked .stacked-text .sk2 { color: var(--red-light); }
+.lv-dark .logo-stacked .stacked-text .sk-line { background: rgba(255,255,255,0.15); }
+
+/* ============ CARD GRID ============ */
+.cards-grid { display: grid; grid-template-columns: 1fr; gap: 5rem; }
+.card-concept {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; align-items: center;
+}
+.card-concept:nth-child(even) { direction: rtl; }
+.card-concept:nth-child(even) > * { direction: ltr; }
+.card-info h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem; letter-spacing: 0.04em; margin-bottom: 0.35rem;
+}
+.card-info .card-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem; color: var(--red);
+  letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.7rem;
+}
+.card-info p {
+  color: var(--text-muted); line-height: 1.6; font-size: 0.85rem; margin-bottom: 1.2rem;
+}
+.card-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.card-tags span {
+  padding: 3px 11px; border: 1px solid var(--slate-light);
+  border-radius: 100px; font-size: 0.65rem; color: var(--text-muted);
+}
+.card-preview {
+  display: flex; flex-direction: column; gap: 16px; align-items: center;
+}
+.card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--text-muted);
+  text-align: center; margin-bottom: -8px;
+}
+
+/* ============ BUSINESS CARD BASE ============ */
+.bcard {
+  width: var(--card-w); height: var(--card-h);
+  border-radius: 8px; position: relative; overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  flex-shrink: 0;
+}
+.bcard:hover {
+  transform: translateY(-5px) scale(1.015);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.5);
+}
+
+/* ============ CARD 1: COMPASS LEAF ============ */
+.bc1-front {
+  background: var(--navy-deep);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px; position: relative;
+}
+.bc1-front::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2.5px; background: var(--red);
+}
+.bc1-front .c1-compass {
+  position: relative; width: 68px; height: 68px;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.bc1-front .c1-compass::before,
+.bc1-front .c1-compass::after {
+  content: ''; position: absolute; background: rgba(255,255,255,0.2);
+}
+.bc1-front .c1-compass::before { width: 1.5px; height: 10px; top: -6px; left: 50%; transform: translateX(-50%); }
+.bc1-front .c1-compass::after { width: 10px; height: 1.5px; right: -6px; top: 50%; transform: translateY(-50%); }
+.bc1-front .c1-compass .c1-ts { position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); width: 1.5px; height: 10px; background: rgba(255,255,255,0.2); }
+.bc1-front .c1-compass .c1-tw { position: absolute; left: -6px; top: 50%; transform: translateY(-50%); width: 10px; height: 1.5px; background: rgba(255,255,255,0.2); }
+.bc1-front .c1-compass .leaf-img { width: 40px; height: 40px; object-fit: contain; }
+.bc1-front .c1-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px; letter-spacing: 0.18em; color: var(--white);
+  margin-top: 10px;
+}
+.bc1-front .c1-sub {
+  font-size: 7px; letter-spacing: 0.4em; color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+}
+.bc1-front .c1-person {
+  font-size: 8px; letter-spacing: 0.12em; color: rgba(255,255,255,0.5);
+  margin-top: 6px; text-transform: uppercase;
+}
+
+.bc1-back {
+  background: var(--white);
+  padding: 24px 28px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative;
+}
+.bc1-back::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 2.5px; background: var(--red);
+}
+.bc1-back .b1-top .b1-name {
+  font-weight: 700; font-size: 14px; color: var(--navy-deep);
+}
+.bc1-back .b1-top .b1-title {
+  font-size: 8px; color: var(--red); letter-spacing: 0.1em;
+  text-transform: uppercase; font-weight: 500; margin-top: 1px;
+}
+.bc1-back .b1-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 7px;
+}
+.bc1-back .b1-item { font-size: 8.5px; color: var(--navy); }
+.bc1-back .b1-item .b1-label {
+  font-size: 6px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #999; font-weight: 500; display: block; margin-bottom: 1px;
+}
+
+/* ============ CARD 2: SHIELD EMBLEM ============ */
+.bc2-front {
+  background: var(--cream);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px; position: relative;
+}
+.bc2-front .c2-shield {
+  width: 58px; height: 70px;
+  background: var(--navy-deep);
+  clip-path: polygon(50% 0%, 100% 10%, 100% 65%, 50% 100%, 0% 65%, 0% 10%);
+  display: flex; align-items: center; justify-content: center;
+  padding-top: 3px;
+}
+.bc2-front .c2-shield .leaf-img { width: 30px; height: 30px; object-fit: contain; }
+.bc2-front .c2-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px; letter-spacing: 0.16em; color: var(--navy-deep);
+  margin-top: 10px;
+}
+.bc2-front .c2-sub {
+  font-size: 7px; letter-spacing: 0.35em; color: var(--navy);
+  text-transform: uppercase; opacity: 0.5;
+}
+
+.bc2-back {
+  background: var(--navy-deep);
+  padding: 24px 28px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative;
+}
+.bc2-back .b2-top .b2-name {
+  font-weight: 700; font-size: 14px; color: var(--white);
+}
+.bc2-back .b2-top .b2-title {
+  font-size: 8px; color: var(--gold); letter-spacing: 0.12em;
+  text-transform: uppercase; margin-top: 1px;
+}
+.bc2-back .b2-divider {
+  width: 24px; height: 1.5px; background: var(--gold); margin: 0; opacity: 0.5;
+}
+.bc2-back .b2-items { display: flex; flex-direction: column; gap: 5px; }
+.bc2-back .b2-item {
+  font-size: 8.5px; color: rgba(255,255,255,0.65);
+  display: flex; align-items: center; gap: 8px;
+}
+.bc2-back .b2-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+/* ============ CARD 3: SPLIT LEAF ============ */
+.bc3-front {
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px 32px; gap: 16px;
+  position: relative;
+}
+.bc3-front .c3-leaf { width: 50px; height: 50px; object-fit: contain; }
+.bc3-front .c3-div { width: 1px; height: 44px; background: var(--navy); opacity: 0.2; }
+.bc3-front .c3-text {}
+.bc3-front .c3-text .c3t1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; letter-spacing: 0.08em; color: var(--navy-deep); line-height: 1;
+}
+.bc3-front .c3-text .c3t2 {
+  font-size: 7px; letter-spacing: 0.35em; color: var(--red);
+  text-transform: uppercase; margin-top: 2px;
+}
+.bc3-front .c3-person {
+  position: absolute; bottom: 16px; left: 32px;
+  font-size: 8px; color: #999; letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+.bc3-back {
+  background: var(--white);
+  padding: 24px 28px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+.bc3-back .b3-watermark {
+  position: absolute; right: -20px; bottom: -20px;
+  width: 140px; height: 140px; object-fit: contain;
+  opacity: 0.04;
+}
+.bc3-back .b3-top .b3-name { font-weight: 700; font-size: 14px; color: var(--navy-deep); }
+.bc3-back .b3-top .b3-title {
+  font-size: 8px; color: var(--red); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-top: 1px;
+}
+.bc3-back .b3-items { display: flex; flex-direction: column; gap: 6px; position: relative; z-index: 1; }
+.bc3-back .b3-item { font-size: 9px; color: var(--navy); }
+
+/* ============ CARD 4: CIRCLE BADGE ============ */
+.bc4-front {
+  background: #0A0A0E;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px; position: relative; overflow: hidden;
+}
+.bc4-front .c4-texture {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+.bc4-front .c4-circle {
+  position: relative; z-index: 1;
+  width: 70px; height: 70px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+.bc4-front .c4-circle::before {
+  content: '';
+  position: absolute; left: -14px; top: 22px;
+  width: 10px; height: 1.5px; background: rgba(255,255,255,0.2);
+  box-shadow: -3px 7px 0 rgba(255,255,255,0.14), -1px 14px 0 rgba(255,255,255,0.1);
+}
+.bc4-front .c4-circle .leaf-img { width: 40px; height: 40px; object-fit: contain; }
+.bc4-front .c4-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px; letter-spacing: 0.15em; color: var(--white);
+  margin-top: 10px; position: relative; z-index: 1;
+}
+.bc4-front .c4-sub {
+  font-size: 7px; letter-spacing: 0.4em; color: rgba(255,255,255,0.25);
+  text-transform: uppercase; position: relative; z-index: 1;
+}
+
+.bc4-back {
+  background: #0A0A0E;
+  padding: 0; display: flex;
+  position: relative; overflow: hidden;
+}
+.bc4-back .c4-texture {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+.bc4-back .b4-stripe {
+  width: 4px; background: var(--red); flex-shrink: 0; position: relative; z-index: 1;
+}
+.bc4-back .b4-content {
+  flex: 1; padding: 22px 24px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; z-index: 1;
+}
+.bc4-back .b4-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px; color: var(--white); letter-spacing: 0.06em;
+}
+.bc4-back .b4-title {
+  font-size: 7px; color: var(--red); letter-spacing: 0.15em;
+  text-transform: uppercase; margin-top: 1px;
+}
+.bc4-back .b4-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 7px;
+}
+.bc4-back .b4-item { font-size: 7.5px; color: rgba(255,255,255,0.45); }
+.bc4-back .b4-item .b4-val {
+  color: rgba(255,255,255,0.75); display: block; margin-top: 1px;
+}
+
+/* ============ CARD 5: STACKED MODERN ============ */
+.bc5-front {
+  background: var(--white);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 20px; position: relative;
+}
+.bc5-front .c5-top-accent {
+  position: absolute; top: 0; left: 0; width: 60px; height: 2.5px; background: var(--red);
+}
+.bc5-front .c5-bot-accent {
+  position: absolute; bottom: 0; right: 0; width: 60px; height: 2.5px; background: var(--navy-deep);
+}
+.bc5-front .c5-leaf { width: 44px; height: 44px; object-fit: contain; }
+.bc5-front .c5-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px; letter-spacing: 0.12em; color: var(--navy-deep);
+  margin-top: 8px; line-height: 1;
+}
+.bc5-front .c5-sub {
+  font-size: 7px; letter-spacing: 0.45em; color: var(--red);
+  text-transform: uppercase; margin-top: 1px;
+}
+.bc5-front .c5-person {
+  margin-top: 10px; padding-top: 10px; border-top: 1px solid #E8E0D0;
+  text-align: center;
+}
+.bc5-front .c5-person .c5p-name {
+  font-weight: 600; font-size: 10px; color: var(--navy-deep); letter-spacing: 0.04em;
+}
+.bc5-front .c5-person .c5p-title {
+  font-size: 7px; color: #999; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1px;
+}
+
+.bc5-back {
+  background: var(--navy-deep);
+  padding: 24px 28px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative; overflow: hidden;
+}
+.bc5-back .b5-top-accent {
+  position: absolute; top: 0; right: 0; width: 60px; height: 2.5px; background: var(--red);
+}
+.bc5-back .b5-bot-accent {
+  position: absolute; bottom: 0; left: 0; width: 60px; height: 2.5px; background: var(--gold);
+}
+.bc5-back .b5-watermark {
+  position: absolute; right: -15px; bottom: -15px;
+  width: 110px; height: 110px; object-fit: contain; opacity: 0.06;
+}
+.bc5-back .b5-name { font-weight: 700; font-size: 14px; color: var(--white); }
+.bc5-back .b5-title {
+  font-size: 8px; color: var(--red-light); letter-spacing: 0.12em;
+  text-transform: uppercase; margin-top: 1px;
+}
+.bc5-back .b5-items { display: flex; flex-direction: column; gap: 6px; position: relative; z-index: 1; }
+.bc5-back .b5-item { font-size: 9px; color: rgba(255,255,255,0.65); }
+
+/* ============ FOOTER ============ */
+.footer {
+  text-align: center; padding: 3rem 2rem;
+  border-top: 1px solid var(--slate); margin-top: 2rem;
+}
+.footer p { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.08em; }
+.footer a { color: var(--red); text-decoration: none; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .card-concept { grid-template-columns: 1fr; gap: 2rem; }
+  .card-concept:nth-child(even) { direction: ltr; }
+  .logo-variants { grid-template-columns: 1fr; }
+  .logo-variant:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  :root { --card-w: min(380px, 90vw); --card-h: min(218px, 52vw); }
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back-link">&#8592; Back</a>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-badge">Example 04 — New Maple Leaf Logos</div>
+  <h1>New Logos with the<br><span>Real Maple Leaf</span></h1>
+  <p class="hero-sub">Five fresh logo concepts built around the authentic Canadian maple leaf, paired with five business card designs. Every leaf element uses the actual image.</p>
+</header>
+
+<div class="divider"><hr></div>
+
+<!-- ============ LOGO CONCEPTS ============ -->
+<section>
+  <div class="section-label">01 — Logo Concepts</div>
+  <h2 class="section-title">Five Directions</h2>
+  <p class="section-desc">Each concept combines the real maple leaf with compass and trade elements in a distinct composition. Shown on cream, white, and navy backgrounds.</p>
+
+  <div class="logo-grid">
+
+    <!-- LOGO 1: COMPASS LEAF -->
+    <div class="logo-block">
+      <div class="logo-block-header">
+        <div class="lb-num">Logo 01</div>
+        <h3>Compass Leaf</h3>
+        <p>The maple leaf centered inside a compass ring with directional tick marks. Classic navigation meets Canadian identity. Clean and versatile.</p>
+      </div>
+      <div class="logo-variants">
+        <div class="logo-variant lv-cream">
+          <span class="lv-label">On Cream</span>
+          <div class="logo-compass-leaf">
+            <div class="compass-ring">
+              <span class="tick-s"></span>
+              <span class="tick-w"></span>
+              <img src="maple-leaf.png" class="leaf-img" alt="">
+            </div>
+            <div class="logo-text">
+              <div class="t1">TRUE NORTH</div>
+              <div class="t2">Exports</div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-variant lv-white">
+          <span class="lv-label">On White</span>
+          <div class="logo-compass-leaf">
+            <div class="compass-ring">
+              <span class="tick-s"></span>
+              <span class="tick-w"></span>
+              <img src="maple-leaf.png" class="leaf-img" alt="">
+            </div>
+            <div class="logo-text">
+              <div class="t1">TRUE NORTH</div>
+              <div class="t2">Exports</div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-variant lv-dark">
+          <span class="lv-label" style="color:rgba(255,255,255,0.35);">On Navy</span>
+          <div class="logo-compass-leaf">
+            <div class="compass-ring">
+              <span class="tick-s"></span>
+              <span class="tick-w"></span>
+              <img src="maple-leaf.png" class="leaf-img" alt="">
+            </div>
+            <div class="logo-text">
+              <div class="t1">TRUE NORTH</div>
+              <div class="t2">Exports</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 2: SHIELD EMBLEM -->
+    <div class="logo-block">
+      <div class="logo-block-header">
+        <div class="lb-num">Logo 02</div>
+        <h3>Shield Emblem</h3>
+        <p>A hexagonal shield houses the maple leaf, with compass-point ticks at the cardinal directions. Conveys trust and authority — ideal for a wholesale supplier.</p>
+      </div>
+      <div class="logo-variants">
+        <div class="logo-variant lv-cream">
+          <span class="lv-label">On Cream</span>
+          <div class="logo-shield">
+            <div style="position:relative;">
+              <div class="shield-shape">
+                <img src="maple-leaf.png" class="leaf-img" alt="">
+              </div>
+              <div class="shield-ticks">
+                <span class="st-n"></span><span class="st-s"></span>
+                <span class="st-e"></span><span class="st-w"></span>
+              </div>
+            </div>
+            <div class="shield-text">
+              <div class="s1">TRUE NORTH EXPORTS</div>
+              <div class="s2">Wholesale Paint Supply</div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-variant lv-white">
+          <span class="lv-label">On White</span>
+          <div class="logo-shield">
+            <div style="position:relative;">
+              <div class="shield-shape">
+                <img src="maple-leaf.png" class="leaf-img" alt="">
+              </div>
+              <div class="shield-ticks">
+                <span class="st-n"></span><span class="st-s"></span>
+                <span class="st-e"></span><span class="st-w"></span>
+              </div>
+            </div>
+            <div class="shield-text">
+              <div class="s1">TRUE NORTH EXPORTS</div>
+              <div class="s2">Wholesale Paint Supply</div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-variant lv-dark">
+          <span class="lv-label" style="color:rgba(255,255,255,0.35);">On Navy</span>
+          <div class="logo-shield">
+            <div style="position:relative;">
+              <div class="shield-shape">
+                <img src="maple-leaf.png" class="leaf-img" alt="">
+              </div>
+              <div class="shield-ticks">
+                <span class="st-n"></span><span class="st-s"></span>
+                <span class="st-e"></span><span class="st-w"></span>
+              </div>
+            </div>
+            <div class="shield-text">
+              <div class="s1">TRUE NORTH EXPORTS</div>
+              <div class="s2">Wholesale Paint Supply</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 3: SPLIT LEAF -->
+    <div class="logo-block">
+      <div class="logo-block-header">
+        <div class="lb-num">Logo 03</div>
+        <h3>Split Leaf</h3>
+        <p>Horizontal lockup with the leaf on one side and stacked text on the other, separated by a thin rule. Perfect for headers, letterheads, and wide formats.</p>
+      </div>
+      <div class="logo-variants">
+        <div class="logo-variant lv-cream">
+          <span class="lv-label">On Cream</span>
+          <div class="logo-split">
+            <img src="maple-leaf.png" class="leaf-img" alt="">
+            <div class="split-divider"></div>
+            <div class="split-text">
+              <div class="sp1">TRUE NORTH</div>
+              <div class="sp2">Exports</div>
+              <div class="sp3">Wholesale Paint Supply</div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-variant lv-white">
+          <span class="lv-label">On White</span>
+          <div class="logo-split">
+            <img src="maple-leaf.png" class="leaf-img" alt="">
+            <div class="split-divider"></div>
+            <div class="split-text">
+              <div class="sp1">TRUE NORTH</div>
+              <div class="sp2">Exports</div>
+              <div class="sp3">Wholesale Paint Supply</div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-variant lv-dark">
+          <span class="lv-label" style="color:rgba(255,255,255,0.35);">On Navy</span>
+          <div class="logo-split">
+            <img src="maple-leaf.png" class="leaf-img" alt="">
+            <div class="split-divider"></div>
+            <div class="split-text">
+              <div class="sp1">TRUE NORTH</div>
+              <div class="sp2">Exports</div>
+              <div class="sp3">Wholesale Paint Supply</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 4: CIRCLE BADGE -->
+    <div class="logo-block">
+      <div class="logo-block-header">
+        <div class="lb-num">Logo 04</div>
+        <h3>Circle Badge</h3>
+        <p>Circular containment with motion lines suggesting movement and global trade. Compact and recognizable at any size — great for stamps, favicons, and apparel.</p>
+      </div>
+      <div class="logo-variants">
+        <div class="logo-variant lv-cream">
+          <span class="lv-label">On Cream</span>
+          <div class="logo-circle">
+            <div class="circle-mark">
+              <img src="maple-leaf.png" class="leaf-img" alt="">
+            </div>
+            <div class="circle-text">
+              <div class="ct1">TRUE NORTH</div>
+              <div class="ct2">Exports</div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-variant lv-white">
+          <span class="lv-label">On White</span>
+          <div class="logo-circle">
+            <div class="circle-mark">
+              <img src="maple-leaf.png" class="leaf-img" alt="">
+            </div>
+            <div class="circle-text">
+              <div class="ct1">TRUE NORTH</div>
+              <div class="ct2">Exports</div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-variant lv-dark">
+          <span class="lv-label" style="color:rgba(255,255,255,0.35);">On Navy</span>
+          <div class="logo-circle">
+            <div class="circle-mark">
+              <img src="maple-leaf.png" class="leaf-img" alt="">
+            </div>
+            <div class="circle-text">
+              <div class="ct1">TRUE NORTH</div>
+              <div class="ct2">Exports</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 5: STACKED MODERN -->
+    <div class="logo-block">
+      <div class="logo-block-header">
+        <div class="lb-num">Logo 05</div>
+        <h3>Stacked Modern</h3>
+        <p>The maple leaf takes center stage as the hero mark, with bold modern typography below. A subtle compass needle extends from the stem. Minimal and powerful.</p>
+      </div>
+      <div class="logo-variants">
+        <div class="logo-variant lv-cream">
+          <span class="lv-label">On Cream</span>
+          <div class="logo-stacked">
+            <div class="stacked-leaf">
+              <img src="maple-leaf.png" class="leaf-img" alt="">
+            </div>
+            <div class="stacked-text">
+              <div class="sk1">TRUE NORTH</div>
+              <div class="sk2">Exports</div>
+              <div class="sk-line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-variant lv-white">
+          <span class="lv-label">On White</span>
+          <div class="logo-stacked">
+            <div class="stacked-leaf">
+              <img src="maple-leaf.png" class="leaf-img" alt="">
+            </div>
+            <div class="stacked-text">
+              <div class="sk1">TRUE NORTH</div>
+              <div class="sk2">Exports</div>
+              <div class="sk-line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="logo-variant lv-dark">
+          <span class="lv-label" style="color:rgba(255,255,255,0.35);">On Navy</span>
+          <div class="logo-stacked">
+            <div class="stacked-leaf">
+              <img src="maple-leaf.png" class="leaf-img" alt="">
+            </div>
+            <div class="stacked-text">
+              <div class="sk1">TRUE NORTH</div>
+              <div class="sk2">Exports</div>
+              <div class="sk-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"><hr></div>
+
+<!-- ============ BUSINESS CARDS ============ -->
+<section>
+  <div class="section-label">02 — Business Cards</div>
+  <h2 class="section-title">Cards with New Logos</h2>
+  <p class="section-desc">Each card uses one of the five logo concepts above, showing how the real maple leaf works across different card layouts and color treatments.</p>
+
+  <div class="cards-grid">
+
+    <!-- CARD 1 -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Card 01 — Compass Leaf</div>
+        <h3>Navy Centered</h3>
+        <p>Logo 1 on a deep navy front with a red accent stripe. The compass ring frames the maple leaf beautifully. White back with structured grid contact layout.</p>
+        <div class="card-tags"><span>Classic</span><span>Professional</span><span>Versatile</span></div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard bc1-front">
+          <div class="c1-compass">
+            <span class="c1-ts"></span>
+            <span class="c1-tw"></span>
+            <img src="maple-leaf.png" class="leaf-img" alt="">
+          </div>
+          <div class="c1-name">TRUE NORTH</div>
+          <div class="c1-sub">Exports</div>
+          <div class="c1-person">Julio Ventura</div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard bc1-back">
+          <div class="b1-top">
+            <div class="b1-name">Julio Ventura</div>
+            <div class="b1-title">Wholesale Paint Supply</div>
+          </div>
+          <div class="b1-grid">
+            <div class="b1-item"><span class="b1-label">Phone</span>+1 (905) 650-6822</div>
+            <div class="b1-item"><span class="b1-label">Email</span>info@truenorthexportsca.com</div>
+            <div class="b1-item"><span class="b1-label">Web</span>truenorthexportsca.com</div>
+            <div class="b1-item"><span class="b1-label">Location</span>Ontario, Canada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Card 02 — Shield Emblem</div>
+        <h3>Cream & Navy</h3>
+        <p>The shield emblem logo on warm cream stock. Navy back with gold accents for a premium two-tone feel that conveys trust and establishment.</p>
+        <div class="card-tags"><span>Premium</span><span>Trust</span><span>Two-Tone</span></div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard bc2-front">
+          <div class="c2-shield">
+            <img src="maple-leaf.png" class="leaf-img" alt="">
+          </div>
+          <div class="c2-name">TRUE NORTH EXPORTS</div>
+          <div class="c2-sub">Wholesale Paint Supply</div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard bc2-back">
+          <div class="b2-top">
+            <div class="b2-name">Julio Ventura</div>
+            <div class="b2-title">Wholesale Paint Supply</div>
+          </div>
+          <div class="b2-divider"></div>
+          <div class="b2-items">
+            <div class="b2-item"><span class="b2-dot"></span>+1 (905) 650-6822</div>
+            <div class="b2-item"><span class="b2-dot"></span>info@truenorthexportsca.com</div>
+            <div class="b2-item"><span class="b2-dot"></span>truenorthexportsca.com</div>
+            <div class="b2-item"><span class="b2-dot"></span>Ontario, Canada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Card 03 — Split Leaf</div>
+        <h3>White Horizontal</h3>
+        <p>The horizontal split lockup on a clean white front. The back features a large faded maple leaf watermark behind the contact details — subtle and branded.</p>
+        <div class="card-tags"><span>Clean</span><span>Modern</span><span>Watermarked</span></div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard bc3-front">
+          <img src="maple-leaf.png" class="c3-leaf" alt="">
+          <div class="c3-div"></div>
+          <div class="c3-text">
+            <div class="c3t1">TRUE NORTH</div>
+            <div class="c3t2">Exports</div>
+          </div>
+          <div class="c3-person">Julio Ventura</div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard bc3-back">
+          <img src="maple-leaf.png" class="b3-watermark" alt="">
+          <div class="b3-top">
+            <div class="b3-name">Julio Ventura</div>
+            <div class="b3-title">Wholesale Paint Supply</div>
+          </div>
+          <div class="b3-items">
+            <div class="b3-item">+1 (905) 650-6822</div>
+            <div class="b3-item">info@truenorthexportsca.com</div>
+            <div class="b3-item">truenorthexportsca.com</div>
+            <div class="b3-item">Ontario, Canada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Card 04 — Circle Badge</div>
+        <h3>Dark Textured</h3>
+        <p>Near-black with a subtle dot texture, the circle badge logo glows on the dark surface. Red racing stripe on the back. Built for impact at trade shows.</p>
+        <div class="card-tags"><span>Bold</span><span>Industrial</span><span>Trade Show</span></div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard bc4-front">
+          <div class="c4-texture"></div>
+          <div class="c4-circle">
+            <img src="maple-leaf.png" class="leaf-img" alt="">
+          </div>
+          <div class="c4-name">TRUE NORTH</div>
+          <div class="c4-sub">Exports</div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard bc4-back">
+          <div class="c4-texture"></div>
+          <div class="b4-stripe"></div>
+          <div class="b4-content">
+            <div>
+              <div class="b4-name">Julio Ventura</div>
+              <div class="b4-title">Wholesale Paint Supply</div>
+            </div>
+            <div class="b4-grid">
+              <div class="b4-item">PHONE<span class="b4-val">+1 (905) 650-6822</span></div>
+              <div class="b4-item">EMAIL<span class="b4-val">info@truenorthexportsca.com</span></div>
+              <div class="b4-item">WEB<span class="b4-val">truenorthexportsca.com</span></div>
+              <div class="b4-item">LOCATION<span class="b4-val">Ontario, Canada</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="card-concept">
+      <div class="card-info">
+        <div class="card-num">Card 05 — Stacked Modern</div>
+        <h3>White & Navy Flip</h3>
+        <p>Clean white front with the stacked logo and asymmetric accent bars. The navy back features a faded maple leaf watermark and warm contact typography.</p>
+        <div class="card-tags"><span>Minimal</span><span>Editorial</span><span>Premium</span></div>
+      </div>
+      <div class="card-preview">
+        <div class="card-label">Front</div>
+        <div class="bcard bc5-front">
+          <div class="c5-top-accent"></div>
+          <div class="c5-bot-accent"></div>
+          <img src="maple-leaf.png" class="c5-leaf" alt="">
+          <div class="c5-name">TRUE NORTH</div>
+          <div class="c5-sub">Exports</div>
+          <div class="c5-person">
+            <div class="c5p-name">Julio Ventura</div>
+            <div class="c5p-title">Wholesale Paint Supply</div>
+          </div>
+        </div>
+        <div class="card-label">Back</div>
+        <div class="bcard bc5-back">
+          <div class="b5-top-accent"></div>
+          <div class="b5-bot-accent"></div>
+          <img src="maple-leaf.png" class="b5-watermark" alt="">
+          <div>
+            <div class="b5-name">Julio Ventura</div>
+            <div class="b5-title">Wholesale Paint Supply</div>
+          </div>
+          <div class="b5-items">
+            <div class="b5-item">+1 (905) 650-6822</div>
+            <div class="b5-item">info@truenorthexportsca.com</div>
+            <div class="b5-item">truenorthexportsca.com</div>
+            <div class="b5-item">Ontario, Canada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <p>True North Exports — Brand Concepts &mdash; <a href="index.html">View All Examples</a></p>
+</footer>
+
+</body>
+</html>
