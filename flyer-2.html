@@ -19,41 +19,41 @@ body{font-family:'DM Sans',sans-serif;background:#333;display:flex;flex-directio
 
 /* ===== HEADER ===== */
 .fh{padding:.3in .5in .2in;display:flex;align-items:flex-start;justify-content:space-between;flex-shrink:0}
-.fh img{height:50px;width:auto}
+.fh img{height:60px;width:auto}
 .fh-right{text-align:right;padding-top:6pt}
 .fh-tag{font-size:6pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2pt}
-.fh-sub{font-size:6pt;color:var(--muted);letter-spacing:.06em}
+.fh-sub{font-size:7pt;color:var(--muted);letter-spacing:.06em}
 
 /* ===== HERO ===== */
-.f-hero{padding:0 .5in .2in;flex-shrink:0}
-.f-hero h1{font-family:'Playfair Display',serif;font-size:28pt;font-weight:500;line-height:1.15;color:var(--text);letter-spacing:-.01em}
+.f-hero{padding:.05in .5in .25in;flex-shrink:0}
+.f-hero h1{font-family:'Playfair Display',serif;font-size:22pt;font-weight:500;line-height:1.15;color:var(--text);letter-spacing:-.01em}
 .f-hero h1 em{font-style:italic;color:var(--accent)}
-.f-hero .desc{font-size:7.5pt;color:var(--muted);line-height:1.7;max-width:5in;margin-top:6pt}
-.f-hero .line{width:50px;height:1.5px;background:var(--accent);margin-top:8pt}
+.f-hero .desc{font-size:9pt;color:var(--muted);line-height:1.8;max-width:5.5in;margin-top:8pt}
+.f-hero .line{width:50px;height:1.5px;background:var(--accent);margin-top:10pt}
 
 /* ===== SWATCHES ===== */
-.f-sw{padding:.15in .5in;flex-shrink:0}
-.sw-head{font-size:6pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);margin-bottom:6pt;display:flex;align-items:center;gap:6pt}
+.f-sw{padding:.15in .5in .1in;flex-shrink:0}
+.sw-head{font-size:7pt;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent2);margin-bottom:6pt;display:flex;align-items:center;gap:6pt}
 .sw-head::after{content:'';flex:1;height:.5px;background:var(--line)}
 .sw-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:3pt}
-.sw{aspect-ratio:5/4;border-radius:2pt;position:relative;overflow:hidden}
+.sw{aspect-ratio:4/3;border-radius:2pt;position:relative;overflow:hidden}
 .sw::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.1) 0%,transparent 40%,rgba(0,0,0,.06) 100%);border-radius:inherit}
-.sw-n{position:absolute;bottom:2pt;left:3pt;font-size:4.5pt;font-weight:600;color:white;text-shadow:0 1px 2px rgba(0,0,0,.5);z-index:2;letter-spacing:.02em}
+.sw-n{position:absolute;bottom:3pt;left:4pt;font-size:5.5pt;font-weight:600;color:white;text-shadow:0 1px 2px rgba(0,0,0,.5);z-index:2;letter-spacing:.02em}
 .sw-lt .sw-n{color:var(--text);text-shadow:none}
 
-.prem-head{font-size:5.5pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:6pt 0 4pt;display:flex;align-items:center;gap:4pt}
+.prem-head{font-size:7pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:6pt 0 4pt;display:flex;align-items:center;gap:4pt}
 .prem-head::before{content:'';width:3pt;height:3pt;border-radius:50%;background:var(--gold)}
 .prem-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3pt}
 .prem-grid .sw{aspect-ratio:5/3}
 
 /* ===== FEATURES ===== */
-.f-feat{padding:.12in .5in;display:flex;justify-content:space-between;gap:6pt;border-top:.5px solid var(--line);border-bottom:.5px solid var(--line);flex-shrink:0}
-.ft{flex:1;text-align:center;padding:6pt 0}
-.ft-icon{width:22pt;height:22pt;margin:0 auto 4pt;display:flex;align-items:center;justify-content:center}
-.ft-icon svg{width:18pt;height:18pt;stroke:var(--accent2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.ft-icon img{width:14pt;height:14pt;object-fit:contain}
-.ft-label{font-size:6pt;font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:1pt}
-.ft-desc{font-size:5pt;color:var(--muted);line-height:1.3}
+.f-feat{padding:.15in .5in;display:flex;justify-content:space-between;gap:8pt;border-top:.5px solid var(--line);border-bottom:.5px solid var(--line);flex-shrink:0}
+.ft{flex:1;text-align:center;padding:8pt 0}
+.ft-icon{width:26pt;height:26pt;margin:0 auto 5pt;display:flex;align-items:center;justify-content:center}
+.ft-icon svg{width:22pt;height:22pt;stroke:var(--accent2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ft-icon img{width:18pt;height:18pt;object-fit:contain}
+.ft-label{font-size:7pt;font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:2pt}
+.ft-desc{font-size:6pt;color:var(--muted);line-height:1.4}
 
 /* ===== FINISHES ===== */
 .f-fin{padding:.12in .5in;display:grid;grid-template-columns:1fr 1fr;gap:.15in;flex-shrink:0}
@@ -78,15 +78,15 @@ body{font-family:'DM Sans',sans-serif;background:#333;display:flex;flex-directio
 .spec-list{display:flex;flex-direction:column}
 .spec-row{display:flex;justify-content:space-between;padding:2.5pt 0;border-bottom:.5px dotted var(--line)}
 .spec-row:last-child{border-bottom:none}
-.spec-k{font-size:6.5pt;font-weight:600;color:var(--text)}
-.spec-v{font-size:6.5pt;color:var(--muted);text-align:right}
+.spec-k{font-size:8pt;font-weight:600;color:var(--text)}
+.spec-v{font-size:8pt;color:var(--muted);text-align:right}
 
-.ct-name{font-family:'Playfair Display',serif;font-size:12pt;color:var(--text);margin-bottom:5pt}
-.ct-line{font-size:6.5pt;color:var(--muted);margin-bottom:2pt;line-height:1.5}
+.ct-name{font-family:'Playfair Display',serif;font-size:14pt;color:var(--text);margin-bottom:5pt}
+.ct-line{font-size:8pt;color:var(--muted);margin-bottom:2pt;line-height:1.5}
 .ct-origin{display:flex;align-items:center;gap:3pt;margin-top:6pt;font-size:5.5pt;font-weight:600;color:var(--accent2);letter-spacing:.04em}
 .ct-origin img{width:9pt;height:9pt;object-fit:contain}
-.ct-cta{display:inline-block;margin-top:8pt;padding:4pt 14pt;background:var(--accent);color:white;font-size:5.5pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:100px}
-.ct-small{font-size:5pt;color:var(--muted);font-style:italic;margin-top:5pt}
+.ct-cta{display:inline-block;margin-top:10pt;padding:5pt 16pt;background:var(--accent);color:white;font-size:7pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:100px}
+.ct-small{font-size:6.5pt;color:var(--muted);font-style:italic;margin-top:5pt}
 
 /* ===== FOOTER ===== */
 .f-foot{padding:.1in .5in;border-top:.5px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;margin-top:auto}
@@ -124,7 +124,7 @@ body{font-family:'DM Sans',sans-serif;background:#333;display:flex;flex-directio
 
 <!-- HERO -->
 <div class="f-hero">
-  <h1>Pintura de Látex <em>100% Reciclada</em></h1>
+  <h1>Pintura Premium. <em>Valor Excepcional</em> al Por Mayor.</h1>
   <p class="desc">Acabados Satin y Eggshell en más de 17 colores. Resistente al agua, anti-moho y formulada con químicos antimicrobianos — ideal para cocinas, baños y exteriores. Exportación directa de Canadá a Panamá.</p>
   <div class="line"></div>
 </div>
@@ -167,13 +167,11 @@ body{font-family:'DM Sans',sans-serif;background:#333;display:flex;flex-directio
 
 <!-- STATS -->
 <div style="padding:.12in .5in;display:flex;justify-content:space-between;border-top:.5px solid var(--line);border-bottom:.5px solid var(--line);flex-shrink:0">
-  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:22pt;color:var(--accent2);line-height:1">232</div><div style="font-size:5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">Totes en Stock</div></div>
+  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:28pt;color:var(--accent2);line-height:1">17+</div><div style="font-size:6.5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">Colores</div></div>
   <div style="width:.5px;background:var(--line);margin:4pt 0"></div>
-  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:22pt;color:var(--accent2);line-height:1">17+</div><div style="font-size:5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">Colores</div></div>
+  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:28pt;color:var(--accent2);line-height:1">100%</div><div style="font-size:6.5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">Reciclada</div></div>
   <div style="width:.5px;background:var(--line);margin:4pt 0"></div>
-  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:22pt;color:var(--accent2);line-height:1">100%</div><div style="font-size:5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">Reciclada</div></div>
-  <div style="width:.5px;background:var(--line);margin:4pt 0"></div>
-  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:22pt;color:var(--accent2);line-height:1">CAN</div><div style="font-size:5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">→ Panamá</div></div>
+  <div style="text-align:center;flex:1"><div style="font-family:'Playfair Display',serif;font-size:28pt;color:var(--accent2);line-height:1">CAN</div><div style="font-size:6.5pt;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:2pt">→ Panamá</div></div>
 </div>
 
 <!-- BOTTOM -->
