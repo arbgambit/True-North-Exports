@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>True North Exports — Pintura Premium al Por Mayor</title>
+  <meta name="description" content="Pintura de látex premium. Acabado Satin. Exportación canadiense al por mayor a Panamá y Latinoamérica.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red:#C41E2A;--red-lt:#E8323E;--gold:#c9a84c;--gold-lt:#e0c070;
+      --dark:#0b0c14;--dark2:#11121b;--dark3:#191a26;
+      --cream:#F5F0E8;--cream2:#E8E0D0;--ink:#0F2440;--muted:#7c7870;--white:#f8f6f2;
+      --r-card:14px;--r-pill:100px;--r-sm:6px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+    nav{position:fixed;inset:0 0 auto;z-index:300;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;transition:background .35s,border-color .35s;border-bottom:1px solid transparent}
+    nav.scrolled{background:rgba(11,12,20,.95);backdrop-filter:blur(20px) saturate(160%);border-color:rgba(255,255,255,.06)}
+    .nav-logo{height:40px;width:auto}
+    .nav-links{list-style:none;display:flex;gap:2.2rem;align-items:center}
+    .nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;position:relative;padding-bottom:3px;transition:color .2s}
+    .nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:100%;height:1px;background:var(--gold);transition:right .25s ease}
+    .nav-links a:hover{color:#fff}.nav-links a:hover::after{right:0}
+    .nav-cta{background:var(--gold);color:var(--dark)!important;padding:.58rem 1.5rem;border-radius:var(--r-pill);font-weight:600!important;transition:background .2s,transform .15s!important}
+    .nav-cta::after{display:none!important}
+    .nav-cta:hover{background:var(--gold-lt)!important;transform:translateY(-1px);color:var(--dark)!important}
+
+    .ticker{overflow:hidden;height:10px}.ticker-dark{background:var(--dark)}
+    .ticker-track{display:flex;width:max-content;animation:tickerRun 28s linear infinite}
+    .t-item{width:80px;height:10px;flex-shrink:0}
+    @keyframes tickerRun{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    .hero{position:relative;min-height:100vh;background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:88px 4rem 180px;overflow:hidden}
+    .glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+    .glow-1{width:560px;height:560px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%);top:-120px;right:160px;animation:drift 14s ease-in-out infinite alternate}
+    .glow-2{width:400px;height:400px;background:radial-gradient(circle,rgba(196,162,101,.08) 0%,transparent 70%);bottom:80px;right:-80px;animation:drift 18s ease-in-out infinite alternate-reverse}
+    @keyframes drift{from{transform:translate(0,0)}to{transform:translate(50px,-40px)}}
+    .strokes{position:absolute;right:0;top:0;bottom:0;width:42%;display:flex;clip-path:polygon(9% 0,100% 0,100% 100%,0% 100%);z-index:0}
+    .stroke{flex:1;transform-origin:bottom;transform:scaleY(0);animation:strokeUp 1.1s cubic-bezier(.16,1,.3,1) forwards}
+    .stroke:nth-child(1){animation-delay:.07s}.stroke:nth-child(2){animation-delay:.15s}.stroke:nth-child(3){animation-delay:.23s}.stroke:nth-child(4){animation-delay:.31s}.stroke:nth-child(5){animation-delay:.39s}.stroke:nth-child(6){animation-delay:.47s}.stroke:nth-child(7){animation-delay:.55s}
+    @keyframes strokeUp{to{transform:scaleY(1)}}
+    .strokes-fade{position:absolute;right:0;top:0;bottom:0;width:42%;background:linear-gradient(90deg,var(--dark) 0%,rgba(11,12,20,.5) 38%,transparent 100%);z-index:1;pointer-events:none}
+    .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:2}
+    .hero-content{position:relative;z-index:3;max-width:660px}
+    .eyebrow{display:inline-flex;align-items:center;gap:.65rem;font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;opacity:0;animation:fadeUp .7s ease .3s forwards}
+    .eyebrow::before{content:'';width:22px;height:1px;background:var(--gold);flex-shrink:0}
+    .hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,7.8vw,7.2rem);font-weight:300;line-height:1.03;color:#fff;margin-bottom:1.75rem;opacity:0;animation:fadeUp .8s ease .45s forwards}
+    .hero-h1 em{font-style:italic;color:var(--gold)}
+    .hero-sub{font-size:1.05rem;font-weight:300;line-height:1.85;color:rgba(248,246,242,.5);max-width:440px;margin-bottom:2.5rem;opacity:0;animation:fadeUp .8s ease .6s forwards}
+    .hero-btns{display:flex;align-items:center;gap:1.3rem;opacity:0;animation:fadeUp .8s ease .75s forwards}
+    .btn{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;transition:transform .2s,background .2s,box-shadow .2s,color .2s}
+    .btn-red{background:var(--gold);color:var(--dark);padding:.95rem 2.4rem;border-radius:var(--r-pill)}
+    .btn-red:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,.28)}
+    .btn-ghost{color:rgba(255,255,255,.65);border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:2px;font-size:.875rem;font-weight:400;text-decoration:none;transition:color .2s,border-color .2s}
+    .btn-ghost:hover{color:var(--gold);border-color:var(--gold)}
+    .hero-stats{position:absolute;bottom:0;left:0;right:0;z-index:3;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.07);opacity:0;animation:fadeUp .7s ease 1s forwards}
+    .stat{padding:1.5rem 2.5rem;border-right:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden;transition:background .3s}
+    .stat:last-child{border-right:none}.stat:hover{background:rgba(201,168,76,.04)}
+    .stat::after{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--gold);transition:width .5s ease}
+    .stat:hover::after{width:100%}
+    .stat-n{display:block;font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:400;color:var(--gold);line-height:1;margin-bottom:.3rem}
+    .stat-l{font-size:.67rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    .sec{padding:8rem 4rem}.sec-dark{background:var(--dark2)}.sec-light{background:var(--cream)}.sec-mid{background:var(--cream2)}.sec-ink{background:var(--dark)}
+    .lbl{display:block;font-size:.67rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
+    .h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4vw,3.8rem);font-weight:300;line-height:1.1}.h2-lgt{color:var(--white)}
+    .lead{font-size:.975rem;font-weight:300;line-height:1.9;color:var(--muted);max-width:480px}.lead-lgt{color:rgba(248,246,242,.4)}
+    .red-bar{width:44px;height:2px;background:var(--gold);margin-top:1.2rem}
+
+    .bento{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.05)}
+    .bcard{background:var(--dark2);padding:3rem;position:relative;overflow:hidden;transition:background .3s}
+    .bcard:hover{background:var(--dark3)}
+    .bcard::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.5),transparent);transform:scaleX(0);transition:transform .4s ease}
+    .bcard:hover::after{transform:scaleX(1)}
+    .bcard-wide{grid-column:span 2}
+    .bcard-bar{width:36px;height:2px;background:var(--gold);margin-bottom:1.5rem}
+    .bcard h3{font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:400;color:var(--white);margin-bottom:.65rem}
+    .bcard p{font-size:.875rem;font-weight:300;line-height:1.85;color:rgba(248,246,242,.38);max-width:400px}
+    .bcard-ghost{font-family:'Cormorant Garamond',serif;font-size:5.5rem;font-weight:300;color:rgba(201,168,76,.06);position:absolute;bottom:-.8rem;right:1.5rem;line-height:1;pointer-events:none;user-select:none}
+
+    .cat-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3.5rem;gap:2rem}
+    .cat-hd-r{font-size:.78rem;color:var(--muted);white-space:nowrap}
+    .finish-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3.5rem}
+    .fcard{border-radius:var(--r-card);overflow:hidden;background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.07);transition:transform .3s ease,box-shadow .3s ease}
+    .fcard:hover{transform:translateY(-5px);box-shadow:0 14px 44px rgba(0,0,0,.13)}
+    .fvisual{height:185px;position:relative;overflow:hidden}
+    .fvisual-satin{background:linear-gradient(150deg,#ddd8d1 0%,#c6c0b9 35%,#e0dad4 58%,#c0bab3 100%)}
+    .fvisual-satin::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.65) 0%,rgba(255,255,255,0) 42%,rgba(255,255,255,.18) 100%)}
+    .fvisual-egg{background:linear-gradient(150deg,#e0dcd8 0%,#d2ceca 35%,#dedad6 58%,#cac6c2 100%)}
+    .fvisual-egg::after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,0) 65%)}
+    .fvisual-name{position:absolute;bottom:1rem;left:1.3rem;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:400;color:rgba(30,28,24,.42);z-index:1}
+    .fvisual-drum{position:absolute;bottom:1rem;right:1.2rem;font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(30,28,24,.38);background:rgba(255,255,255,.72);padding:.25rem .7rem;border-radius:var(--r-pill);z-index:1}
+    .fbody{padding:1.8rem}
+    .fbody h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--ink);margin-bottom:.7rem}
+    .fbody p{font-size:.875rem;font-weight:300;line-height:1.85;color:var(--muted);margin-bottom:1.3rem}
+    .ftags{display:flex;flex-wrap:wrap;gap:.45rem}
+    .ftag{font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .8rem;border-radius:var(--r-pill);background:var(--cream2);color:var(--ink);border:1px solid rgba(0,0,0,.06)}
+    .ftag-g{background:rgba(201,168,76,.12);color:#7a5c08;border-color:rgba(201,168,76,.25)}
+
+    .tough-wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:7rem;align-items:center}
+    .feat-bento{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06);border-radius:var(--r-card);overflow:hidden}
+    .fcell{background:var(--dark3);padding:2rem;transition:background .3s}
+    .fcell:hover{background:rgba(201,168,76,.05)}
+    .fcell svg{width:20px;height:20px;stroke:var(--red);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block;margin-bottom:.9rem}
+    .fcell strong{display:block;font-size:.875rem;font-weight:600;color:var(--white);margin-bottom:.4rem}
+    .fcell p{font-size:.82rem;font-weight:300;line-height:1.8;color:rgba(248,246,242,.35)}
+
+    .chip-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.4rem}
+    .chip{cursor:pointer;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}.chip:hover{transform:translateY(-7px)}
+    .chip.active .swatch{box-shadow:0 0 0 3px var(--gold),0 12px 32px rgba(0,0,0,.2)}
+    .swatch{width:100%;aspect-ratio:4/3;border-radius:10px;margin-bottom:.75rem;position:relative;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:box-shadow .3s}
+    .chip:hover .swatch{box-shadow:0 12px 32px rgba(0,0,0,.2)}
+    .swatch::after{content:'';position:absolute;inset:0;background:linear-gradient(140deg,rgba(255,255,255,.22) 0%,transparent 50%)}
+    .swatch-border{border:1px solid rgba(0,0,0,.1)}
+    .chip-name{font-size:.85rem;font-weight:500;color:var(--ink);margin-bottom:.2rem}
+    .chip-sub{font-size:.72rem;color:var(--muted)}
+    .color-detail{display:flex;align-items:center;justify-content:center;gap:1rem;padding:.8rem 2rem;margin:0 auto 2.5rem;border-radius:var(--r-pill);border:1px solid rgba(0,0,0,.08);max-width:fit-content;background:rgba(255,255,255,.6)}
+    .detail-swatch{width:24px;height:24px;border-radius:50%;border:2px solid rgba(0,0,0,.1);transition:background .3s}
+    .detail-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--ink)}
+    .detail-hex{font-size:.72rem;letter-spacing:.1em;color:var(--muted)}
+
+    .inv-list{display:flex;flex-direction:column}
+    .inv-row{display:grid;grid-template-columns:32px 1fr 200px 110px;align-items:center;gap:1.1rem;padding:.85rem 1.1rem;border-radius:var(--r-sm);transition:background .2s}
+    .inv-row:hover{background:rgba(0,0,0,.04)}
+    .inv-dot{width:28px;height:28px;border-radius:50%;flex-shrink:0;box-shadow:0 1px 6px rgba(0,0,0,.18)}
+    .inv-name{font-size:.9rem;font-weight:500;color:var(--ink)}
+    .inv-track{height:4px;background:rgba(0,0,0,.08);border-radius:99px;overflow:hidden}
+    .inv-fill{height:100%;border-radius:99px;background:var(--gold);width:0;transition:width 1s cubic-bezier(.16,1,.3,1)}
+    .inv-fill.low{background:#b83010}
+    .inv-count{text-align:right}
+    .badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.65rem;font-weight:600;letter-spacing:.06em;padding:.24rem .75rem;border-radius:var(--r-pill)}
+    .badge::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
+    .b-ok{background:rgba(201,168,76,.12);color:#7a5c08}.b-ok::before{background:#a07820}
+    .b-low{background:rgba(184,48,16,.1);color:#903008}.b-low::before{background:#b03010}
+
+    .prem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.5rem;margin-top:4rem}
+    .pchip{position:relative;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}.pchip:hover{transform:translateY(-7px)}
+    .pchip .swatch{aspect-ratio:3/2;border-radius:12px;box-shadow:0 5px 28px rgba(0,0,0,.45)}
+    .pchip-name{font-size:.9rem;font-weight:500;color:rgba(248,246,242,.78);margin:.85rem 0 .25rem}
+    .pchip-sub{font-size:.73rem;color:rgba(248,246,242,.28)}
+    .plabel{position:absolute;top:.7rem;right:.7rem;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.25rem .7rem;border-radius:var(--r-pill)}
+    .pl-on{background:var(--gold);color:var(--dark)}.pl-off{background:rgba(255,255,255,.08);color:rgba(255,255,255,.35)}
+    .pchip-sold .swatch{filter:grayscale(.8) brightness(.48)}.pchip-sold .pchip-name{color:rgba(248,246,242,.28)}
+
+    .steps-wrap{position:relative}
+    .steps-wrap::before{content:'';position:absolute;top:1.85rem;left:16.67%;right:16.67%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent)}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5rem;margin-top:5rem}
+    .step{text-align:center}
+    .step-n{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:300;color:var(--gold);opacity:.2;line-height:1;margin-bottom:1.4rem}
+    .step h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:.65rem}
+    .step p{font-size:.875rem;font-weight:300;line-height:1.9;color:var(--muted)}
+
+    .cta-sec{background:var(--dark);padding:9rem 4rem;text-align:center;position:relative;overflow:hidden}
+    .cta-sec::before{content:'TNE';position:absolute;font-family:'Cormorant Garamond',serif;font-size:clamp(14rem,24vw,22rem);font-weight:300;color:rgba(201,168,76,.025);top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;user-select:none}
+    .form-wrap{max-width:560px;margin:3rem auto 0}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:.8rem}
+    .field{width:100%;background:rgba(248,246,242,.04);border:1px solid rgba(248,246,242,.08);color:var(--white);padding:.95rem 1.2rem;font-family:'DM Sans',sans-serif;font-size:.875rem;outline:none;border-radius:var(--r-sm);transition:border-color .2s,background .2s}
+    .field:focus{border-color:var(--gold);background:rgba(201,168,76,.04)}
+    .field::placeholder{color:rgba(248,246,242,.2)}
+    .field-full{margin-bottom:.8rem}
+    textarea.field{resize:none;height:120px}
+
+    footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.05);padding:2.2rem 4rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+    .f-logo{height:28px;width:auto;opacity:.5}
+    .f-copy,.f-tag{font-size:.75rem;color:rgba(248,246,242,.22)}
+    .f-tag{display:flex;align-items:center;gap:.4rem}
+    .f-leaf{width:12px;height:12px;object-fit:contain;opacity:.4}
+
+    .r{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+    .r.vis{opacity:1;transform:translateY(0)}
+
+    @media(max-width:1060px){.bcard-wide{grid-column:span 1}.bento{grid-template-columns:1fr 1fr}.tough-wrap{grid-template-columns:1fr;gap:3.5rem}.steps-wrap::before{display:none}.steps-grid{grid-template-columns:1fr;gap:3rem}}
+    @media(max-width:768px){nav{padding:0 1.5rem}.nav-links li:not(:last-child){display:none}.hero{padding:88px 1.5rem 190px}.hero-stats{grid-template-columns:1fr 1fr}.stat{padding:1.25rem 1.5rem}.sec{padding:5rem 1.5rem}.bento{grid-template-columns:1fr}.finish-grid{grid-template-columns:1fr}.cat-hd{flex-direction:column;align-items:flex-start}.form-row{grid-template-columns:1fr}footer{flex-direction:column;text-align:center}.strokes{opacity:.28}.inv-row{grid-template-columns:32px 1fr 110px}.inv-track{display:none}}
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#"><img src="brand_assets/logo.png" alt="True North Exports" class="nav-logo"></a>
+  <ul class="nav-links">
+    <li><a href="#acabados">Acabados</a></li>
+    <li><a href="#colores">Colores</a></li>
+
+    <li><a href="#premium">Premium</a></li>
+    <li><a href="#ordenar">Cómo Ordenar</a></li>
+    <li><a href="#contacto" class="nav-cta">Cotización</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div class="strokes" aria-hidden="true">
+    <div class="stroke" style="background:#4B5320"></div>
+    <div class="stroke" style="background:#8A9A5B"></div>
+    <div class="stroke" style="background:#008080"></div>
+    <div class="stroke" style="background:#C41E2A"></div>
+    <div class="stroke" style="background:#6A0D91"></div>
+    <div class="stroke" style="background:#1B3A5C"></div>
+    <div class="stroke" style="background:#C8AD7F"></div>
+  </div>
+  <div class="strokes-fade"></div>
+  <div class="hero-content">
+    <p class="eyebrow">Pintura al Por Mayor · Acabado Satin · Interior &amp; Exterior</p>
+    <h1 class="hero-h1">Pintura Premium.<br><em>Valor Excepcional</em><br>al Por Mayor.</h1>
+    <p class="hero-sub">Acabado Satin en más de 17 colores. Resistente al agua, anti-moho, para interiores y exteriores — hecha para todo tipo de clima. Exportada de Canadá a Panamá.</p>
+    <div class="hero-btns">
+      <a href="#colores" class="btn btn-red">Explorar Colores</a>
+      <a href="#contacto" class="btn-ghost">Solicitar Cotización →</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-n">17+</span><span class="stat-l">Colores Disponibles</span></div>
+    <div class="stat"><span class="stat-n">Satin</span><span class="stat-l">Acabado Premium</span></div>
+    <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Látex Premium</span></div>
+    <div class="stat"><span class="stat-n">CAN→PAN</span><span class="stat-l">Exportación Directa</span></div>
+  </div>
+</section>
+
+<div class="ticker ticker-dark"><div class="ticker-track" id="tick-top"></div></div>
+
+<div class="bento">
+  <div class="bcard bcard-wide r"><div class="bcard-bar"></div><h3>Pintura Premium de Alta Calidad</h3><p>Pintura de látex de alto rendimiento — acabado profesional para todo tipo de proyecto. Interior y exterior, hecha para resistir todo tipo de clima y temperatura.</p><div class="bcard-ghost">01</div></div>
+  <div class="bcard r"><div class="bcard-bar"></div><h3>Resistente al Agua y Anti-Moho</h3><p>Fórmula con antimicrobianos que resisten activamente el moho y hongos. Lista para baños, cocinas, interiores y exteriores.</p><div class="bcard-ghost">02</div></div>
+  <div class="bcard r"><div class="bcard-bar"></div><h3>Precios al Por Mayor</h3><p>Compre por tote y obtenga ahorros significativos — diseñado para contratistas, desarrolladores y compradores al por mayor.</p><div class="bcard-ghost">03</div></div>
+  <div class="bcard r"><div class="bcard-bar"></div><h3>Acabado Satin Premium</h3><p>Acabado versátil vendido en totes al por mayor. Durable, lavable y resistente a todo clima para cualquier ambiente.</p><div class="bcard-ghost">04</div></div>
+  <div class="bcard r"><div class="bcard-bar"></div><h3>17+ Colores Seleccionados</h3><p>Tonos seleccionados que abarcan neutros, acentos vibrantes y colores tendencia para cualquier tipo de proyecto.</p><div class="bcard-ghost">05</div></div>
+</div>
+
+<section class="sec sec-mid" id="acabados">
+  <div class="cat-hd r"><div><span class="lbl">¿Por Qué Elegirnos?</span><h2 class="h2">Pintura Que Resiste Todo</h2><div class="red-bar"></div></div></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem">
+    <div class="fcard r"><div style="padding:2rem"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);margin-bottom:.6rem">Acabado Satin</h3><p style="font-size:.875rem;color:var(--muted);line-height:1.8">Brillo sutil y sedoso. Fácil de limpiar, resistente a la humedad y perfecto para paredes de alto tráfico.</p></div></div>
+    <div class="fcard r"><div style="padding:2rem"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);margin-bottom:.6rem">Interior y Exterior</h3><p style="font-size:.875rem;color:var(--muted);line-height:1.8">Una sola pintura para todo — cocinas, baños, salas, fachadas. Resistente a todo tipo de clima y temperatura.</p></div></div>
+    <div class="fcard r"><div style="padding:2rem"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);margin-bottom:.6rem">Exportación Directa</h3><p style="font-size:.875rem;color:var(--muted);line-height:1.8">De Canadá a Panamá y toda Latinoamérica. Contenedores sellados con documentación incluida.</p></div></div>
+  </div>
+</section>
+
+<section class="sec sec-ink">
+  <div class="tough-wrap">
+    <div class="r"><span class="lbl">Resistencia Superior</span><h2 class="h2 h2-lgt" style="margin-bottom:1.5rem">Diseñada para Todo Clima</h2><p class="lead lead-lgt">Pintura premium para interiores y exteriores. Impermeable, anti-moho y resistente a todo tipo de clima y temperatura — sin necesidad de selladores adicionales.</p><div class="red-bar"></div></div>
+    <div class="feat-bento r">
+      <div class="fcell"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/><path d="M8 12l2.5 3L16 9"/></svg><strong>Impermeable</strong><p>Resistencia total al agua para ambientes húmedos.</p></div>
+      <div class="fcell"><svg viewBox="0 0 24 24"><path d="M12 3L5 7v5c0 4.8 3 9.3 7 11 4-1.7 7-6.2 7-11V7l-7-4z"/></svg><strong>Anti-Moho</strong><p>Antimicrobianos activos que previenen moho y hongos.</p></div>
+      <div class="fcell"><svg viewBox="0 0 24 24"><path d="M12 2c-3 4-7 7-7 11a7 7 0 1 0 14 0c0-4-4-7-7-11z"/></svg><strong>Lavable</strong><p>Se limpia fácilmente sin dañar el acabado.</p></div>
+      <div class="fcell"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg><strong>Interior &amp; Exterior</strong><p>Hecha para resistir todo tipo de clima y temperatura.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-light color-showcase" id="colores" style="transition:background-color .8s cubic-bezier(.16,1,.3,1),color .6s ease">
+  <div class="cat-hd r"><div><span class="lbl">Catálogo de Colores</span><h2 class="h2">Colores Estándar</h2><div class="red-bar"></div></div><div class="cat-hd-r">12 colores seleccionados</div></div>
+
+  <div class="color-detail r" id="color-detail">
+    <div class="detail-swatch" id="detail-dot" style="background:var(--cream2)"></div>
+    <span class="detail-name" id="detail-name">Seleccione un color</span>
+    <span style="opacity:.2">|</span>
+    <span class="detail-hex" id="detail-hex">&mdash;</span>
+  </div>
+
+  <div class="chip-grid">
+    <div class="chip r" data-name="Verde Militar" data-hex="#4B5320"><div class="swatch" style="background:#4B5320"></div><div class="chip-name">Verde Militar</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Verde Salvia" data-hex="#8A9A5B"><div class="swatch" style="background:#8A9A5B"></div><div class="chip-name">Verde Salvia</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Chocolate" data-hex="#7B3F00"><div class="swatch" style="background:#7B3F00"></div><div class="chip-name">Chocolate</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Latte" data-hex="#C8AD7F"><div class="swatch" style="background:#C8AD7F"></div><div class="chip-name">Latte</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Algodón de Azúcar" data-hex="#FFB7C5"><div class="swatch" style="background:#FFB7C5"></div><div class="chip-name">Algodón de Azúcar</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Gris Claro" data-hex="#C4C4C4"><div class="swatch swatch-border" style="background:#C4C4C4"></div><div class="chip-name">Gris Claro</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Gris Tormenta" data-hex="#808080"><div class="swatch" style="background:#808080"></div><div class="chip-name">Gris Tormenta</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Teal" data-hex="#008080"><div class="swatch" style="background:#008080"></div><div class="chip-name">Teal</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Orquídea Nocturna" data-hex="#6A0D91"><div class="swatch" style="background:#6A0D91"></div><div class="chip-name">Orquídea Nocturna</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Lila Suave" data-hex="#C8A2C8"><div class="swatch" style="background:#C8A2C8"></div><div class="chip-name">Lila Suave</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Azul Marino" data-hex="#1B3A5C"><div class="swatch" style="background:#1B3A5C"></div><div class="chip-name">Azul Marino</div><div class="chip-sub"></div></div>
+    <div class="chip r" data-name="Azul Cielo" data-hex="#87CEEB"><div class="swatch" style="background:#87CEEB"></div><div class="chip-name">Azul Cielo</div><div class="chip-sub"></div></div>
+  </div>
+</section>
+
+<section class="sec sec-ink prem-showcase" id="premium" style="transition:background-color .8s cubic-bezier(.16,1,.3,1),color .6s ease">
+  <div class="r"><span class="lbl">Colores Premium</span><h2 class="h2 h2-lgt">Edición Limitada</h2><div class="red-bar"></div></div>
+
+  <div class="color-detail r" id="prem-detail" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.1);margin-top:2rem">
+    <div class="detail-swatch" id="prem-dot" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.2)"></div>
+    <span class="detail-name" id="prem-name">Seleccione un color</span>
+    <span class="prem-sep" style="opacity:.2">|</span>
+    <span class="detail-hex" id="prem-hex">&mdash;</span>
+  </div>
+  <div class="prem-grid">
+    <div class="pchip r chip" data-name="Rojo Granero" data-hex="#7C0A02"><div class="swatch" style="background:#7C0A02"></div><span class="plabel pl-on">Disponible</span><div class="pchip-name">Rojo Granero</div><div class="pchip-sub"></div></div>
+    <div class="pchip r chip" data-name="Blanco Paloma" data-hex="#F0EDE5"><div class="swatch swatch-border" style="background:#F0EDE5"></div><span class="plabel pl-on">Disponible</span><div class="pchip-name">Blanco Paloma</div><div class="pchip-sub"></div></div>
+    <div class="pchip r chip" data-name="Lino" data-hex="#FAF0E6"><div class="swatch swatch-border" style="background:#FAF0E6"></div><span class="plabel pl-on">Disponible</span><div class="pchip-name">Lino</div><div class="pchip-sub"></div></div>
+    <div class="pchip r chip" data-name="Amarillo Sol" data-hex="#FFDA03"><div class="swatch" style="background:#FFDA03"></div><span class="plabel pl-on">Disponible</span><div class="pchip-name">Amarillo Sol</div><div class="pchip-sub"></div></div>
+    <div class="pchip r chip" data-name="Durazno" data-hex="#FFDAB9"><div class="swatch swatch-border" style="background:#FFDAB9"></div><span class="plabel pl-on">Disponible</span><div class="pchip-name">Durazno</div><div class="pchip-sub"></div></div>
+  </div>
+</section>
+
+<section class="sec sec-light" id="ordenar">
+  <div class="cat-hd r"><div><span class="lbl">Proceso</span><h2 class="h2">Cómo Ordenar</h2><div class="red-bar"></div></div></div>
+  <div class="steps-wrap"><div class="steps-grid">
+    <div class="step r"><div class="step-n">01</div><h3>Solicite Cotización</h3><p>Contáctenos con los colores, acabados y cantidades que necesita. Respondemos con precios personalizados en menos de 24 horas.</p></div>
+    <div class="step r"><div class="step-n">02</div><h3>Producción</h3><p>Preparamos su pedido en nuestras instalaciones canadienses con control de calidad riguroso en cada lote de producción.</p></div>
+    <div class="step r"><div class="step-n">03</div><h3>Envío a Panamá</h3><p>Coordinamos el envío internacional completo. Contenedores sellados con documentación de exportación incluida.</p></div>
+  </div></div>
+</section>
+
+<section class="cta-sec" id="contacto">
+  <div style="position:relative;z-index:1">
+    <span class="lbl" style="display:flex;align-items:center;justify-content:center;gap:.5rem;margin-bottom:1.2rem">Contacto</span>
+    <h2 class="h2 h2-lgt" style="margin-bottom:.6rem">Solicite su Cotización</h2>
+    <p class="lead lead-lgt" style="max-width:420px;margin:0 auto">Cuéntenos sobre los colores y cantidades que necesita. Respondemos en menos de 24 horas.</p>
+    <div style="margin-top:1.5rem;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap">
+      <span style="font-size:.85rem;color:rgba(248,246,242,.5)">+1 (905) 650-6822</span>
+      <span style="font-size:.85rem;color:rgba(248,246,242,.5)">info@truenorthexportsca.com</span>
+      <span style="font-size:.85rem;color:rgba(248,246,242,.5)">Panamá | Canadá</span>
+    </div>
+    <div class="form-wrap">
+      <form onsubmit="event.preventDefault();alert('¡Gracias! Nos pondremos en contacto pronto.')">
+        <div class="form-row"><input type="text" class="field" placeholder="Nombre" required><input type="email" class="field" placeholder="Correo electrónico" required></div>
+        <input type="tel" class="field field-full" placeholder="Teléfono" style="width:100%">
+        <textarea class="field field-full" placeholder="Colores, acabados, cantidades, destino de envío..." style="width:100%"></textarea>
+        <button type="submit" class="btn btn-red" style="width:100%;margin-top:.5rem;padding:1.1rem;text-align:center">Enviar Solicitud</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="brand_assets/logo.png" alt="True North Exports" class="f-logo">
+  <span class="f-copy">&copy; 2026 True North Exports. Todos los derechos reservados.</span>
+  <span class="f-tag"><img src="brand_assets/maple-leaf.png" alt="" class="f-leaf">Hecho en Canadá</span>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)},{passive:true});
+
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.r').forEach(el=>ro.observe(el));
+
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.querySelectorAll('.inv-fill').forEach(b=>{b.style.width=b.dataset.w+'%'})})},{threshold:.2});
+const il=document.getElementById('inv-list');if(il)io.observe(il);
+
+function setBg(sec,hex){
+  if(!sec)return;
+  sec.style.backgroundColor=hex;
+  var r=parseInt(hex.substr(1,2),16),g=parseInt(hex.substr(3,2),16),b=parseInt(hex.substr(5,2),16);
+  var bright=(r*299+g*587+b*114)/1000;
+  sec.style.color=bright<140?'#fff':'var(--ink)';
+}
+
+// Standard colors — change .color-showcase background
+document.querySelectorAll('.color-showcase [data-hex]').forEach(chip=>{
+  chip.style.cursor='pointer';
+  chip.addEventListener('click',function(e){
+    e.stopPropagation();
+    document.querySelectorAll('.color-showcase [data-hex]').forEach(c=>c.classList.remove('active'));
+    this.classList.add('active');
+    var dot=document.getElementById('detail-dot');
+    var nm=document.getElementById('detail-name');
+    var hx=document.getElementById('detail-hex');
+    if(dot)dot.style.background=this.dataset.hex;
+    if(nm)nm.textContent=this.dataset.name;
+    if(hx)hx.textContent=this.dataset.hex;
+    setBg(document.querySelector('.color-showcase'),this.dataset.hex);
+  });
+});
+
+// Premium colors — change .prem-showcase background
+document.querySelectorAll('.prem-showcase [data-hex]').forEach(chip=>{
+  chip.style.cursor='pointer';
+  chip.addEventListener('click',function(e){
+    e.stopPropagation();
+    document.querySelectorAll('.prem-showcase [data-hex]').forEach(c=>c.classList.remove('active'));
+    this.classList.add('active');
+    var hex=this.dataset.hex;
+    var r3=parseInt(hex.substr(1,2),16),g3=parseInt(hex.substr(3,2),16),b3=parseInt(hex.substr(5,2),16);
+    var bright3=(r3*299+g3*587+b3*114)/1000;
+    var isDark=bright3<140;
+    var sec=document.querySelector('.prem-showcase');
+    setBg(sec,hex);
+    // Fix all text elements in the section
+    sec.querySelectorAll('.lbl').forEach(el=>el.style.color=isDark?'var(--gold)':'var(--red)');
+    sec.querySelectorAll('.h2-lgt').forEach(el=>{el.style.color=isDark?'#fff':'var(--ink)';el.className=isDark?'h2 h2-lgt':'h2'});
+    sec.querySelectorAll('.red-bar').forEach(el=>el.style.background=isDark?'var(--gold)':'var(--gold)');
+    sec.querySelectorAll('.pchip-name').forEach(el=>el.style.color=isDark?'rgba(248,246,242,.78)':'var(--ink)');
+    sec.querySelectorAll('.pchip-sub').forEach(el=>el.style.color=isDark?'rgba(248,246,242,.28)':'var(--muted)');
+    sec.querySelectorAll('.plabel').forEach(el=>{el.style.background=isDark?'var(--gold)':'var(--gold)';el.style.color=isDark?'var(--dark)':'var(--dark)'});
+    var dot=document.getElementById('prem-dot');
+    var nm=document.getElementById('prem-name');
+    var hx=document.getElementById('prem-hex');
+    if(dot)dot.style.background=this.dataset.hex;
+    if(nm)nm.textContent=this.dataset.name;
+    if(hx)hx.textContent=this.dataset.hex;
+    var hex=this.dataset.hex;
+    var r2=parseInt(hex.substr(1,2),16),g2=parseInt(hex.substr(3,2),16),b2=parseInt(hex.substr(5,2),16);
+    var bright2=(r2*299+g2*587+b2*114)/1000;
+    var detail=document.getElementById('prem-detail');
+    if(detail)detail.style.background=bright2<140?'rgba(255,255,255,.08)':'rgba(0,0,0,.06)';
+    if(detail)detail.style.borderColor=bright2<140?'rgba(255,255,255,.1)':'rgba(0,0,0,.1)';
+    if(nm)nm.style.color=bright2<140?'#fff':'var(--ink)';
+    if(hx)hx.style.color=bright2<140?'rgba(255,255,255,.5)':'var(--muted)';
+    var sep=detail?detail.querySelector('span[style*="opacity"]'):null;
+    if(sep)sep.style.color=bright2<140?'#fff':'var(--ink)';
+  });
+});
+
+const colors=['#4B5320','#8A9A5B','#7B3F00','#C8AD7F','#FFB7C5','#C4C4C4','#808080','#008080','#6A0D91','#C8A2C8','#1B3A5C','#87CEEB','#7C0A02','#F0EDE5','#FAF0E6','#FFDA03','#FFDAB9'];
+const te=document.getElementById('tick-top');
+if(te){let h='';for(let i=0;i<4;i++)colors.forEach(c=>h+=`<div class="t-item" style="background:${c}"></div>`);te.innerHTML=h}
+</script>
+</body>
+</html>
