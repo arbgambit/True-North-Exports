@@ -318,5 +318,159 @@ h1 {
   </div>
 </div>
 
+<!-- ============================================================ -->
+<!-- CARD 3 — CREATIVE SPLASH (Current Logo) -->
+<!-- ============================================================ -->
+
+<div style="margin-top:40px;"></div>
+<h1>Business Card — Creative Splash</h1>
+
+<style>
+.c5-front {
+  background: var(--white);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+.c5-front .splash-bg {
+  position: absolute;
+  top: -30px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,30,42,0.15) 0%, rgba(196,30,42,0.05) 40%, transparent 70%);
+  pointer-events: none;
+}
+.c5-front .splash-bg2 {
+  position: absolute;
+  bottom: -50px;
+  left: -30px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,58,92,0.12) 0%, rgba(27,58,92,0.04) 40%, transparent 70%);
+  pointer-events: none;
+}
+.c5-front .c5-company {
+  font-family: 'Sora', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy-deep);
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  letter-spacing: 3px;
+}
+.c5-front .c5-exports {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  color: var(--red);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.c5-back {
+  background: var(--navy-deep);
+  position: relative;
+  overflow: hidden;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.c5-back .drip {
+  position: absolute;
+  top: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--red), transparent);
+  border-radius: 0 0 3px 3px;
+}
+.c5-back .drip:nth-child(1) { right: 40px; height: 70px; }
+.c5-back .drip:nth-child(2) { right: 55px; height: 45px; width: 2px; }
+.c5-back .drip:nth-child(3) { right: 30px; height: 30px; width: 2px; opacity: 0.6; }
+
+.c5-back .c5b-name {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--white);
+}
+.c5-back .c5b-title {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.c5-back .c5b-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.c5-back .c5b-item {
+  font-size: 9px;
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.c5-back .brush-stroke {
+  position: absolute;
+  bottom: -5px;
+  left: -10px;
+  width: 160px;
+  height: 40px;
+  opacity: 0.1;
+}
+</style>
+
+<!-- FRONT -->
+<div class="label">Front</div>
+<div class="bcard c5-front">
+  <div class="splash-bg"></div>
+  <div class="splash-bg2"></div>
+  <img src="brand_assets/logo-icon-matched.png" alt="True North Exports" style="height:55px; width:auto; position:relative; z-index:1;">
+  <div class="c5-company">TRUE NORTH</div>
+  <div class="c5-exports">EXPORTS</div>
+</div>
+
+<!-- BACK -->
+<div class="label">Back</div>
+<div class="bcard c5-back">
+  <div class="drip"></div>
+  <div class="drip"></div>
+  <div class="drip"></div>
+  <svg class="brush-stroke" viewBox="0 0 200 50">
+    <path d="M0,40 Q30,10 60,35 T120,25 T180,38 Q190,40 200,35 L200,50 L0,50 Z" fill="rgba(196,30,42,0.3)"/>
+  </svg>
+  <div>
+    <div class="c5b-name">Julio Ventura</div>
+    <div class="c5b-title">Pintura al Por Mayor</div>
+    <div class="c5b-title">Wholesale Paint Supply</div>
+  </div>
+  <div class="c5b-contact">
+    <div class="c5b-item">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      +1 (905) 650-6822
+    </div>
+    <div class="c5b-item">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      info@truenorthexportsca.com
+    </div>
+    <div class="c5b-item">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="rgba(255,255,255,0.4)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Panamá &nbsp;|&nbsp; Canada
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
