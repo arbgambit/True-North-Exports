@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True North Exports — Business Card</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300;1,9..40,400&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1B3A5C;
+  --navy-deep: #0F2440;
+  --red: #C41E2A;
+  --cream: #F5F0E8;
+  --gold: #C4A265;
+  --white: #FFFFFF;
+  --card-w: 380px;
+  --card-h: 218px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #1A1A1F;
+  color: #F5F0E8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  gap: 40px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+.label {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: -8px;
+}
+
+.bcard {
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.bcard:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+
+/* ============ FRONT ============ */
+.front {
+  background: var(--navy-deep);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.front::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.company-name {
+  font-family: 'Sora', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: 4px;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.company-sub {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  font-size: 9px;
+  letter-spacing: 10px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+
+.divider-line {
+  width: 40px;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 2px 0;
+}
+
+.person-name {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+
+/* ============ BACK ============ */
+.back {
+  background: var(--white);
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.back::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+.back-top { display: flex; justify-content: space-between; align-items: flex-start; }
+
+.back-name {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy-deep);
+  margin-bottom: 2px;
+}
+
+.back-title {
+  font-size: 9px;
+  color: var(--red);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 9.5px;
+  color: var(--navy);
+}
+
+.ci-icon {
+  width: 16px;
+  height: 16px;
+  background: var(--navy-deep);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ci-icon svg {
+  width: 9px;
+  height: 9px;
+  fill: var(--white);
+}
+
+.qr-area {
+  display: flex;
+  align-items: center;
+}
+.qr-area img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+.qr-area span {
+  font-size: 6px;
+  color: rgba(15,36,64,0.35);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- OPTION 1 — ORIGINAL (Watermark, No QR) -->
+<!-- ============================================================ -->
+<h1>Option 1 — Original</h1>
+
+<div class="label">Front</div>
+<div class="bcard front">
+  <div class="logo-area">
+    <img src="brand_assets/new-logo-white.png" alt="True North Exports" style="height:70px; width:auto;">
+    <div class="company-name">TRUE NORTH</div>
+    <div class="divider-line"></div>
+    <div class="company-sub">EXPORTS</div>
+    <div class="person-name">Julio Ventura</div>
+  </div>
+</div>
+
+<div class="label">Back</div>
+<div class="bcard back">
+  <img src="brand_assets/new-logo.png" alt="" style="position:absolute;right:-15px;top:50%;transform:translateY(-50%);width:150px;height:auto;opacity:0.04;">
+  <div class="back-top">
+    <div>
+      <div class="back-name">Julio Ventura</div>
+      <div class="back-title">Pintura al Por Mayor</div>
+      <div class="back-title">Wholesale Paint Supply</div>
+    </div>
+  </div>
+  <div class="contact-list">
+    <div class="contact-item">
+      <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+      +1 (905) 650-6822
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+      info@truenorthexportsca.com
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+      Panamá &nbsp;|&nbsp; Canada
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- OPTION 2 — Watermark + QR Code -->
+<!-- ============================================================ -->
+<div style="margin-top:40px;"></div>
+<h1>Option 2 — Watermark + QR Code</h1>
+
+<div class="label">Front</div>
+<div class="bcard front">
+  <div class="logo-area">
+    <img src="brand_assets/new-logo-white.png" alt="True North Exports" style="height:70px; width:auto;">
+    <div class="company-name">TRUE NORTH</div>
+    <div class="divider-line"></div>
+    <div class="company-sub">EXPORTS</div>
+    <div class="person-name">Julio Ventura</div>
+  </div>
+</div>
+
+<div class="label">Back</div>
+<div class="bcard back">
+  <img src="brand_assets/new-logo.png" alt="" style="position:absolute;right:-15px;top:50%;transform:translateY(-50%);width:150px;height:auto;opacity:0.04;">
+  <div class="back-top">
+    <div>
+      <div class="back-name">Julio Ventura</div>
+      <div class="back-title">Pintura al Por Mayor</div>
+      <div class="back-title">Wholesale Paint Supply</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:flex-end;gap:15px;">
+    <div class="contact-list">
+      <div class="contact-item">
+        <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+        +1 (905) 650-6822
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+        info@truenorthexportsca.com
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+        Panamá &nbsp;|&nbsp; Canada
+      </div>
+    </div>
+    <div class="qr-area">
+      <img src="brand_assets/qr-vcard.png" alt="Scan to save contact">
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- OPTION 3 — QR Code, No Watermark -->
+<!-- ============================================================ -->
+<div style="margin-top:40px;"></div>
+<h1>Option 3 — QR Code, No Watermark</h1>
+
+<div class="label">Front</div>
+<div class="bcard front">
+  <div class="logo-area">
+    <img src="brand_assets/new-logo-white.png" alt="True North Exports" style="height:70px; width:auto;">
+    <div class="company-name">TRUE NORTH</div>
+    <div class="divider-line"></div>
+    <div class="company-sub">EXPORTS</div>
+    <div class="person-name">Julio Ventura</div>
+  </div>
+</div>
+
+<div class="label">Back</div>
+<div class="bcard back">
+  <div class="back-top">
+    <div>
+      <div class="back-name">Julio Ventura</div>
+      <div class="back-title">Pintura al Por Mayor</div>
+      <div class="back-title">Wholesale Paint Supply</div>
+    </div>
+  </div>
+  <div class="contact-list">
+    <div class="contact-item">
+      <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+      +1 (905) 650-6822
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+      info@truenorthexportsca.com
+    </div>
+    <div class="contact-item">
+      <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+      Panamá &nbsp;|&nbsp; Canada
+    </div>
+  </div>
+  <div style="position:absolute;top:50%;right:28px;transform:translateY(-50%);">
+    <img src="brand_assets/qr-vcard.png" alt="Scan to save contact" style="width:62px;height:62px;object-fit:contain;">
+  </div>
+</div>
+
+</body>
+</html>
